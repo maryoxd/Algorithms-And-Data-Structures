@@ -74,7 +74,12 @@ namespace ds::utils
         index_(0),
         data_(0)
     {
-        // TODO 01
+        registerBeforeOperation(
+            [&](List& l) {
+                index_ = rngIndex_();
+                data_ = rngData_();
+            }
+        );
     }
 
     template <class List>

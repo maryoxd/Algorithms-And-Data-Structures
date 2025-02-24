@@ -202,8 +202,39 @@ namespace ds::utils
     void ComplexityAnalyzer<Structure>::runReplications(Structure structurePrototype)
     {
         // TODO 01
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        using VectorSizes = std::vector<size_t>; // pocet replikácií
+        using VectorDurations = std::vector<duration_t>; // trvanie algoritmu
+        
+        VectorSizes sizes;
+
+        for (int step = 0; step < getStepCount(); step++)
+        {
+            sizes.push_back((step + 1) + getStepSize());
+        }
+
+		std::vector<VectorDurations> results; // vector vo vectore (dvojrozmerny vector)
+            for (size_t replications = 0; replications < getReplicationCount(); ++replications) {
+				VectorDurations durations;
+
+                Structure testStructure(structurePrototype);
+
+                for (int step = 0; step < getStepCount(); ++step) {
+                    growToSize(testStructure, sizes[step]);
+
+                    beforeOperation_(testStructure);
+					auto start = std::chrono::high_resolution_clock::now();
+					executeOperation(testStructure);   
+					auto end = std::chrono::high_resolution_clock::now();
+					afterOperation_(testStructure);
+
+                    duration_t d = std::chrono::duration_cast<duration_t>(end - start);
+					durations.push_back(d);
+                }
+
+				results.push_back(durations);
+            }
+
+		saveToCsvFile(sizes, results);
     }
 
     template <class Structure>
