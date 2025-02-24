@@ -17,7 +17,7 @@ namespace ds::utils
         explicit ListAnalyzer(const std::string& name);
 
     protected:
-        void growToSize(List& structure, size_t size) override;        
+        void growToSize(List& structure, size_t size) override;
 
         size_t getRandomIndex() const;
         int getRandomData() const;
@@ -74,20 +74,22 @@ namespace ds::utils
         index_(0),
         data_(0)
     {
-        registerBeforeOperation(
-            [&](List& l) {
-                index_ = rngIndex_();
+        ComplexityAnalyzer<List>::registerBeforeOperation([this](List& list)
+            {
+                std::uniform_int_distribution<size_t> indexDist(0, list.size() - 1);
+                index_ = indexDist(rngIndex_);
                 data_ = rngData_();
-            }
-        );
+            });
     }
 
     template <class List>
     void ListAnalyzer<List>::growToSize(List& structure, size_t size)
     {
-        // TODO 01
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        const size_t toInsert = size - structure.size();
+        for (size_t i = 0; i < toInsert; ++i)
+        {
+            structure.push_back(rngData_());
+        }
     }
 
     template<class List>
@@ -113,9 +115,8 @@ namespace ds::utils
     template <class List>
     void ListInsertAnalyzer<List>::executeOperation(List& structure)
     {
-        // TODO 01
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        auto data = this->getRandomData();
+        structure.insert(structure.begin(), data);
     }
 
     //----------
@@ -129,9 +130,7 @@ namespace ds::utils
     template <class List>
     void ListRemoveAnalyzer<List>::executeOperation(List& structure)
     {
-        // TODO 01
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        structure.erase(structure.begin());
     }
 
     //----------

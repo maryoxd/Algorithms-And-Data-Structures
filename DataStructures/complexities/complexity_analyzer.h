@@ -123,9 +123,9 @@ namespace ds::utils
     class ComplexityAnalyzer :
         public LeafAnalyzer,
         public std::conditional_t<
-            std::is_default_constructible_v<Structure>,
-            PrototypeFactory<Structure>,
-            IPrototypeFactory<Structure>
+        std::is_default_constructible_v<Structure>,
+        PrototypeFactory<Structure>,
+        IPrototypeFactory<Structure>
         >
     {
     public:
@@ -201,40 +201,37 @@ namespace ds::utils
     template<class Structure>
     void ComplexityAnalyzer<Structure>::runReplications(Structure structurePrototype)
     {
-        // TODO 01
-        using VectorSizes = std::vector<size_t>; // pocet replikácií
-        using VectorDurations = std::vector<duration_t>; // trvanie algoritmu
-        
-        VectorSizes sizes;
-
-        for (int step = 0; step < getStepCount(); step++)
+        std::vector<size_t> sizes;
+        sizes.reserve(this->getStepCount());
+        for (size_t step = 0; step < this->getStepCount(); ++step)
         {
-            sizes.push_back((step + 1) + getStepSize());
+            const size_t expectedSize = (step + 1) * this->getStepSize();
+            sizes.push_back(expectedSize);
         }
 
-		std::vector<VectorDurations> results; // vector vo vectore (dvojrozmerny vector)
-            for (size_t replications = 0; replications < getReplicationCount(); ++replications) {
-				VectorDurations durations;
-
-                Structure testStructure(structurePrototype);
-
-                for (int step = 0; step < getStepCount(); ++step) {
-                    growToSize(testStructure, sizes[step]);
-
-                    beforeOperation_(testStructure);
-					auto start = std::chrono::high_resolution_clock::now();
-					executeOperation(testStructure);   
-					auto end = std::chrono::high_resolution_clock::now();
-					afterOperation_(testStructure);
-
-                    duration_t d = std::chrono::duration_cast<duration_t>(end - start);
-					durations.push_back(d);
-                }
-
-				results.push_back(durations);
+        std::vector<std::vector<duration_t>> results;
+        results.reserve(this->getReplicationCount());
+        for (size_t replication = 0; replication < this->getReplicationCount(); ++replication)
+        {
+            std::vector<duration_t> durations;
+            durations.reserve(this->getStepCount());
+            Structure structure(structurePrototype);
+            for (size_t step = 0; step < this->getStepCount(); ++step)
+            {
+                const size_t expectedSize = sizes[step];
+                this->growToSize(structure, expectedSize);
+                beforeOperation_(structure);
+                auto start = std::chrono::high_resolution_clock::now();
+                this->executeOperation(structure);
+                auto end = std::chrono::high_resolution_clock::now();
+                afterOperation_(structure);
+                auto duration = std::chrono::duration_cast<duration_t>(end - start);
+                durations.push_back(duration);
             }
+            results.push_back(std::move(durations));
+        }
 
-		saveToCsvFile(sizes, results);
+        this->saveToCsvFile(sizes, results);
     }
 
     template <class Structure>
