@@ -70,6 +70,8 @@ namespace ds::mm {
     CompactMemoryManager<BlockType>::CompactMemoryManager(const CompactMemoryManager<BlockType>& other) :
         CompactMemoryManager(other.getAllocatedBlockCount())
     {
+
+        return (limit_ - base_) * sizeof(BlockType);
         // TODO 02
     }
 
@@ -88,20 +90,26 @@ namespace ds::mm {
     template<typename BlockType>
     BlockType* CompactMemoryManager<BlockType>::allocateMemoryAt(size_t index)
     {
-        if (end_ == limit_)
-        {
-            this->changeCapacity(2 * this->allocatedBlockCount_);
+        if (end_ == limit_) {
+
+            this->changeCapacity(2 * allocatedBlockCount_);
+
         }
-        if (end_ - base_ > index) 
-        {
+
+        if (end_ - base_ > index) {
+
             std::memmove(
                 base_ + index + 1,
                 base_ + index,
                 (end_ - base_ - index) * sizeof(BlockType)
             );
+
+
         }
+
         ++end_;
-        ++this->allocatedBlockCount_;
+        ++allocatedBlockCount_;
+
 
         return placement_new<BlockType>(base_ + index);
     }
@@ -110,14 +118,13 @@ namespace ds::mm {
     void CompactMemoryManager<BlockType>::releaseMemory(BlockType* pointer)
     {
         BlockType* p = pointer;
-        while (p != end_)
-        {
+        while (p != end_) {
             p.~BlockType();
-        	p++;
+            ++p;
         }
-        end_ = pointer;
-        this->allocatedBlockCount_ = end_ - base_;
 
+        end_ = pointer;
+        allocatedBlockCount_ = end_ - base_;
     }
 
     template<typename BlockType>
@@ -126,26 +133,27 @@ namespace ds::mm {
         BlockType& block = this->getBlockAt(index);
         block.~BlockType();
 
-        memmove(base_ + index,
+        memmove(
+            base_ + index,
             base_ + index + 1,
             (end_ - base_ - index - 1) * sizeof(BlockType)
         );
+
         end_--;
-        this->allocatedBlockCount_;
+        allocatedBlockCount_--;
     }
 
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::releaseMemory()
     {
-        // TODO 02
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        releaseMemory(end_ - 1);
     }
 
     template<typename BlockType>
     size_t CompactMemoryManager<BlockType>::getCapacity() const
     {
-        return (limit_ - base_);
+
+        return limit_ - base_;
     }
 
     template<typename BlockType>
@@ -173,39 +181,43 @@ namespace ds::mm {
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::changeCapacity(size_t newCapacity)
     {
-        if (newCapacity == this->getCapacity())
-        {
+        if (newCapacity == this->getCapacity()) {
             return;
         }
-        if (newCapacity < this->allocatedBlockCount_)
-        {
-            this->releaseMemory(base_ + newCapacity);
+
+        if (newCapacity < allocatedBlockCount_) {
+            this->releaseMemory(base + newCapacity);
         }
 
+
         void* newBase = std::realloc(base_, newCapacity * sizeof(BlockType));
+
         if (newBase == nullptr)
         {
             throw std::bad_alloc();
         }
 
         base_ = static_cast<BlockType*>(newBase);
-        end_ = base_ + this->allocatedBlockCount_;
-        limit_ = base_ + newCapacity;
+        end_ = base + allocatedBlockCount_;
+        limit_ = base + newCapacity;
+
 
     }
 
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::clear()
     {
-        releaseMemory();
+        releaseMemory(base_);
     }
 
     template<typename BlockType>
     bool CompactMemoryManager<BlockType>::equals(const CompactMemoryManager<BlockType>& other) const
     {
-        // TODO 02
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        return (this == &other &&
+            allocatedBlockCount_ == other->allocatedBlockCount_
+            && memcmp(base_,
+                other->base_,
+                other->allocatedBlockCount_));
     }
 
     template<typename BlockType>

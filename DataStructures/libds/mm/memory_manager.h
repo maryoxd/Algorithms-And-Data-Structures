@@ -23,40 +23,40 @@ namespace ds::mm {
 	};
 
 	template<typename BlockType>
-    MemoryManager<BlockType>::MemoryManager():
+	MemoryManager<BlockType>::MemoryManager() :
 		allocatedBlockCount_(0)
 	{
 	}
 
 	template<typename BlockType>
-    MemoryManager<BlockType>::~MemoryManager()
+	MemoryManager<BlockType>::~MemoryManager()
 	{
 		allocatedBlockCount_ = 0;
 	}
 
 	template<typename BlockType>
-    BlockType* MemoryManager<BlockType>::allocateMemory()
+	BlockType* MemoryManager<BlockType>::allocateMemory()
 	{
 		allocatedBlockCount_++;
 		return new BlockType();
 	}
 
 	template<typename BlockType>
-    void MemoryManager<BlockType>::releaseMemory(BlockType* pointer)
+	void MemoryManager<BlockType>::releaseMemory(BlockType* pointer)
 	{
 		allocatedBlockCount_--;
 		delete pointer;
 	}
 
 	template<typename BlockType>
-    void MemoryManager<BlockType>::releaseAndSetNull(BlockType*& pointer)
+	void MemoryManager<BlockType>::releaseAndSetNull(BlockType*& pointer)
 	{
 		this->releaseMemory(pointer);
 		pointer = nullptr;
 	}
 
 	template<typename BlockType>
-    size_t MemoryManager<BlockType>::getAllocatedBlockCount() const
+	size_t MemoryManager<BlockType>::getAllocatedBlockCount() const
 	{
 		return allocatedBlockCount_;
 	}
