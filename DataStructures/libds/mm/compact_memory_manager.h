@@ -132,7 +132,7 @@ namespace ds::mm {
         }
 
         ++end_;
-        ++allocatedBlockCount_;
+        ++this->allocatedBlockCount_;
 
 
         return placement_new<BlockType>(base_ + index);
@@ -148,14 +148,14 @@ namespace ds::mm {
         }
 
         end_ = pointer; // Nastavím kde je aktuálny koniec (tam kde bol zaèiatok)
-        allocatedBlockCount_ = end_ - base_; // Zmením aktálny poèet alokovaných blokov (koneèný - prvý)
+        this->allocatedBlockCount_ = end_ - base_; // Zmením aktálny poèet alokovaných blokov (koneèný - prvý)
     }
 
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::releaseMemoryAt(size_t index)
     {
-        BlockType& block = this->getBlockAt(index);
-        block.~BlockType();
+        BlockType& block = this->getBlockAt(index); // Získam block ktorý chcem uvo¾ni
+        block.~BlockType(); // Zavolám deštruktor
         memmove(
             base_ + index,
             base_ + index + 1,
@@ -163,7 +163,7 @@ namespace ds::mm {
         );
 
         end_--;
-        allocatedBlockCount_--;
+        this->allocatedBlockCount_--;
     }
 
     template<typename BlockType>
@@ -184,7 +184,7 @@ namespace ds::mm {
         if (this != &other)
         {
             this->releaseMemory(base_); // Odstránime starú pamä
-            this->allocatedBlockCount_ = other.getAllocatedBlockCount();
+            this->allocatedBlockCount_ = other.MemoryManager<BlockType>::allocatedBlockCount_;
 
             // Alokujeme novú pamä
             void* newBase =  std::realloc(base_, other.getAllocatedCapacitySize());
@@ -198,8 +198,7 @@ namespace ds::mm {
             end_ = base_ + this->allocatedBlockCount_;
             limit_ = base_ + (other.limit_ - other.base_);
 
-            // Kopírovanie hodnôt medzi `other.base_` a `base_`
-            for (int i = 0; i < this->allocatedBlockCount_; ++i)
+            for (int i = 0; i < other.getAllocatedBlockCount(); ++i)
             {
                 placement_copy(base_ + i, *(other.base_ + i));
             }
@@ -240,7 +239,7 @@ namespace ds::mm {
         }
 
         base_ = static_cast<BlockType*>(newBase);
-        end_ = base_ + allocatedBlockCount_;
+        end_ = base_ + this->allocatedBlockCount_;
         limit_ = base_ + newCapacity;
 
 
@@ -256,10 +255,10 @@ namespace ds::mm {
     bool CompactMemoryManager<BlockType>::equals(const CompactMemoryManager<BlockType>& other) const
     {
         return (this == &other) ||
-            (this->allocatedBlockCount_ == other.allocatedBlockCount_
+            (this->getAllocatedBlockCount() == other.getAllocatedBlockCount()
             && memcmp(this->base_,
                 other.base_,
-                this->allocatedBlockCount_ * sizeof(BlockType)) == 0);
+                this->getAllocatedBlockCount() * sizeof(BlockType)) == 0);
     }
 
     template<typename BlockType>
@@ -288,7 +287,7 @@ namespace ds::mm {
             return &data - base_;
         }
 
-        return std::numeric_limits<size_t>::max(); // neplatny index? (FIX)
+        return INVALID_INDEX;
     }
 
     template<typename BlockType>
@@ -318,8 +317,8 @@ namespace ds::mm {
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::print(std::ostream& os)
     {
-        os << "first = " << base_ << std::endl;
-        os << "last = " << end_ << std::endl;
+        os << "base = " << base_ << std::endl;
+        os << "end   = " << end_ << std::endl;
         os << "limit = " << limit_ << std::endl;
         os << "block size = " << sizeof(BlockType) << "B" << '\n';
 
@@ -330,10 +329,10 @@ namespace ds::mm {
             os << PtrPrintBin<BlockType>(ptr);
 
             if (ptr == base_) {
-                os << "<- first";
+                os << "<- base";
             }
             else if (ptr == end_) {
-                os << "<- last";
+                os << "<- end";
             }
             os << '\n';
             ++ptr;
