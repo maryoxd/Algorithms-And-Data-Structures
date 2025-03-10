@@ -12,4 +12,5 @@ public:
 	void loadCsv(std::string& filename);
 	void loadCsv(std::vector<std::string>& filenames);
 	void printCities();
+	void printCities(int year);
 };

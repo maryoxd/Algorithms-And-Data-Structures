@@ -1,9 +1,9 @@
 2022;;;
 name_;code_;male_;female_
 Deutschkreutz;<10801>;1524;1636
-DraÃŸmarkt;<10802>;658;701
+Draßmarkt;<10802>;658;701
 Frankenau-Unterpullendorf;<10803>;515;542
-GroÃŸwarasdorf;<10804>;674;677
+Großwarasdorf;<10804>;674;677
 Horitschon;<10805>;907;920
 Kaisersdorf;<10806>;291;315
 Kobersdorf;<10807>;949;947
@@ -22,7 +22,7 @@ Pilgersdorf;<10817>;810;796
 Piringsdorf;<10818>;418;425
 Raiding;<10819>;400;495
 Ritzing;<10820>;463;445
-Steinberg-DÃ¶rfl;<10821>;646;640
+Steinberg-Dörfl;<10821>;646;640
 Stoob;<10822>;689;670
 Unterfrauenhaid;<10825>;334;319
 Unterrabnitz-Schwendgraben;<10826>;321;313
@@ -32,19 +32,19 @@ Eisenstadt;<10101>;7408;7832
 Rust;<10201>;946;1038
 Breitenbrunn;<10301>;927;963
 Donnerskirchen;<10302>;915;931
-GroÃŸhÃ¶flein;<10303>;1036;1086
+Großhöflein;<10303>;1036;1086
 Hornstein;<10304>;1533;1684
 Klingenbach;<10305>;643;612
 Leithaprodersdorf;<10306>;608;604
 Loretto;<10320>;250;251
-MÃ¶rbisch am See;<10307>;1086;1106
-MÃ¼llendorf;<10308>;700;700
+Mörbisch am See;<10307>;1086;1106
+Müllendorf;<10308>;700;700
 Neufeld an der Leitha;<10309>;1750;1890
 Oggau am Neusiedler See;<10310>;877;864
 Oslip;<10311>;649;642
 Purbach am Neusiedler See;<10312>;1443;1482
 Sankt Margarethen im Burgenland;<10313>;1349;1342
-SchÃ¼tzen am Gebirge;<10314>;722;714
+Schützen am Gebirge;<10314>;722;714
 Siegendorf;<10315>;1541;1662
 Steinbrunn;<10316>;1488;1504
 Stotzing;<10321>;424;401
@@ -56,22 +56,22 @@ Zillingtal;<10322>;481;509
 Antau;<10616>;388;395
 Bad Sauerbrunn;<10611>;1069;1183
 Baumgarten;<10617>;444;468
-DraÃŸburg;<10601>;614;630
+Draßburg;<10601>;614;630
 Forchtenstein;<10602>;1397;1405
 Hirm;<10603>;493;544
 Krensdorf;<10619>;310;331
 Loipersbach im Burgenland;<10604>;604;590
 Marz;<10605>;1043;1068
 Mattersburg;<10606>;3641;3917
-NeudÃ¶rfl;<10607>;2369;2484
-PÃ¶ttelsdorf;<10608>;367;404
-PÃ¶ttsching;<10609>;1475;1510
+Neudörfl;<10607>;2369;2484
+Pöttelsdorf;<10608>;367;404
+Pöttsching;<10609>;1475;1510
 Rohrbach bei Mattersburg;<10610>;1269;1345
 Schattendorf;<10612>;1168;1229
 Sieggraben;<10613>;656;613
-SigleÃŸ;<10614>;563;594
+Sigleß;<10614>;563;594
 Wiesen;<10615>;1381;1377
-Zemendorf-StÃ¶ttera;<10618>;634;621
+Zemendorf-Stöttera;<10618>;634;621
 Andau;<10701>;1094;1160
 Apetlon;<10702>;856;878
 Bruckneudorf;<10703>;1450;1592
@@ -84,7 +84,7 @@ Halbturn;<10708>;931;995
 Illmitz;<10709>;1176;1196
 Jois;<10710>;803;823
 Kittsee;<10711>;1698;1808
-MÃ¶nchhof;<10712>;1086;1108
+Mönchhof;<10712>;1086;1108
 Neudorf;<10725>;356;379
 Neusiedl am See;<10713>;4210;4447
 Nickelsdorf;<10714>;912;918
@@ -93,7 +93,7 @@ Pamhagen;<10716>;769;778
 Parndorf;<10717>;2552;2657
 Podersdorf am See;<10718>;1051;1086
 Potzneusiedl;<10726>;321;315
-Sankt AndrÃ¤ am Zicksee;<10719>;677;704
+Sankt Andrä am Zicksee;<10719>;677;704
 Tadten;<10720>;564;598
 Wallern im Burgenland;<10721>;814;850
 Weiden am See;<10722>;1262;1293
@@ -104,18 +104,18 @@ Bocksdorf;<10401>;384;420
 Burgauberg-Neudauberg;<10402>;639;688
 Eberau;<10403>;463;458
 Gerersdorf-Sulz;<10404>;516;508
-GroÃŸmÃ¼rbisch;<10420>;114;119
-GÃ¼ssing;<10405>;1717;1861
-GÃ¼ttenbach;<10406>;422;449
+Großmürbisch;<10420>;114;119
+Güssing;<10405>;1717;1861
+Güttenbach;<10406>;422;449
 Hackerberg;<10418>;192;171
 Heiligenbrunn;<10407>;361;382
 Heugraben;<10424>;118;106
 Inzenhof;<10421>;162;168
-KleinmÃ¼rbisch;<10422>;114;117
+Kleinmürbisch;<10422>;114;117
 Kukmirn;<10408>;999;1013
 Moschendorf;<10428>;188;199
 Neuberg im Burgenland;<10409>;454;503
-Neustift bei GÃ¼ssing;<10410>;229;218
+Neustift bei Güssing;<10410>;229;218
 Olbendorf;<10411>;699;759
 Ollersdorf im Burgenland;<10412>;464;457
 Rauchwart;<10427>;218;236
@@ -126,15 +126,15 @@ Stinatz;<10415>;617;588
 Strem;<10416>;421;465
 Tobaj;<10417>;690;661
 Tschanigraben;<10423>;31;34
-WÃ¶rterberg;<10419>;237;244
+Wörterberg;<10419>;237;244
 Deutsch Kaltenbrunn;<10501>;856;896
 Eltendorf;<10502>;478;425
 Heiligenkreuz im Lafnitztal;<10503>;618;644
 Jennersdorf;<10504>;2035;2119
-KÃ¶nigsdorf;<10511>;394;374
+Königsdorf;<10511>;394;374
 Minihof-Liebau;<10505>;532;525
 Mogersdorf;<10506>;580;556
-MÃ¼hlgraben;<10512>;203;182
+Mühlgraben;<10512>;203;182
 Neuhaus am Klausenbach;<10507>;438;479
 Rudersdorf;<10508>;1050;1115
 Sankt Martin an der Raab;<10509>;985;971
@@ -142,9 +142,9 @@ Weichselbaum;<10510>;356;347
 Bad Tatzmannsdorf;<10901>;776;852
 Badersdorf;<10931>;142;137
 Bernstein;<10902>;1005;1074
-Deutsch SchÃ¼tzen-Eisenberg;<10903>;529;550
+Deutsch Schützen-Eisenberg;<10903>;529;550
 Grafenschachen;<10904>;622;621
-GroÃŸpetersdorf;<10905>;1711;1849
+Großpetersdorf;<10905>;1711;1849
 Hannersdorf;<10906>;366;375
 Jabing;<10930>;386;366
 Kemeten;<10907>;758;754
@@ -157,7 +157,7 @@ Markt Neuhodis;<10913>;334;328
 Mischendorf;<10914>;755;737
 Neustift an der Lafnitz;<10929>;375;417
 Oberdorf im Burgenland;<10915>;486;511
-OberschÃ¼tzen;<10916>;1216;1241
+Oberschützen;<10916>;1216;1241
 Oberwart;<10917>;3612;4111
 Pinkafeld;<10918>;2881;3034
 Rechnitz;<10919>;1455;1532
@@ -166,7 +166,7 @@ Rotenturm an der Pinka;<10921>;713;734
 Schachendorf;<10922>;371;387
 Schandorf;<10932>;135;133
 Stadtschlaining;<10923>;967;1013
-UnterkohlstÃ¤tten;<10924>;487;485
+Unterkohlstätten;<10924>;487;485
 Unterwart;<10925>;491;476
 Weiden bei Rechnitz;<10926>;410;399
 Wiesfleck;<10927>;588;566
@@ -206,7 +206,7 @@ Winklarn;<30541>;931;906
 Wolfsbach;<30542>;1104;1021
 Ybbsitz;<30543>;1723;1627
 Zeillern;<30544>;993;930
-Artstetten-PÃ¶bring;<31502>;628;604
+Artstetten-Pöbring;<31502>;628;604
 Bergland;<31503>;967;935
 Bischofstetten;<31504>;593;623
 Blindenmarkt;<31505>;1401;1348
@@ -216,38 +216,38 @@ Emmersdorf an der Donau;<31553>;866;879
 Erlauf;<31508>;568;549
 Golling an der Erlauf;<31509>;745;723
 Hofamt Priel;<31511>;841;882
-HÃ¼rm;<31513>;966;963
+Hürm;<31513>;966;963
 Kilb;<31514>;1283;1297
 Kirnberg an der Mank;<31515>;569;545
-Klein-PÃ¶chlarn;<31516>;524;565
-KrummnuÃŸbaum;<31517>;783;796
+Klein-Pöchlarn;<31516>;524;565
+Krummnußbaum;<31517>;783;796
 Leiben;<31519>;684;642
 Loosdorf;<31520>;1900;1965
 Mank;<31521>;1613;1656
 Marbach an der Donau;<31522>;835;842
 Maria Taferl;<31523>;488;454
 Melk;<31524>;2698;2858
-MÃ¼nichreith-Laimbach;<31525>;828;837
+Münichreith-Laimbach;<31525>;828;837
 Neumarkt an der Ybbs;<31527>;1000;1060
-NÃ¶chling;<31528>;535;488
+Nöchling;<31528>;535;488
 Persenbeug-Gottsdorf;<31530>;1052;1098
 Petzenkirchen;<31531>;730;736
-PÃ¶chlarn;<31533>;1919;2039
-PÃ¶ggstall;<31534>;1205;1196
+Pöchlarn;<31533>;1919;2039
+Pöggstall;<31534>;1205;1196
 Raxendorf;<31535>;521;503
 Ruprechtshofen;<31537>;1154;1149
 St. Leonhard am Forst;<31539>;1551;1497
 St. Martin-Karlsbach;<31540>;806;817
 St. Oswald;<31541>;590;522
 Schollach;<31543>;519;516
-SchÃ¶nbÃ¼hel-Aggsbach;<31542>;454;479
+Schönbühel-Aggsbach;<31542>;454;479
 Texingtal;<31551>;859;819
 Weiten;<31546>;557;573
 Ybbs an der Donau;<31549>;2823;2795
 Yspertal;<31552>;1013;1011
 Zelking-Matzleinsdorf;<31550>;571;638
 Gaming;<32001>;1435;1462
-GÃ¶stling an der Ybbs;<32002>;1004;984
+Göstling an der Ybbs;<32002>;1004;984
 Gresten;<32003>;998;986
 Gresten-Land;<32004>;762;737
 Lunz am See;<32005>;878;908
@@ -256,7 +256,7 @@ Puchenstuben;<32007>;158;114
 Purgstall an der Erlauf;<32008>;2709;2653
 Randegg;<32009>;946;917
 Reinsberg;<32010>;553;517
-St. Anton an der JeÃŸnitz;<32011>;593;576
+St. Anton an der Jeßnitz;<32011>;593;576
 St. Georgen an der Leys;<32012>;687;640
 Scheibbs;<32013>;1979;2151
 Steinakirchen am Forst;<32014>;1159;1169
@@ -282,28 +282,28 @@ Kleinzell;<31406>;440;424
 Lilienfeld;<31407>;1307;1338
 Mitterbach am Erlaufsee;<31408>;235;247
 Ramsau;<31409>;423;400
-Rohrbach an der GÃ¶lsen;<31410>;771;772
+Rohrbach an der Gölsen;<31410>;771;772
 St. Aegyd am Neuwalde;<31411>;910;908
-St. Veit an der GÃ¶lsen;<31412>;1900;1961
+St. Veit an der Gölsen;<31412>;1900;1961
 Traisen;<31413>;1663;1745
-TÃ¼rnitz;<31414>;948;931
+Türnitz;<31414>;948;931
 Altendorf;<31801>;183;174
 Aspangberg-St. Peter;<31803>;950;946
 Aspang-Markt;<31802>;855;924
 Breitenau;<31804>;767;785
 Breitenstein;<31805>;170;130
 Buchbach;<31806>;178;181
-BÃ¼rg-VÃ¶stenhof;<31842>;77;87
+Bürg-Vöstenhof;<31842>;77;87
 Edlitz;<31807>;460;446
 Enzenreith;<31808>;968;1031
 Feistritz am Wechsel;<31809>;519;514
 Gloggnitz;<31810>;2779;3077
 Grafenbach-St. Valentin;<31811>;1113;1152
 Grimmenstein;<31812>;631;682
-GrÃ¼nbach am Schneeberg;<31813>;783;818
-HÃ¶flein an der Hohen Wand;<31849>;443;448
+Grünbach am Schneeberg;<31813>;783;818
+Höflein an der Hohen Wand;<31849>;443;448
 Kirchberg am Wechsel;<31814>;1206;1267
-MÃ¶nichkirchen;<31815>;297;310
+Mönichkirchen;<31815>;297;310
 Natschbach-Loipersbach;<31817>;858;850
 Neunkirchen;<31818>;6021;6524
 Otterthal;<31820>;273;297
@@ -329,11 +329,11 @@ Warth;<31843>;780;764
 Wartmannstetten;<31844>;808;804
 Willendorf;<31845>;475;509
 Wimpassing im Schwarzatale;<31846>;772;820
-WÃ¼rflach;<31847>;764;864
-ZÃ¶bern;<31848>;710;676
+Würflach;<31847>;764;864
+Zöbern;<31848>;710;676
 Bad Erlach;<32306>;1517;1679
 Bad Fischau-Brunn;<32301>;1724;1793
-Bad SchÃ¶nau;<32302>;368;379
+Bad Schönau;<32302>;368;379
 Bromberg;<32325>;600;585
 Ebenfurth;<32304>;1517;1622
 Eggendorf;<32305>;2489;2557
@@ -348,9 +348,9 @@ Kirchschlag in der Buckligen Welt;<32314>;1403;1409
 Krumbach;<32315>;1175;1158
 Lanzenkirchen;<32316>;2020;2120
 Lichtenegg;<32317>;507;553
-LichtenwÃ¶rth;<32318>;1358;1417
+Lichtenwörth;<32318>;1358;1417
 Markt Piesting;<32319>;1545;1597
-Matzendorf-HÃ¶lles;<32320>;1023;1060
+Matzendorf-Hölles;<32320>;1023;1060
 Miesenbach;<32321>;324;337
 Muggendorf;<32322>;248;274
 Pernitz;<32323>;1205;1258
@@ -364,12 +364,12 @@ Walpersbach;<32333>;568;591
 Weikersdorf am Steinfelde;<32334>;550;541
 Wiesmath;<32335>;760;777
 Winzendorf-Muthmannsdorf;<32336>;941;919
-WÃ¶llersdorf-SteinabrÃ¼ckl;<32337>;2380;2430
+Wöllersdorf-Steinabrückl;<32337>;2380;2430
 Zillingdorf;<32338>;1021;1069
-St. PÃ¶lten;<30201>;27646;28714
+St. Pölten;<30201>;27646;28714
 Altlengbach;<31901>;1517;1643
 Asperhofen;<31902>;1156;1149
-BÃ¶heimkirchen;<31903>;2498;2618
+Böheimkirchen;<31903>;2498;2618
 Brand-Laaben;<31904>;634;615
 Eichgraben;<31905>;2373;2390
 Frankenfels;<31906>;989;942
@@ -377,11 +377,11 @@ Gerersdorf;<31907>;498;525
 Hafnerbach;<31910>;831;819
 Haunoldstein;<31911>;614;631
 Herzogenburg;<31912>;3788;4045
-Hofstetten-GrÃ¼nau;<31909>;1370;1354
+Hofstetten-Grünau;<31909>;1370;1354
 Inzersdorf-Getzersdorf;<31913>;835;803
 Kapelln;<31915>;662;684
 Karlstetten;<31916>;1087;1104
-Kasten bei BÃ¶heimkirchen;<31917>;720;689
+Kasten bei Böheimkirchen;<31917>;720;689
 Kirchberg an der Pielach;<31918>;1597;1609
 Kirchstetten;<31919>;1088;1166
 Loich;<31920>;280;285
@@ -391,7 +391,7 @@ Michelbach;<31923>;433;421
 Neidling;<31925>;740;755
 Neulengbach;<31926>;4078;4251
 Neustift-Innermanzing;<31927>;795;809
-NuÃŸdorf ob der Traisen;<31928>;918;917
+Nußdorf ob der Traisen;<31928>;918;917
 Ober-Grafendorf;<31929>;2336;2361
 Obritzberg-Rust;<31930>;1168;1145
 Prinzersdorf;<31932>;796;840
@@ -400,21 +400,21 @@ Rabenstein an der Pielach;<31935>;1265;1235
 St. Margarethen an der Sierning;<31938>;531;510
 Schwarzenbach an der Pielach;<31939>;200;162
 Statzendorf;<31940>;698;747
-StÃ¶ssing;<31941>;426;416
+Stössing;<31941>;426;416
 Traismauer;<31943>;3196;3239
 Weinburg;<31945>;698;701
 Perschling;<31946>;730;734
 Wilhelmsburg;<31947>;3229;3341
-WÃ¶lbling;<31948>;1229;1242
+Wölbling;<31948>;1229;1242
 Krems an der Donau;<30101>;12204;12717
 Amaliendorf-Aalfang;<30902>;549;567
-Bad GroÃŸpertholz;<30910>;685;607
+Bad Großpertholz;<30910>;685;607
 Brand-Nagelberg;<30903>;736;733
 Eggern;<30904>;344;337
 Eisgarn;<30906>;361;335
-GmÃ¼nd;<30908>;2532;2650
-GroÃŸdietmanns;<30909>;1111;1064
-GroÃŸschÃ¶nau;<30912>;640;590
+Gmünd;<30908>;2532;2650
+Großdietmanns;<30909>;1111;1064
+Großschönau;<30912>;640;590
 Haugschlag;<30915>;247;233
 Heidenreichstein;<30916>;1902;1962
 Hirschbach;<30917>;292;287
@@ -430,7 +430,7 @@ Waldenstein;<30940>;600;574
 Weitra;<30942>;1263;1346
 Altenburg;<31101>;397;397
 Brunn an der Wild;<31102>;410;423
-Burgschleinitz-KÃ¼hnring;<31103>;708;620
+Burgschleinitz-Kühnring;<31103>;708;620
 Drosendorf-Zissersdorf;<31104>;567;600
 Eggenburg;<31105>;1676;1823
 Gars am Kamp;<31106>;1729;1751
@@ -441,21 +441,21 @@ Japons;<31111>;364;346
 Langau;<31113>;336;354
 Meiseldorf;<31114>;431;420
 Pernegg;<31117>;345;343
-RÃ¶hrenbach;<31119>;254;241
-RÃ¶schitz;<31120>;540;537
+Röhrenbach;<31119>;254;241
+Röschitz;<31120>;540;537
 Rosenburg-Mold;<31121>;421;409
 St. Bernhard-Frauenhofen;<31123>;636;652
 Sigmundsherberg;<31124>;861;819
 Straning-Grafenberg;<31130>;360;336
 Weitersfeld;<31129>;762;754
 Aggsbach;<31301>;316;323
-Albrechtsberg an der GroÃŸen Krems;<31302>;506;503
+Albrechtsberg an der Großen Krems;<31302>;506;503
 Bergern im Dunkelsteinerwald;<31303>;649;684
-DroÃŸ;<31356>;521;511
-DÃ¼rnstein;<31304>;385;418
-Furth bei GÃ¶ttweig;<31309>;1455;1499
+Droß;<31356>;521;511
+Dürnstein;<31304>;385;418
+Furth bei Göttweig;<31309>;1455;1499
 Gedersdorf;<31310>;1098;1038
-GfÃ¶hl;<31311>;1913;1911
+Gföhl;<31311>;1913;1911
 Grafenegg;<31308>;1581;1622
 Hadersdorf-Kammern;<31315>;933;1026
 Jaidhof;<31319>;611;607
@@ -465,23 +465,23 @@ Lengenfeld;<31323>;711;714
 Lichtenau im Waldviertel;<31324>;1044;1023
 Maria Laach am Jauerling;<31326>;462;456
 Mautern an der Donau;<31327>;1636;1816
-MÃ¼hldorf;<31330>;621;652
+Mühldorf;<31330>;621;652
 Paudorf;<31333>;1310;1332
 Rastenfeld;<31336>;812;806
 Rohrendorf bei Krems;<31337>;1047;1043
 Rossatz-Arnsdorf;<31338>;501;562
 St. Leonhard am Hornerwald;<31340>;550;544
-SchÃ¶nberg am Kamp;<31355>;905;938
+Schönberg am Kamp;<31355>;905;938
 Senftenberg;<31343>;954;973
 Spitz;<31344>;754;780
-StraÃŸ im StraÃŸertale;<31346>;892;878
+Straß im Straßertale;<31346>;892;878
 Stratzing;<31347>;427;481
 Weinzierl am Walde;<31350>;642;593
-WeiÃŸenkirchen in der Wachau;<31351>;685;711
+Weißenkirchen in der Wachau;<31351>;685;711
 Dietmanns;<32202>;505;528
 Dobersberg;<32203>;798;740
 Gastern;<32206>;596;575
-GroÃŸ-Siegharts;<32207>;1347;1342
+Groß-Siegharts;<32207>;1347;1342
 Karlstein an der Thaya;<32209>;742;731
 Kautzen;<32210>;571;513
 Ludweis-Aigen;<32212>;456;432
@@ -496,29 +496,29 @@ Windigsteig;<32223>;444;482
 Allentsteig;<32501>;852;886
 Altmelon;<32519>;441;422
 Arbesbach;<32502>;835;755
-BÃ¤rnkopf;<32503>;171;169
+Bärnkopf;<32503>;171;169
 Echsenbach;<32504>;674;616
-GÃ¶pfritz an der Wild;<32505>;901;887
+Göpfritz an der Wild;<32505>;901;887
 Grafenschlag;<32506>;423;416
-GroÃŸ Gerungs;<32508>;2246;2157
-GroÃŸgÃ¶ttfritz;<32509>;712;646
+Groß Gerungs;<32508>;2246;2157
+Großgöttfritz;<32509>;712;646
 Gutenbrunn;<32511>;236;253
 Kirchschlag;<32514>;320;311
 Kottes-Purk;<32515>;710;730
 Langschlag;<32516>;895;831
 Martinsberg;<32517>;556;537
 Ottenschlag;<32518>;499;517
-PÃ¶lla;<32520>;460;456
+Pölla;<32520>;460;456
 Rappottenstein;<32521>;903;842
 Sallingberg;<32522>;625;636
-SchÃ¶nbach;<32523>;412;342
+Schönbach;<32523>;412;342
 Schwarzenau;<32524>;747;745
 Schweiggers;<32525>;1022;1012
 Traunstein;<32528>;509;493
 Waldhausen;<32529>;624;577
-Zwettl-NiederÃ¶sterreich;<32530>;5258;5464
-DrÃ¶sing;<30810>;547;549
-DÃ¼rnkrut;<30811>;1117;1155
+Zwettl-Niederösterreich;<32530>;5258;5464
+Drösing;<30810>;547;549
+Dürnkrut;<30811>;1117;1155
 Hauskirchen;<30826>;642;657
 Hohenau an der March;<30827>;1323;1432
 Jedenspeigen;<30829>;563;554
@@ -528,14 +528,14 @@ Ringelsdorf-Niederabsdorf;<30850>;638;633
 Sulz im Weinviertel;<30857>;620;607
 Zistersdorf;<30863>;2648;2761
 Alberndorf im Pulkautal;<31001>;363;366
-GÃ¶llersdorf;<31008>;1575;1559
+Göllersdorf;<31008>;1575;1559
 Grabern;<31009>;849;898
 Guntersdorf;<31014>;590;568
 Hadres;<31015>;862;875
 Hardegg;<31016>;645;659
 Haugsdorf;<31018>;807;797
 Heldenberg;<31019>;736;705
-Hohenwarth-MÃ¼hlbach a.M.;<31021>;621;697
+Hohenwarth-Mühlbach a.M.;<31021>;621;697
 Hollabrunn;<31022>;5876;6208
 Mailberg;<31025>;282;285
 Maissau;<31026>;976;990
@@ -560,8 +560,8 @@ Fallbach;<31609>;402;389
 Gaubitsch;<31611>;456;430
 Gaweinstal;<31612>;1994;2070
 Gnadendorf;<31613>;570;582
-GroÃŸharras;<31616>;559;541
-GroÃŸkrut;<31617>;853;817
+Großharras;<31616>;559;541
+Großkrut;<31617>;853;817
 Hausbrunn;<31620>;443;420
 Herrnbaumgarten;<31621>;480;459
 Laa an der Thaya;<31629>;3089;3158
@@ -576,7 +576,7 @@ Schrattenberg;<31646>;418;437
 Staatz;<31649>;939;963
 Stronsdorf;<31650>;787;809
 Unterstinkenbrunn;<31652>;291;255
-WildendÃ¼rnbach;<31653>;788;784
+Wildendürnbach;<31653>;788;784
 Wilfersdorf;<31654>;1043;1054
 Aderklaa;<30801>;107;89
 Andlersdorf;<30802>;76;72
@@ -587,11 +587,11 @@ Deutsch-Wagram;<30808>;4429;4697
 Ebenthal;<30812>;491;434
 Eckartsau;<30813>;686;656
 Engelhartstetten;<30814>;1043;1085
-GÃ¤nserndorf;<30817>;5764;6186
+Gänserndorf;<30817>;5764;6186
 Glinzendorf;<30819>;174;171
-GroÃŸ-Enzersdorf;<30821>;5751;6066
-GroÃŸhofen;<30822>;54;50
-GroÃŸ-Schweinbarth;<30824>;667;654
+Groß-Enzersdorf;<30821>;5751;6066
+Großhofen;<30822>;54;50
+Groß-Schweinbarth;<30824>;667;654
 Haringsee;<30825>;574;598
 Hohenruppersdorf;<30828>;464;469
 Lassee;<30830>;1497;1474
@@ -605,19 +605,19 @@ Orth an der Donau;<30844>;1031;1128
 Parbasdorf;<30846>;89;80
 Prottes;<30848>;715;739
 Raasdorf;<30849>;336;326
-SchÃ¶nkirchen-Reyersdorf;<30852>;1010;1006
+Schönkirchen-Reyersdorf;<30852>;1010;1006
 Spannberg;<30854>;497;494
 Strasshof an der Nordbahn;<30856>;5644;5717
 Untersiebenbrunn;<30858>;876;917
-Velm-GÃ¶tzendorf;<30859>;388;382
+Velm-Götzendorf;<30859>;388;382
 Weiden an der March;<30865>;514;487
 Weikendorf;<30860>;983;1039
 Bisamberg;<31201>;2328;2492
 Enzersfeld;<31202>;865;929
 Ernstbrunn;<31203>;1656;1616
 Gerasdorf bei Wien;<31235>;5858;5895
-GroÃŸmugl;<31204>;828;795
-GroÃŸruÃŸbach;<31205>;1109;1132
+Großmugl;<31204>;828;795
+Großrußbach;<31205>;1109;1132
 Hagenbrunn;<31206>;1211;1186
 Harmannsdorf;<31207>;1998;2056
 Hausleiten;<31208>;1866;1957
@@ -626,15 +626,15 @@ Langenzersdorf;<31214>;3860;4143
 Leitzersdorf;<31215>;591;568
 Leobendorf;<31216>;2486;2510
 Niederhollabrunn;<31234>;781;736
-RuÃŸbach;<31224>;692;698
+Rußbach;<31224>;692;698
 Sierndorf;<31226>;2008;1932
 Spillern;<31227>;1220;1219
 Stetteldorf am Wagram;<31228>;552;511
 Stetten;<31229>;663;687
 Stockerau;<31230>;8091;8692
-BockflieÃŸ;<31605>;661;654
-GroÃŸebersdorf;<31614>;1111;1125
-GroÃŸengersdorf;<31615>;743;763
+Bockfließ;<31605>;661;654
+Großebersdorf;<31614>;1111;1125
+Großengersdorf;<31615>;743;763
 Hochleithen;<31622>;545;565
 Kreuttal;<31627>;722;732
 Kreuzstetten;<31628>;817;837
@@ -650,43 +650,43 @@ Wolfsgraben;<31954>;856;893
 Absdorf;<32101>;1111;1189
 Atzenbrugg;<32104>;1558;1636
 Fels am Wagram;<32106>;1187;1217
-GrafenwÃ¶rth;<32107>;1562;1689
-GroÃŸriedenthal;<32109>;485;474
-GroÃŸweikersdorf;<32110>;1615;1711
+Grafenwörth;<32107>;1562;1689
+Großriedenthal;<32109>;485;474
+Großweikersdorf;<32110>;1615;1711
 Judenau-Baumgarten;<32112>;1163;1154
 Kirchberg am Wagram;<32114>;1835;1912
 Klosterneuburg;<32144>;13174;14368
-KÃ¶nigsbrunn am Wagram;<32115>;699;713
-KÃ¶nigstetten;<32116>;1239;1295
+Königsbrunn am Wagram;<32115>;699;713
+Königstetten;<32116>;1239;1295
 Langenrohr;<32119>;1227;1257
 Michelhausen;<32120>;1941;1947
 Muckendorf-Wipfing;<32143>;845;856
-St. AndrÃ¤-WÃ¶rdern;<32142>;3812;4043
+St. Andrä-Wördern;<32142>;3812;4043
 Sieghartskirchen;<32131>;3855;3903
 Sitzenberg-Reidling;<32132>;1161;1229
 Tulbing;<32134>;1591;1600
 Tulln an der Donau;<32135>;8055;8501
-WÃ¼rmla;<32139>;802;774
+Würmla;<32139>;802;774
 Zeiselmauer-Wolfpassing;<32140>;1110;1151
 Zwentendorf an der Donau;<32141>;2090;2091
 Alland;<30601>;1309;1322
-Bad VÃ¶slau;<30603>;6005;6419
+Bad Vöslau;<30603>;6005;6419
 Baden;<30604>;12093;13690
-Blumau-NeuriÃŸhof;<30646>;947;980
+Blumau-Neurißhof;<30646>;947;980
 Ebreichsdorf;<30607>;5692;5858
-GÃ¼nselsdorf;<30612>;826;907
+Günselsdorf;<30612>;826;907
 Heiligenkreuz;<30613>;811;734
 Klausen-Leopoldsdorf;<30616>;814;891
 Kottingbrunn;<30618>;3580;3808
 Leobersdorf;<30620>;2507;2611
 Mitterndorf an der Fischa;<30621>;1531;1528
 Oberwaltersdorf;<30623>;2420;2523
-PfaffstÃ¤tten;<30625>;1730;1788
+Pfaffstätten;<30625>;1730;1788
 Pottendorf;<30626>;3754;3703
 Reisenberg;<30629>;880;843
-SchÃ¶nau an der Triesting;<30631>;1041;1069
+Schönau an der Triesting;<30631>;1041;1069
 Seibersdorf;<30633>;785;774
-SooÃŸ;<30635>;503;512
+Sooß;<30635>;503;512
 Tattendorf;<30636>;720;703
 Teesdorf;<30637>;870;901
 Traiskirchen;<30639>;9241;9520
@@ -698,14 +698,14 @@ Bruck an der Leitha;<30704>;3987;4199
 Ebergassing;<30729>;2006;2044
 Enzersdorf an der Fischa;<30706>;1741;1750
 Fischamend;<30730>;2684;2909
-GÃ¶ttlesbrunn-Arbesthal;<30708>;707;742
-GÃ¶tzendorf an der Leitha;<30709>;1098;1090
+Göttlesbrunn-Arbesthal;<30708>;707;742
+Götzendorf an der Leitha;<30709>;1098;1090
 Gramatneusiedl;<30731>;1825;1872
 Hainburg a.d. Donau;<30710>;3329;3563
 Haslau-Maria Ellend;<30711>;988;1020
 Himberg;<30732>;3854;3974
 Hof am Leithaberge;<30713>;799;808
-HÃ¶flein;<30712>;596;616
+Höflein;<30712>;596;616
 Hundsheim;<30715>;293;343
 Klein-Neusiedl;<30733>;458;499
 Lanzendorf;<30734>;924;977
@@ -723,30 +723,30 @@ Schwechat;<30740>;10327;10436
 Sommerein;<30724>;1053;1109
 Trautmannsdorf an der Leitha;<30726>;1481;1481
 Wolfsthal;<30728>;582;597
-ZwÃ¶lfaxing;<30741>;862;849
+Zwölfaxing;<30741>;862;849
 Achau;<31701>;759;758
 Biedermannsdorf;<31702>;1498;1643
 Breitenfurt bei Wien;<31703>;2894;3041
 Brunn am Gebirge;<31704>;5891;6154
 Gaaden;<31706>;809;831
-GieÃŸhÃ¼bl;<31707>;1145;1249
+Gießhübl;<31707>;1145;1249
 Gumpoldskirchen;<31709>;1899;2069
 Guntramsdorf;<31710>;4512;4632
 Hennersdorf;<31711>;759;784
-HinterbrÃ¼hl;<31712>;1907;2005
+Hinterbrühl;<31712>;1907;2005
 Kaltenleutgeben;<31713>;1641;1704
 Laab im Walde;<31714>;524;578
 Laxenburg;<31715>;1411;1558
 Maria Enzersdorf;<31716>;4091;4630
-MÃ¶dling;<31717>;9798;10733
-MÃ¼nchendorf;<31718>;1524;1579
+Mödling;<31717>;9798;10733
+Münchendorf;<31718>;1524;1579
 Perchtoldsdorf;<31719>;7178;7708
-VÃ¶sendorf;<31723>;3616;3883
+Vösendorf;<31723>;3616;3883
 Wiener Neudorf;<31725>;4549;4790
 Wienerwald;<31726>;1416;1477
 Wien 1.,Innere Stadt;<90101>;7637;8063
 Wien 2.,Leopoldstadt;<90201>;51740;52948
-Wien 3.,LandstraÃŸe;<90301>;45153;48591
+Wien 3.,Landstraße;<90301>;45153;48591
 Wien 4.,Wieden;<90401>;16051;16956
 Wien 5.,Margareten;<90501>;26669;27062
 Wien 6.,Mariahilf;<90601>;15044;15914
@@ -758,35 +758,35 @@ Wien 11.,Simmering;<91101>;52333;53745
 Wien 12.,Meidling;<91201>;48366;49543
 Wien 13.,Hietzing;<91301>;25265;28694
 Wien 14.,Penzing;<91401>;45256;47733
-Wien 15.,Rudolfsheim-FÃ¼nfhaus;<91501>;38436;37199
+Wien 15.,Rudolfsheim-Fünfhaus;<91501>;38436;37199
 Wien 16.,Ottakring;<91601>;50905;50733
 Wien 17.,Hernals;<91701>;27492;28522
-Wien 18.,WÃ¤hring;<91801>;23761;27104
-Wien 19.,DÃ¶bling;<91901>;34636;39237
+Wien 18.,Währing;<91801>;23761;27104
+Wien 19.,Döbling;<91901>;34636;39237
 Wien 20.,Brigittenau;<92001>;42087;42384
 Wien 21.,Floridsdorf;<92101>;86909;91276
 Wien 22.,Donaustadt;<92201>;98091;105732
 Wien 23.,Liesing;<92301>;55142;60032
-Klagenfurt am WÃ¶rther See;<20101>;48808;53810
+Klagenfurt am Wörther See;<20101>;48808;53810
 Villach;<20201>;30967;33104
-Ebenthal in KÃ¤rnten;<20402>;4017;4120
+Ebenthal in Kärnten;<20402>;4017;4120
 Feistritz im Rosental;<20403>;1240;1305
 Ferlach;<20405>;3613;3640
 Grafenstein;<20409>;1486;1562
 Keutschach am See;<20412>;1166;1239
-KÃ¶ttmannsdorf;<20414>;1589;1540
-Krumpendorf am WÃ¶rthersee;<20415>;1656;1846
+Köttmannsdorf;<20414>;1589;1540
+Krumpendorf am Wörthersee;<20415>;1656;1846
 Ludmannsdorf;<20416>;919;899
 Magdalensberg;<20442>;1804;1846
 Maria Rain;<20417>;1328;1352
 Maria Saal;<20418>;1942;2005
-Maria WÃ¶rth;<20419>;731;878
+Maria Wörth;<20419>;731;878
 Moosburg;<20421>;2194;2337
 Poggersdorf;<20425>;1621;1643
-PÃ¶rtschach am WÃ¶rther See;<20424>;1392;1477
+Pörtschach am Wörther See;<20424>;1392;1477
 St. Margareten im Rosental;<20428>;541;551
 Schiefling am See;<20432>;1339;1316
-Techelsberg am WÃ¶rther See;<20435>;1118;1122
+Techelsberg am Wörther See;<20435>;1118;1122
 Zell;<20441>;317;280
 Afritz am See;<20701>;691;731
 Arnoldstein;<20702>;3423;3594
@@ -798,20 +798,20 @@ Ferndorf;<20710>;1023;1017
 Finkenstein am Faaker See;<20711>;4646;4639
 Fresach;<20712>;620;636
 Hohenthurn;<20713>;415;457
-NÃ¶tsch im Gailtal;<20719>;1140;1179
+Nötsch im Gailtal;<20719>;1140;1179
 Paternion;<20720>;2800;3015
 Rosegg;<20721>;942;949
 St. Jakob im Rosental;<20722>;2123;2138
 Stockenboi;<20723>;791;798
 Treffen am Ossiacher See;<20724>;2263;2353
-Velden am WÃ¶rther See;<20725>;4413;4738
-WeiÃŸenstein;<20726>;1496;1444
+Velden am Wörther See;<20725>;4413;4738
+Weißenstein;<20726>;1496;1444
 Wernberg;<20727>;2724;2868
 Dellach;<20302>;608;593
 Gitschtal;<20320>;611;624
 Hermagor-Pressegger See;<20305>;3394;3527
 Kirchbach;<20306>;1257;1246
-KÃ¶tschach-Mauthen;<20307>;1622;1688
+Kötschach-Mauthen;<20307>;1622;1688
 Lesachtal;<20321>;658;618
 St. Stefan im Gailtal;<20316>;778;806
 Bad Kleinkirchheim;<20601>;806;858
@@ -819,36 +819,36 @@ Baldramsdorf;<20602>;888;947
 Berg im Drautal;<20603>;621;616
 Dellach im Drautal;<20604>;793;790
 Flattach;<20607>;586;601
-GmÃ¼nd in KÃ¤rnten;<20608>;1230;1304
+Gmünd in Kärnten;<20608>;1230;1304
 Greifenburg;<20609>;864;857
-GroÃŸkirchheim;<20605>;654;662
-Heiligenblut am GroÃŸglockner;<20610>;485;481
+Großkirchheim;<20605>;654;662
+Heiligenblut am Großglockner;<20610>;485;481
 Irschen;<20611>;1006;954
 Kleblach-Lind;<20613>;591;571
-Krems in KÃ¤rnten;<20642>;848;785
+Krems in Kärnten;<20642>;848;785
 Lendorf;<20616>;868;857
 Lurnfeld;<20643>;1289;1366
 Mallnitz;<20618>;356;400
 Malta;<20619>;927;999
 Millstatt am See;<20620>;1682;1784
-MÃ¶rtschach;<20622>;430;388
-MÃ¼hldorf;<20624>;473;527
+Mörtschach;<20622>;430;388
+Mühldorf;<20624>;473;527
 Oberdrauburg;<20625>;598;578
 Obervellach;<20627>;1091;1113
 Radenthein;<20630>;2772;2980
 Rangersdorf;<20631>;833;865
-ReiÃŸeck;<20644>;1067;1029
+Reißeck;<20644>;1067;1029
 Rennweg am Katschberg;<20632>;847;877
 Sachsenburg;<20633>;680;689
-Seeboden am MillstÃ¤tter See;<20634>;3180;3428
+Seeboden am Millstätter See;<20634>;3180;3428
 Spittal an der Drau;<20635>;7172;7979
 Stall;<20636>;758;723
 Steinfeld;<20637>;997;1024
 Trebesing;<20638>;619;541
-WeiÃŸensee;<20639>;370;396
+Weißensee;<20639>;370;396
 Winklern;<20640>;598;601
 Albeck;<21001>;488;518
-Feldkirchen in KÃ¤rnten;<21002>;6973;7311
+Feldkirchen in Kärnten;<21002>;6973;7311
 Glanegg;<21003>;937;846
 Gnesau;<21004>;537;489
 Himmelberg;<21005>;1170;1134
@@ -858,24 +858,24 @@ St. Urban;<21008>;791;724
 Steindorf am Ossiacher See;<21009>;1862;1891
 Steuerberg;<21010>;798;784
 Althofen;<20501>;2318;2384
-BrÃ¼ckl;<20502>;1338;1381
+Brückl;<20502>;1338;1381
 Deutsch-Griffen;<20503>;452;402
 Eberstein;<20504>;616;614
 Frauenstein;<20534>;1754;1796
 Friesach;<20505>;2338;2555
-GlÃ¶dnitz;<20506>;432;393
+Glödnitz;<20506>;432;393
 Gurk;<20508>;602;597
 Guttaring;<20509>;765;731
-HÃ¼ttenberg;<20511>;676;636
+Hüttenberg;<20511>;676;636
 Kappel am Krappfeld;<20512>;976;985
 Klein St. Paul;<20513>;881;864
 Liebenfels;<20515>;1698;1690
 Metnitz;<20518>;968;923
 Micheldorf;<20519>;489;504
-MÃ¶lbling;<20520>;686;652
-St. Georgen am LÃ¤ngsee;<20523>;1745;1819
+Mölbling;<20520>;686;652
+St. Georgen am Längsee;<20523>;1745;1819
 St. Veit an der Glan;<20527>;5778;6454
-StraÃŸburg;<20530>;975;1023
+Straßburg;<20530>;975;1023
 Weitensfeld im Gurktal;<20531>;1009;999
 Bleiburg;<20801>;2089;2038
 Diex;<20802>;418;367
@@ -889,13 +889,13 @@ Neuhaus;<20810>;484;531
 Ruden;<20812>;757;759
 St. Kanzian am Klopeiner See;<20813>;2234;2330
 Sittersdorf;<20815>;956;997
-VÃ¶lkermarkt;<20817>;5326;5578
+Völkermarkt;<20817>;5326;5578
 Bad St. Leonhard im Lavanttal;<20901>;2188;2105
 Frantschach-St. Gertraud;<20905>;1245;1242
-LavamÃ¼nd;<20909>;1452;1389
+Lavamünd;<20909>;1452;1389
 Preitenegg;<20911>;458;451
 Reichenfels;<20912>;872;877
-St. AndrÃ¤;<20913>;4932;4882
+St. Andrä;<20913>;4932;4882
 St. Georgen im Lavanttal;<20914>;962;981
 St. Paul im Lavanttal;<20918>;1584;1620
 Wolfsberg;<20923>;12363;12693
@@ -906,22 +906,22 @@ Eggersdorf bei Graz;<60661>;3519;3490
 Feldkirchen bei Graz;<60608>;3547;3586
 Fernitz-Mellach;<60662>;2379;2532
 Frohnleiten;<60663>;3187;3337
-GÃ¶ssendorf;<60611>;2097;2118
+Gössendorf;<60611>;2097;2118
 Gratkorn;<60613>;4195;4179
-Gratwein-StraÃŸengel;<60664>;6278;6501
+Gratwein-Straßengel;<60664>;6278;6501
 Hart bei Graz;<60617>;2654;2760
 Haselsdorf-Tobelbad;<60618>;787;794
-HausmannstÃ¤tten;<60619>;1819;1882
+Hausmannstätten;<60619>;1819;1882
 Hitzendorf;<60665>;3640;3656
 Kainbach bei Graz;<60623>;1477;1383
 Kalsdorf bei Graz;<60624>;4011;4062
 Kumberg;<60626>;1920;1975
-LaÃŸnitzhÃ¶he;<60628>;1357;1438
+Laßnitzhöhe;<60628>;1357;1438
 Lieboch;<60629>;2630;2827
 Nestelbach bei Graz;<60666>;1342;1391
 Peggau;<60632>;1176;1191
 Raaba-Grambach;<60667>;2304;2418
-Sankt BartholomÃ¤;<60639>;725;743
+Sankt Bartholomä;<60639>;725;743
 Sankt Marein bei Graz;<60668>;1865;1880
 Sankt Oswald bei Plankenwarth;<60641>;628;649
 Sankt Radegund bei Graz;<60642>;1056;1104
@@ -930,8 +930,8 @@ Semriach;<60645>;1666;1613
 Stattegg;<60646>;1466;1541
 Stiwoll;<60647>;344;367
 Thal;<60648>;1190;1230
-Ãœbelbach;<60651>;1063;1021
-UnterpremstÃ¤tten-Zettling;<60670>;3315;3295
+Übelbach;<60651>;1063;1021
+Unterpremstätten-Zettling;<60670>;3315;3295
 Vasoldsberg;<60653>;2352;2379
 Weinitzen;<60654>;1376;1370
 Werndorf;<60655>;1256;1298
@@ -945,7 +945,7 @@ Ardning;<61206>;617;666
 Bad Aussee;<61207>;2363;2590
 Bad Mitterndorf;<61255>;2463;2467
 Gaishorn am See;<61256>;637;675
-GrÃ¶bming;<61213>;1504;1608
+Gröbming;<61213>;1504;1608
 Grundlsee;<61215>;554;602
 Haus;<61217>;1226;1239
 Irdning-Donnersbachtal;<61257>;2011;2121
@@ -954,17 +954,17 @@ Lassing;<61222>;831;867
 Liezen;<61259>;3974;4271
 Michaelerberg-Pruggern;<61260>;611;596
 Mitterberg-Sankt Martin;<61261>;965;952
-Ã–blarn;<61262>;984;1000
+Öblarn;<61262>;984;1000
 Ramsau am Dachstein;<61236>;1387;1474
 Rottenmann;<61263>;2559;2566
 Sankt Gallen;<61264>;886;900
 Schladming;<61265>;3155;3383
 Selzthal;<61243>;783;729
-SÃ¶lk;<61266>;755;726
-Stainach-PÃ¼rgg;<61267>;1310;1456
+Sölk;<61266>;755;726
+Stainach-Pürgg;<61267>;1310;1456
 Trieben;<61247>;1649;1695
 Wildalpen;<61251>;221;217
-WÃ¶rschach;<61252>;566;584
+Wörschach;<61252>;566;584
 Eisenerz;<61101>;1715;1894
 Kalwang;<61105>;437;517
 Kammern im Liesingtal;<61106>;799;815
@@ -980,7 +980,7 @@ Sankt Stefan ob Leoben;<61115>;913;938
 Traboch;<61116>;699;717
 Trofaiach;<61120>;5337;5643
 Vordernberg;<61118>;448;441
-Wald am SchoberpaÃŸ;<61119>;270;272
+Wald am Schoberpaß;<61119>;270;272
 Aflenz ;<62138>;1199;1243
 Breitenau am Hochlantsch;<62105>;822;780
 Bruck an der Mur;<62139>;7611;8109
@@ -989,16 +989,16 @@ Kindberg;<62141>;4058;4139
 Krieglach;<62115>;2620;2751
 Langenwang;<62116>;1908;1969
 Mariazell;<62142>;1751;1867
-MÃ¼rzzuschlag;<62143>;3947;4209
-Neuberg an der MÃ¼rz;<62144>;1224;1132
+Mürzzuschlag;<62143>;3947;4209
+Neuberg an der Mürz;<62144>;1224;1132
 Pernegg an der Mur;<62125>;1228;1265
-Sankt Barbara im MÃ¼rztal;<62145>;3192;3325
-Sankt Lorenzen im MÃ¼rztal;<62128>;1862;1860
-Sankt Marein im MÃ¼rztal;<62146>;1414;1457
+Sankt Barbara im Mürztal;<62145>;3192;3325
+Sankt Lorenzen im Mürztal;<62128>;1862;1860
+Sankt Marein im Mürztal;<62146>;1414;1457
 Spital am Semmering;<62131>;921;824
-Stanz im MÃ¼rztal;<62132>;938;883
-ThÃ¶rl;<62147>;1108;1099
-TragÃ¶ÃŸ-Sankt Katharein;<62148>;890;928
+Stanz im Mürztal;<62132>;938;883
+Thörl;<62147>;1108;1099
+Tragöß-Sankt Katharein;<62148>;890;928
 Turnau;<62135>;762;809
 Albersdorf-Prebuch;<61701>;1127;1142
 Anger;<61756>;1985;1976
@@ -1010,7 +1010,7 @@ Gasen;<61711>;442;430
 Gersdorf an der Feistritz;<61759>;890;869
 Gleisdorf;<61760>;5469;5731
 Gutenberg;<61761>;818;812
-HofstÃ¤tten an der Raab;<61719>;1158;1171
+Hofstätten an der Raab;<61719>;1158;1171
 Ilztal;<61762>;1096;1094
 Ludersdorf-Wilfersdorf;<61727>;1248;1266
 Markt Hartmannsdorf;<61716>;1480;1487
@@ -1039,11 +1039,11 @@ Dechantskirchen;<62265>;1020;997
 Ebersdorf;<62209>;632;650
 Feistritztal;<62266>;1220;1205
 Friedberg;<62211>;1303;1349
-FÃ¼rstenfeld;<62267>;4187;4587
+Fürstenfeld;<62267>;4187;4587
 Grafendorf bei Hartberg;<62268>;1606;1583
 Greinbach;<62214>;963;930
-GroÃŸsteinbach;<62216>;646;636
-GroÃŸwilfersdorf;<62269>;1041;1068
+Großsteinbach;<62216>;646;636
+Großwilfersdorf;<62269>;1041;1068
 Hartberg;<62219>;3142;3632
 Hartberg Umgebung;<62220>;1142;1057
 Hartl;<62270>;1062;1055
@@ -1054,24 +1054,24 @@ Bad Loipersdorf;<62273>;924;894
 Neudau;<62274>;756;740
 Ottendorf an der Rittschein;<62232>;799;796
 Pinggau;<62233>;1612;1523
-PÃ¶llau;<62275>;2947;3011
-PÃ¶llauberg;<62235>;1037;993
+Pöllau;<62275>;2947;3011
+Pöllauberg;<62235>;1037;993
 Rohr bei Hartberg;<62276>;706;699
 Rohrbach an der Lafnitz;<62277>;1313;1327
 Sankt Jakob im Walde;<62242>;525;503
 Sankt Johann in der Haide;<62244>;1086;1141
 Sankt Lorenzen am Wechsel;<62245>;724;695
-SchÃ¤ffern;<62247>;682;658
-SÃ¶chau;<62252>;692;769
+Schäffern;<62247>;682;658
+Söchau;<62252>;692;769
 Stubenberg;<62256>;1073;1132
 Vorau;<62278>;2312;2338
-Waldbach-MÃ¶nichwald;<62279>;721;714
+Waldbach-Mönichwald;<62279>;721;714
 Wenigzell;<62262>;740;657
 Bad Gleichenberg;<62375>;2518;2677
 Bad Radkersburg;<62376>;1498;1680
 Deutsch Goritz;<62377>;883;894
 Edelsbach bei Feldbach;<62311>;663;691
-EichkÃ¶gl;<62314>;695;665
+Eichkögl;<62314>;695;665
 Fehring;<62378>;3534;3616
 Feldbach;<62379>;6475;6862
 Gnas;<62380>;3014;2976
@@ -1080,8 +1080,8 @@ Jagerberg;<62330>;825;804
 Kapfenstein;<62332>;765;773
 Kirchbach in der Steiermark;<62381>;1639;1605
 Kirchberg an der Raab;<62382>;2261;2303
-KlÃ¶ch;<62335>;589;568
-Mettersdorf am SaÃŸbach;<62343>;695;666
+Klöch;<62335>;589;568
+Mettersdorf am Saßbach;<62343>;695;666
 Mureck;<62383>;1746;1708
 Paldau;<62384>;1543;1599
 Pirching am Traubenberg;<62385>;1260;1289
@@ -1095,27 +1095,27 @@ Unterlamm;<62372>;624;630
 Bad Schwanberg;<60349>;2220;2251
 Deutschlandsberg;<60344>;5661;6015
 Eibiswald;<60345>;3202;3163
-Frauental an der LaÃŸnitz;<60305>;1514;1526
-GroÃŸ Sankt Florian;<60346>;2055;2069
+Frauental an der Laßnitz;<60305>;1514;1526
+Groß Sankt Florian;<60346>;2055;2069
 Lannach;<60318>;1853;1794
-PÃ¶lfing-Brunn;<60323>;783;819
+Pölfing-Brunn;<60323>;783;819
 Preding;<60324>;954;951
 Sankt Josef (Weststeiermark);<60326>;836;857
 Sankt Martin im Sulmtal;<60347>;1540;1538
 Sankt Peter im Sulmtal;<60329>;630;610
 Sankt Stefan ob Stainz;<60348>;1811;1785
 Stainz;<60350>;4221;4465
-WettmannstÃ¤tten;<60341>;833;829
+Wettmannstätten;<60341>;833;829
 Wies;<60351>;2149;2103
 Allerheiligen bei Wildon;<61001>;763;834
 Arnfels;<61002>;476;487
-Ehrenhausen an der WeinstraÃŸe;<61049>;1214;1265
+Ehrenhausen an der Weinstraße;<61049>;1214;1265
 Empersdorf;<61007>;752;671
 Gabersdorf;<61008>;649;643
 Gamlitz;<61050>;1616;1588
-GleinstÃ¤tten;<61051>;1336;1430
+Gleinstätten;<61051>;1336;1430
 Gralla;<61012>;1346;1386
-GroÃŸklein;<61013>;1127;1139
+Großklein;<61013>;1127;1139
 Heiligenkreuz am Waasen;<61052>;1434;1430
 Heimschuh;<61016>;969;1016
 Hengsberg;<61017>;765;732
@@ -1123,58 +1123,58 @@ Kitzeck im Sausal;<61019>;588;595
 Lang;<61020>;686;665
 Lebring-Sankt Margarethen;<61021>;1071;1117
 Leibnitz;<61053>;6272;6616
-Leutschach an der WeinstraÃŸe;<61054>;1788;1773
+Leutschach an der Weinstraße;<61054>;1788;1773
 Oberhaag;<61024>;1079;998
 Ragnitz;<61027>;773;755
-Sankt AndrÃ¤-HÃ¶ch;<61030>;882;821
+Sankt Andrä-Höch;<61030>;882;821
 Sankt Georgen an der Stiefing;<61055>;787;814
 Sankt Johann im Saggautal;<61032>;1016;990
 Sankt Nikolai im Sausal;<61033>;1173;1149
-Sankt Veit in der SÃ¼dsteiermark;<61060>;2253;2176
+Sankt Veit in der Südsteiermark;<61060>;2253;2176
 Schwarzautal;<61057>;1149;1166
-StraÃŸ in Steiermark;<61061>;3182;3126
+Straß in Steiermark;<61061>;3182;3126
 Tillmitsch;<61043>;1811;1802
 Wagna;<61045>;3109;3356
 Wildon;<61059>;2732;2857
-BÃ¤rnbach;<61626>;2834;2944
+Bärnbach;<61626>;2834;2944
 Edelschrott;<61627>;847;812
-Geistthal-SÃ¶dingberg;<61628>;748;741
+Geistthal-Södingberg;<61628>;748;741
 Hirschegg-Pack;<61629>;503;491
 Kainach bei Voitsberg;<61630>;795;804
-KÃ¶flach;<61631>;4634;5039
+Köflach;<61631>;4634;5039
 Krottendorf-Gaisfeld;<61611>;1272;1193
 Ligist;<61612>;1588;1667
 Maria Lankowitz;<61632>;1331;1428
 Mooskirchen;<61615>;1062;1123
 Rosental an der Kainach;<61618>;795;780
-Sankt Martin am WÃ¶llmiÃŸberg;<61621>;413;394
-SÃ¶ding-Sankt Johann;<61633>;2049;2114
+Sankt Martin am Wöllmißberg;<61621>;413;394
+Söding-Sankt Johann;<61633>;2049;2114
 Stallhofen;<61624>;1572;1611
 Voitsberg;<61625>;4555;4900
 Krakau;<61437>;713;670
-MÃ¼hlen;<61410>;454;432
+Mühlen;<61410>;454;432
 Murau;<61438>;1613;1819
 Neumarkt in der Steiermark;<61439>;2379;2487
-NiederwÃ¶lz;<61413>;288;303
-OberwÃ¶lz ;<61440>;1480;1459
+Niederwölz;<61413>;288;303
+Oberwölz ;<61440>;1480;1459
 Ranten;<61441>;574;556
 Sankt Georgen am Kreischberg;<61442>;842;861
 Sankt Lambrecht;<61443>;858;884
 St. Peter am Kammersberg;<61425>;1003;999
 Scheifling;<61444>;1052;1090
-SchÃ¶der;<61428>;459;458
+Schöder;<61428>;459;458
 Stadl-Predlitz;<61445>;847;818
 Teufenbach-Katsch;<61446>;931;923
 Fohnsdorf;<62007>;3621;3937
 Gaal;<62008>;655;663
-GroÃŸlobming;<62039>;929;931
+Großlobming;<62039>;929;931
 Hohentauern;<62010>;190;190
 Judenburg;<62040>;4590;4967
 Knittelfeld;<62041>;6257;6346
 Kobenz;<62014>;945;986
 Obdach;<62042>;1885;1898
-PÃ¶ls-Oberkurzheim;<62043>;1460;1462
-PÃ¶lstal;<62044>;1233;1282
+Pöls-Oberkurzheim;<62043>;1460;1462
+Pölstal;<62044>;1233;1282
 Pusterwald;<62021>;229;201
 Sankt Georgen ob Judenburg;<62026>;427;433
 Sankt Marein-Feistritz;<62045>;1042;1015
@@ -1183,7 +1183,7 @@ Sankt Peter ob Judenburg;<62032>;531;538
 Seckau;<62034>;657;651
 Spielberg;<62047>;2658;2692
 Unzmarkt-Frauenburg;<62036>;621;649
-WeiÃŸkirchen in Steiermark;<62048>;2387;2460
+Weißkirchen in Steiermark;<62048>;2387;2460
 Zeltweg;<62038>;3518;3444
 Altheim;<40401>;2473;2534
 Aspach;<40402>;1337;1270
@@ -1199,7 +1199,7 @@ Haigermoos;<40411>;329;308
 Handenberg;<40412>;686;650
 Helpfau-Uttendorf;<40413>;1945;1807
 Hochburg-Ach;<40414>;1683;1659
-HÃ¶hnhart;<40415>;744;719
+Höhnhart;<40415>;744;719
 Jeging;<40416>;351;359
 Kirchberg bei Mattighofen;<40417>;603;609
 Lengau;<40418>;2512;2463
@@ -1215,10 +1215,10 @@ Neukirchen an der Enknach;<40427>;1139;1127
 Ostermiething;<40428>;1651;1703
 Palting;<40429>;572;580
 Perwang am Grabensee;<40430>;559;516
-PfaffstÃ¤tt;<40431>;633;583
+Pfaffstätt;<40431>;633;583
 Pischelsdorf am Engelbach;<40432>;891;822
 Polling im Innkreis;<40433>;496;502
-RoÃŸbach;<40434>;439;453
+Roßbach;<40434>;439;453
 St. Georgen am Fillmannsbach;<40435>;229;221
 St. Johann am Walde;<40436>;1025;1020
 St. Pantaleon;<40437>;1613;1594
@@ -1229,7 +1229,7 @@ Schalchen;<40441>;2081;2041
 Schwand im Innkreis;<40442>;523;497
 Tarsdorf;<40443>;1076;1039
 Treubach;<40444>;382;364
-Ãœberackern;<40445>;363;331
+Überackern;<40445>;363;331
 Weng im Innkreis;<40446>;712;708
 Aistersheim;<40801>;483;481
 Bad Schallerbach;<40802>;2112;2216
@@ -1250,13 +1250,13 @@ Neukirchen am Walde;<40817>;803;830
 Neumarkt im Hausruckkreis;<40818>;748;721
 Peuerbach;<40835>;2348;2326
 Pollham;<40821>;501;473
-PÃ¶tting;<40820>;271;285
+Pötting;<40820>;271;285
 Pram;<40822>;871;864
 Rottenbach;<40823>;555;551
 St. Agatha;<40824>;1097;1035
 St. Georgen bei Grieskirchen;<40825>;657;675
 St. Thomas;<40826>;291;283
-SchlÃ¼ÃŸlberg;<40827>;1490;1543
+Schlüßlberg;<40827>;1490;1543
 Steegen;<40828>;557;529
 Taufkirchen an der Trattnach;<40829>;979;993
 Tollet;<40830>;467;469
@@ -1266,7 +1266,7 @@ Weibern;<40833>;856;856
 Wendling;<40834>;449;429
 Andrichsfurt;<41201>;397;393
 Antiesenhofen;<41202>;531;538
-AurolzmÃ¼nster;<41203>;1539;1602
+Aurolzmünster;<41203>;1539;1602
 Eberschwang;<41204>;1724;1720
 Eitzing;<41205>;438;437
 Geiersberg;<41206>;243;262
@@ -1276,11 +1276,11 @@ Hohenzell;<41209>;1170;1118
 Kirchdorf am Inn;<41210>;328;313
 Kirchheim im Innkreis;<41211>;389;364
 Lambrechten;<41212>;670;627
-Lohnsburg am KobernauÃŸerwald;<41213>;1089;1107
+Lohnsburg am Kobernaußerwald;<41213>;1089;1107
 Mehrnbach;<41214>;1167;1178
 Mettmach;<41215>;1200;1189
-MÃ¶rschwang;<41216>;177;159
-MÃ¼hlheim am Inn;<41217>;335;344
+Mörschwang;<41216>;177;159
+Mühlheim am Inn;<41217>;335;344
 Neuhofen im Innkreis;<41218>;1245;1253
 Obernberg am Inn;<41219>;829;826
 Ort im Innkreis;<41220>;699;633
@@ -1312,17 +1312,17 @@ Esternberg;<41409>;1425;1426
 Freinberg;<41410>;694;727
 Kopfing im Innkreis;<41411>;997;977
 Mayrhof;<41412>;164;153
-MÃ¼nzkirchen;<41413>;1288;1276
+Münzkirchen;<41413>;1288;1276
 Raab;<41414>;1137;1134
 Rainbach im Innkreis;<41415>;759;775
 Riedau;<41416>;1036;1020
 St. Aegidi;<41417>;781;756
 St. Florian am Inn;<41418>;1545;1597
-St. Marienkirchen bei SchÃ¤rding;<41419>;975;991
+St. Marienkirchen bei Schärding;<41419>;975;991
 St. Roman;<41420>;883;872
 St. Willibald;<41421>;567;551
 Schardenberg;<41423>;1231;1229
-SchÃ¤rding;<41422>;2492;2723
+Schärding;<41422>;2492;2723
 Sigharting;<41424>;432;411
 Suben;<41425>;930;611
 Taufkirchen an der Pram;<41426>;1453;1437
@@ -1351,7 +1351,7 @@ Eggendorf im Traunkreis;<41004>;566;552
 Enns;<41005>;6000;6025
 Hargelsberg;<41006>;698;728
 Hofkirchen im Traunkreis;<41008>;1027;1013
-HÃ¶rsching;<41007>;3143;3243
+Hörsching;<41007>;3143;3243
 Kematen an der Krems;<41009>;1529;1522
 Kirchberg-Thening;<41010>;1252;1317
 Kronstorf;<41011>;1767;1806
@@ -1372,16 +1372,16 @@ Eidenberg;<41604>;1079;1011
 Engerwitzdorf;<41605>;4519;4535
 Feldkirchen an der Donau;<41606>;2691;2735
 Gallneukirchen;<41607>;3212;3411
-GoldwÃ¶rth;<41608>;403;380
+Goldwörth;<41608>;403;380
 Gramastetten;<41609>;2555;2567
-HellmonsÃ¶dt;<41611>;1160;1204
+Hellmonsödt;<41611>;1160;1204
 Herzogsdorf;<41612>;1400;1305
 Kirchschlag bei Linz;<41613>;1125;1086
 Lichtenberg;<41614>;1422;1422
 Ottensheim;<41617>;2306;2494
 Puchenau;<41618>;2142;2418
-St. Gotthard im MÃ¼hlkreis;<41621>;666;669
-Sonnberg im MÃ¼hlkreis;<41623>;541;553
+St. Gotthard im Mühlkreis;<41621>;666;669
+Sonnberg im Mühlkreis;<41623>;541;553
 Steyregg;<41624>;2624;2496
 Walding;<41626>;2084;2189
 Aichkirchen;<41801>;325;310
@@ -1401,41 +1401,41 @@ Offenhausen;<41814>;870;845
 Pennewang;<41815>;479;478
 Pichl bei Wels;<41816>;1480;1484
 Sattledt;<41817>;1349;1344
-SchleiÃŸheim;<41818>;690;721
+Schleißheim;<41818>;690;721
 Sipbachzell;<41819>;1114;1097
 Stadl-Paura;<41820>;2429;2587
 Steinerkirchen an der Traun;<41821>;1254;1195
 Steinhaus;<41822>;1234;1269
 Thalheim bei Wels;<41823>;2655;2856
-WeiÃŸkirchen an der Traun;<41824>;1831;1739
+Weißkirchen an der Traun;<41824>;1831;1739
 Bad Zell;<40627>;1494;1482
 Freistadt;<40601>;3849;4123
-GrÃ¼nbach;<40602>;970;914
+Grünbach;<40602>;970;914
 Gutau;<40603>;1395;1331
-Hagenberg im MÃ¼hlkreis;<40604>;1429;1385
-Hirschbach im MÃ¼hlkreis;<40605>;585;584
+Hagenberg im Mühlkreis;<40604>;1429;1385
+Hirschbach im Mühlkreis;<40605>;585;584
 Kaltenberg;<40606>;326;279
 Kefermarkt;<40607>;1103;1073
-KÃ¶nigswiesen;<40608>;1558;1525
+Königswiesen;<40608>;1558;1525
 Lasberg;<40609>;1438;1463
 Leopoldschlag;<40610>;516;476
 Liebenau;<40611>;833;742
-Neumarkt im MÃ¼hlkreis;<40612>;1597;1578
+Neumarkt im Mühlkreis;<40612>;1597;1578
 Pierbach;<40613>;532;493
 Pregarten;<40614>;2757;2808
-Rainbach im MÃ¼hlkreis;<40615>;1533;1470
+Rainbach im Mühlkreis;<40615>;1533;1470
 Sandl;<40616>;719;648
 St. Leonhard bei Freistadt;<40617>;703;651
 St. Oswald bei Freistadt;<40618>;1507;1415
-SchÃ¶nau im MÃ¼hlkreis;<40619>;991;961
+Schönau im Mühlkreis;<40619>;991;961
 Tragwein;<40620>;1614;1519
-UnterweiÃŸenbach;<40621>;1078;1058
+Unterweißenbach;<40621>;1078;1058
 Unterweitersdorf;<40622>;1125;1062
 Waldburg;<40623>;710;715
 Wartberg ob der Aist;<40624>;2222;2183
 Weitersfelden;<40625>;542;506
 Windhaag bei Freistadt;<40626>;808;785
-Allerheiligen im MÃ¼hlkreis;<41101>;650;606
+Allerheiligen im Mühlkreis;<41101>;650;606
 Arbing;<41102>;800;753
 Bad Kreuzen;<41108>;1151;1162
 Baumgartenberg;<41103>;866;939
@@ -1447,7 +1447,7 @@ Langenstein;<41109>;1272;1263
 Luftenberg an der Donau;<41110>;2162;2200
 Mauthausen;<41111>;2435;2516
 Mitterkirchen im Machland;<41112>;895;876
-MÃ¼nzbach;<41113>;955;894
+Münzbach;<41113>;955;894
 Naarn im Machlande;<41114>;1876;1829
 Pabneukirchen;<41115>;852;827
 Perg;<41116>;4431;4573
@@ -1461,68 +1461,68 @@ Saxen;<41123>;856;867
 Schwertberg;<41124>;2662;2710
 Waldhausen im Strudengau;<41125>;1444;1407
 Windhaag bei Perg;<41126>;787;738
-Aigen-SchlÃ¤gl;<41343>;1599;1621
+Aigen-Schlägl;<41343>;1599;1621
 Altenfelden;<41304>;1202;1085
 Arnreit;<41305>;619;546
 Atzesberg;<41306>;228;209
 Auberg;<41307>;291;301
-Haslach an der MÃ¼hl;<41309>;1277;1302
+Haslach an der Mühl;<41309>;1277;1302
 Helfenberg;<41345>;795;749
-Hofkirchen im MÃ¼hlkreis;<41312>;777;752
-HÃ¶rbich;<41311>;223;185
+Hofkirchen im Mühlkreis;<41312>;777;752
+Hörbich;<41311>;223;185
 Julbach;<41313>;790;754
 Kirchberg ob der Donau;<41314>;543;514
 Klaffer am Hochficht;<41315>;668;643
-Kleinzell im MÃ¼hlkreis;<41316>;856;849
+Kleinzell im Mühlkreis;<41316>;856;849
 Kollerschlag;<41317>;799;742
-Lembach im MÃ¼hlkreis;<41318>;750;765
-Lichtenau im MÃ¼hlkreis;<41319>;250;223
+Lembach im Mühlkreis;<41318>;750;765
+Lichtenau im Mühlkreis;<41319>;250;223
 Nebelberg;<41320>;340;312
 Neufelden;<41321>;624;599
-Neustift im MÃ¼hlkreis;<41329>;737;740
+Neustift im Mühlkreis;<41329>;737;740
 Niederkappel;<41322>;518;459
 Niederwaldkirchen;<41323>;954;899
 Oberkappel;<41324>;362;340
 Oepping;<41325>;820;720
-Peilstein im MÃ¼hlviertel;<41326>;773;783
-Pfarrkirchen im MÃ¼hlkreis;<41327>;739;682
+Peilstein im Mühlviertel;<41326>;773;783
+Pfarrkirchen im Mühlkreis;<41327>;739;682
 Putzleinsdorf;<41328>;785;738
 Rohrbach-Berg;<41344>;2550;2691
 St. Johann am Wimberg;<41331>;503;503
-St. Martin im MÃ¼hlkreis;<41332>;1893;1832
+St. Martin im Mühlkreis;<41332>;1893;1832
 St. Oswald bei Haslach;<41333>;260;247
 St. Peter am Wimberg;<41334>;868;855
 St. Stefan-Afiesl;<41346>;588;535
-St. Ulrich im MÃ¼hlkreis;<41336>;349;335
-St. Veit im MÃ¼hlkreis;<41337>;664;647
+St. Ulrich im Mühlkreis;<41336>;349;335
+St. Veit im Mühlkreis;<41337>;664;647
 Sarleinsbach;<41338>;1149;1096
-Schwarzenberg am BÃ¶hmerwald;<41341>;298;279
+Schwarzenberg am Böhmerwald;<41341>;298;279
 Ulrichsberg;<41342>;1431;1434
 Bad Leonfelden;<41603>;2110;2187
-Haibach im MÃ¼hlkreis;<41610>;497;440
+Haibach im Mühlkreis;<41610>;497;440
 Oberneukirchen;<41615>;1604;1537
-Ottenschlag im MÃ¼hlkreis;<41616>;280;284
-Reichenau im MÃ¼hlkreis;<41619>;663;672
+Ottenschlag im Mühlkreis;<41616>;280;284
+Reichenau im Mühlkreis;<41619>;663;672
 Reichenthal;<41620>;759;733
 Schenkenfelden;<41622>;831;785
-VorderweiÃŸenbach;<41628>;1418;1296
+Vorderweißenbach;<41628>;1418;1296
 Zwettl an der Rodl;<41627>;856;877
 Steyr;<40201>;18572;19307
 Edlbach;<40901>;324;316
-GrÃ¼nburg;<40902>;1960;1924
+Grünburg;<40902>;1960;1924
 Hinterstoder;<40903>;426;473
 Inzersdorf im Kremstal;<40904>;979;925
 Kirchdorf an der Krems;<40905>;2239;2472
 Klaus an der Pyhrnbahn;<40906>;549;515
-KremsmÃ¼nster;<40907>;3285;3425
-Micheldorf in OberÃ¶sterreich;<40908>;3012;2948
+Kremsmünster;<40907>;3285;3425
+Micheldorf in Oberösterreich;<40908>;3012;2948
 Molln;<40909>;1848;1788
-NuÃŸbach;<40910>;1132;1155
+Nußbach;<40910>;1132;1155
 Oberschlierbach;<40911>;255;233
 Pettenbach;<40912>;2710;2680
 Ried im Traunkreis;<40913>;1460;1443
-Rosenau am HengstpaÃŸ;<40914>;331;327
-RoÃŸleithen;<40915>;938;936
+Rosenau am Hengstpaß;<40914>;331;327
+Roßleithen;<40915>;938;936
 St. Pankraz;<40916>;179;178
 Schlierbach;<40917>;1498;1400
 Spital am Pyhrn;<40918>;1141;1104
@@ -1537,7 +1537,7 @@ Bad Hall;<41503>;2741;2914
 Dietach;<41504>;1676;1652
 Gaflenz;<41505>;979;970
 Garsten;<41506>;3354;3291
-GroÃŸraming;<41507>;1350;1302
+Großraming;<41507>;1350;1302
 Laussa;<41508>;621;601
 Losenstein;<41509>;830;808
 Maria Neustift;<41510>;849;793
@@ -1551,13 +1551,13 @@ Ternberg;<41517>;1695;1672
 Waldneukirchen;<41518>;1110;1097
 Weyer;<41522>;2042;1995
 Wolfern;<41521>;1603;1682
-AltmÃ¼nster;<40701>;4787;5070
-Bad Goisern am HallstÃ¤dtersee;<40702>;3716;3812
+Altmünster;<40701>;4787;5070
+Bad Goisern am Hallstädtersee;<40702>;3716;3812
 Bad Ischl;<40703>;6708;7354
 Ebensee am Traunsee;<40704>;3657;3858
 Gmunden;<40705>;6226;7025
 Gosau;<40706>;893;927
-GrÃ¼nau im Almtal;<40707>;1011;1012
+Grünau im Almtal;<40707>;1011;1012
 Gschwandt;<40708>;1483;1454
 Hallstatt;<40709>;366;359
 Kirchham;<40710>;1121;1106
@@ -1586,9 +1586,9 @@ Innerschwand am Mondsee;<41712>;619;616
 Lenzing;<41713>;2572;2673
 Manning;<41714>;407;392
 Mondsee;<41715>;2029;2051
-Neukirchen an der VÃ¶ckla;<41716>;1318;1315
+Neukirchen an der Vöckla;<41716>;1318;1315
 Niederthalheim;<41717>;568;558
-NuÃŸdorf am Attersee;<41718>;567;564
+Nußdorf am Attersee;<41718>;567;564
 Oberhofen am Irrsee;<41719>;872;826
 Oberndorf bei Schwanenstadt;<41720>;699;667
 Oberwang;<41721>;886;865
@@ -1596,47 +1596,47 @@ Ottnang am Hausruck;<41722>;1980;1918
 Pfaffing;<41723>;770;778
 Pilsbach;<41724>;331;323
 Pitzenberg;<41725>;287;284
-PÃ¶ndorf;<41726>;1261;1161
+Pöndorf;<41726>;1261;1161
 Puchkirchen am Trattberg;<41727>;564;534
-PÃ¼hret;<41728>;319;321
+Pühret;<41728>;319;321
 Redleiten;<41729>;264;269
 Redlham;<41730>;843;792
 Regau;<41731>;3498;3338
-RÃ¼storf;<41732>;1117;1167
+Rüstorf;<41732>;1117;1167
 Rutzenham;<41733>;144;147
 St. Georgen im Attergau;<41734>;2255;2221
 St. Lorenz;<41735>;1248;1277
 Schlatt;<41736>;707;723
-SchÃ¶rfling am Attersee;<41737>;1702;1751
+Schörfling am Attersee;<41737>;1702;1751
 Schwanenstadt;<41738>;2243;2365
 Seewalchen am Attersee;<41739>;2765;2927
 Steinbach am Attersee;<41740>;431;472
-StraÃŸ im Attergau;<41741>;761;771
+Straß im Attergau;<41741>;761;771
 Tiefgraben;<41742>;2044;2001
 Timelkam;<41743>;2966;3005
 Ungenach;<41744>;752;734
 Unterach am Attersee;<41745>;761;780
-VÃ¶cklabruck;<41746>;6001;6517
-VÃ¶cklamarkt;<41747>;2572;2574
-WeiÃŸenkirchen im Attergau;<41748>;490;478
+Vöcklabruck;<41746>;6001;6517
+Vöcklamarkt;<41747>;2572;2574
+Weißenkirchen im Attergau;<41748>;490;478
 Weyregg am Attersee;<41749>;768;794
 Wolfsegg am Hausruck;<41750>;1001;1000
 Zell am Moos;<41751>;840;812
 Zell am Pettenfirst;<41752>;632;589
-GÃ¶riach;<50501>;178;167
+Göriach;<50501>;178;167
 Lessach;<50502>;284;257
 Mariapfarr;<50503>;1190;1259
 Mauterndorf;<50504>;765;839
 Muhr;<50505>;250;226
 Ramingstein;<50506>;545;490
-St. AndrÃ¤ im Lungau;<50507>;386;376
+St. Andrä im Lungau;<50507>;386;376
 St. Margarethen im Lungau;<50508>;358;352
 St. Michael im Lungau;<50509>;1715;1773
 Tamsweg;<50510>;2744;2921
 Thomatal;<50511>;188;160
 Tweng;<50512>;127;133
 Unternberg;<50513>;508;494
-WeiÃŸpriach;<50514>;153;153
+Weißpriach;<50514>;153;153
 Zederhaus;<50515>;595;573
 Altenmarkt im Pongau;<50401>;2254;2333
 Bad Gastein;<50403>;1890;2004
@@ -1648,11 +1648,11 @@ Filzmoos;<50407>;739;755
 Flachau;<50408>;1530;1469
 Forstau;<50409>;272;278
 Goldegg;<50410>;1283;1335
-GroÃŸarl;<50411>;1958;1826
-HÃ¼ttau;<50412>;747;712
-HÃ¼ttschlag;<50413>;452;454
+Großarl;<50411>;1958;1826
+Hüttau;<50412>;747;712
+Hüttschlag;<50413>;452;454
 Kleinarl;<50414>;404;409
-MÃ¼hlbach am HochkÃ¶nig;<50415>;696;730
+Mühlbach am Hochkönig;<50415>;696;730
 Pfarrwerfen;<50416>;1275;1266
 Radstadt;<50417>;2408;2473
 St. Johann im Pongau;<50418>;5582;5820
@@ -1664,9 +1664,9 @@ Wagrain;<50423>;1557;1568
 Werfen;<50424>;1552;1529
 Werfenweng;<50425>;552;526
 Bramberg am Wildkogel;<50601>;1987;2013
-Bruck an der GroÃŸglocknerstraÃŸe;<50602>;2443;2452
-Dienten am HochkÃ¶nig;<50603>;368;355
-Fusch an der GroÃŸglocknerstraÃŸe;<50604>;357;397
+Bruck an der Großglocknerstraße;<50602>;2443;2452
+Dienten am Hochkönig;<50603>;368;355
+Fusch an der Großglocknerstraße;<50604>;357;397
 Hollersbach im Pinzgau;<50605>;624;602
 Kaprun;<50606>;1510;1598
 Krimml;<50607>;419;418
@@ -1676,7 +1676,7 @@ Lofer;<50610>;1027;1075
 Maishofen;<50611>;1760;1860
 Maria Alm am Steinernen Meer;<50612>;1093;1138
 Mittersill;<50613>;2816;2894
-Neukirchen am GroÃŸvenediger;<50614>;1303;1283
+Neukirchen am Großvenediger;<50614>;1303;1283
 Niedernsill;<50615>;1357;1406
 Piesendorf;<50616>;1928;1915
 Rauris;<50617>;1502;1563
@@ -1689,12 +1689,12 @@ Unken;<50623>;950;1019
 Uttendorf;<50624>;1485;1526
 Viehhofen;<50625>;297;292
 Wald im Pinzgau;<50626>;583;550
-WeiÃŸbach bei Lofer;<50627>;212;189
+Weißbach bei Lofer;<50627>;212;189
 Zell am See;<50628>;4918;5210
 Salzburg;<50101>;74505;80826
 Abtenau;<50201>;2939;2966
 Adnet;<50202>;1829;1852
-Annaberg-LungÃ¶tz;<50203>;1123;1097
+Annaberg-Lungötz;<50203>;1123;1097
 Bad Vigaun;<50213>;1050;1077
 Golling an der Salzach;<50204>;2135;2228
 Hallein;<50205>;10392;10960
@@ -1702,14 +1702,14 @@ Krispl;<50206>;461;415
 Kuchl;<50207>;3651;3819
 Oberalm;<50208>;2112;2292
 Puch bei Hallein;<50209>;2369;2371
-RuÃŸbach am PaÃŸ GschÃ¼tt;<50210>;377;401
+Rußbach am Paß Gschütt;<50210>;377;401
 St. Koloman;<50211>;879;896
 Scheffau am Tennengebirge;<50212>;704;676
 Anif;<50301>;2060;2280
 Anthering;<50302>;1862;1863
 Bergheim;<50303>;2926;2780
 Berndorf bei Salzburg;<50304>;866;873
-BÃ¼rmoos;<50305>;2444;2519
+Bürmoos;<50305>;2444;2519
 Dorfbeuern;<50306>;793;802
 Ebenau;<50307>;728;707
 Elixhausen;<50308>;1533;1543
@@ -1717,19 +1717,19 @@ Elsbethen;<50309>;2643;2843
 Eugendorf;<50310>;3511;3642
 Faistenau;<50311>;1545;1545
 Fuschl am See;<50312>;776;844
-GÃ¶ming;<50313>;383;388
-GrÃ¶dig;<50314>;3539;3893
-GroÃŸgmain;<50315>;1263;1365
+Göming;<50313>;383;388
+Grödig;<50314>;3539;3893
+Großgmain;<50315>;1263;1365
 Hallwang;<50316>;2087;2134
 Henndorf am Wallersee;<50317>;2455;2541
 Hintersee;<50318>;231;237
 Hof bei Salzburg;<50319>;1790;1780
 Koppl;<50321>;1860;1801
-KÃ¶stendorf;<50320>;1357;1310
+Köstendorf;<50320>;1357;1310
 Lamprechtshausen;<50322>;2037;2028
 Mattsee;<50323>;1665;1801
 Neumarkt am Wallersee;<50324>;3279;3313
-NuÃŸdorf am Haunsberg;<50325>;1218;1232
+Nußdorf am Haunsberg;<50325>;1218;1232
 Oberndorf bei Salzburg;<50326>;2872;3055
 Obertrum am See;<50327>;2511;2468
 Plainfeld;<50328>;659;612
@@ -1738,7 +1738,7 @@ St. Gilgen;<50330>;2008;2057
 Schleedorf;<50331>;592;545
 Seeham;<50332>;969;1005
 Seekirchen am Wallersee;<50339>;5418;5671
-StraÃŸwalchen;<50335>;3966;3918
+Straßwalchen;<50335>;3966;3918
 Strobl;<50336>;1814;1864
 Thalgau;<50337>;3001;2990
 Wals-Siezenheim;<50338>;6631;7097
@@ -1753,11 +1753,11 @@ Elbigenalp;<70808>;445;461
 Elmen;<70809>;185;209
 Forchach;<70810>;133;125
 Gramais;<70812>;18;23
-GrÃ¤n;<70811>;315;294
-HÃ¤selgehr;<70813>;356;317
+Grän;<70811>;315;294
+Häselgehr;<70813>;356;317
 Heiterwang;<70814>;273;260
 Hinterhornbach;<70815>;52;42
-HÃ¶fen;<70816>;622;635
+Höfen;<70816>;622;635
 Holzgau;<70817>;180;193
 Jungholz;<70818>;150;144
 Kaisers;<70819>;40;37
@@ -1765,7 +1765,7 @@ Lechaschau;<70820>;1006;1065
 Lermoos;<70821>;575;562
 Musau;<70822>;189;196
 Namlos;<70823>;40;23
-NesselwÃ¤ngle;<70824>;239;223
+Nesselwängle;<70824>;239;223
 Pfafflar;<70825>;54;40
 Pflach;<70826>;803;789
 Pinswang;<70827>;207;210
@@ -1776,9 +1776,9 @@ Steeg;<70831>;337;328
 Tannheim;<70832>;570;572
 Vils;<70833>;749;742
 Vorderhornbach;<70834>;141;134
-WÃ¤ngle;<70835>;474;481
-WeiÃŸenbach am Lech;<70836>;631;634
-ZÃ¶blen;<70837>;134;113
+Wängle;<70835>;474;481
+Weißenbach am Lech;<70836>;631;634
+Zöblen;<70837>;134;113
 Innsbruck;<70101>;64307;66278
 Absam;<70301>;3562;3768
 Aldrans;<70302>;1408;1406
@@ -1786,12 +1786,12 @@ Ampass;<70303>;924;904
 Axams;<70304>;3036;3157
 Baumkirchen;<70305>;671;633
 Birgitz;<70306>;728;758
-EllbÃ¶gen;<70307>;576;567
+Ellbögen;<70307>;576;567
 Flaurling;<70308>;625;694
 Fritzens;<70309>;1069;1104
 Fulpmes;<70310>;2231;2243
 Gnadenwald;<70311>;423;419
-GÃ¶tzens;<70312>;2009;2110
+Götzens;<70312>;2009;2110
 Gries am Brenner;<70313>;683;646
 Gries im Sellrain;<70314>;310;306
 Grinzens;<70315>;729;729
@@ -1825,7 +1825,7 @@ Rum;<70346>;4480;4857
 St. Sigmund im Sellrain;<70347>;90;96
 Scharnitz;<70348>;714;675
 Schmirn;<70349>;463;424
-SchÃ¶nberg im Stubaital;<70350>;556;536
+Schönberg im Stubaital;<70350>;556;536
 Seefeld in Tirol;<70351>;1727;1789
 Sellrain;<70352>;674;676
 Sistrans;<70353>;1099;1178
@@ -1838,7 +1838,7 @@ Tulfes;<70360>;843;846
 Unterperfuss;<70361>;107;134
 Vals;<70362>;275;250
 Volders;<70365>;2286;2261
-VÃ¶ls;<70364>;3414;3624
+Völs;<70364>;3414;3624
 Wattenberg;<70366>;399;375
 Wattens;<70367>;3901;4202
 Wildermieming;<70368>;468;520
@@ -1848,24 +1848,24 @@ Ainet;<70702>;472;459
 Amlach;<70703>;249;252
 Anras;<70704>;603;619
 Assling;<70705>;903;853
-AuÃŸervillgraten;<70706>;381;358
-DÃ¶lsach;<70707>;1151;1160
+Außervillgraten;<70706>;381;358
+Dölsach;<70707>;1151;1160
 Gaimberg;<70708>;444;436
 Heinfels;<70735>;506;497
 Hopfgarten in Defereggen;<70709>;357;323
 Innervillgraten;<70710>;468;443
 Iselsberg-Stronach;<70711>;309;297
-Kals am GroÃŸglockner;<70712>;558;563
+Kals am Großglockner;<70712>;558;563
 Kartitsch;<70713>;387;366
 Lavant;<70714>;181;163
 Leisach;<70715>;352;355
 Lienz;<70716>;5543;6328
 Matrei in Osttirol;<70717>;2321;2305
 Nikolsdorf;<70718>;452;438
-NuÃŸdorf-Debant;<70719>;1668;1754
+Nußdorf-Debant;<70719>;1668;1754
 Oberlienz;<70720>;751;719
 Obertilliach;<70721>;342;324
-PrÃ¤graten am GroÃŸvenediger;<70723>;588;560
+Prägraten am Großvenediger;<70723>;588;560
 St. Jakob in Defereggen;<70724>;416;407
 St. Johann im Walde;<70725>;155;151
 St. Veit in Defereggen;<70726>;325;307
@@ -1882,11 +1882,11 @@ Imst;<70203>;5371;5548
 Imsterberg;<70204>;405;416
 Jerzens;<70205>;474;445
 Karres;<70206>;295;335
-KarrÃ¶sten;<70207>;356;346
-LÃ¤ngenfeld;<70208>;2380;2431
+Karrösten;<70207>;356;346
+Längenfeld;<70208>;2380;2431
 Mieming;<70209>;1914;2027
 Mils bei Imst;<70210>;324;301
-MÃ¶tz;<70211>;680;662
+Mötz;<70211>;680;662
 Nassereith;<70212>;1115;1083
 Obsteig;<70213>;693;707
 Oetz;<70214>;1165;1181
@@ -1895,7 +1895,7 @@ Roppen;<70216>;937;953
 St. Leonhard im Pitztal;<70217>;735;687
 Sautens;<70218>;818;814
 Silz;<70219>;1290;1290
-SÃ¶lden;<70220>;1517;1513
+Sölden;<70220>;1517;1513
 Stams;<70221>;773;775
 Tarrenz;<70222>;1389;1396
 Umhausen;<70223>;1727;1676
@@ -1903,9 +1903,9 @@ Wenns;<70224>;1068;1055
 Faggen;<70601>;183;202
 Fendels;<70602>;135;144
 Fiss;<70603>;542;511
-FlieÃŸ;<70604>;1576;1529
+Fließ;<70604>;1576;1529
 Flirsch;<70605>;498;509
-GaltÃ¼r;<70606>;380;391
+Galtür;<70606>;380;391
 Grins;<70607>;682;693
 Ischgl;<70608>;780;798
 Kappl;<70609>;1273;1266
@@ -1921,16 +1921,16 @@ Pians;<70618>;393;393
 Prutz;<70619>;881;955
 Ried im Oberinntal;<70620>;619;629
 St. Anton am Arlberg;<70621>;1187;1172
-SchÃ¶nwies;<70622>;841;891
+Schönwies;<70622>;841;891
 See;<70623>;638;621
 Serfaus;<70624>;575;579
 Spiss;<70625>;50;50
 Stanz bei Landeck;<70626>;304;269
 Strengen;<70627>;623;619
 Tobadill;<70628>;257;248
-TÃ¶sens;<70629>;356;399
+Tösens;<70629>;356;399
 Zams;<70630>;1696;1814
-Aurach bei KitzbÃ¼hel;<70401>;557;583
+Aurach bei Kitzbühel;<70401>;557;583
 Brixen im Thale;<70402>;1278;1360
 Fieberbrunn;<70403>;2306;2219
 Going am Wilden Kaiser;<70404>;962;988
@@ -1940,10 +1940,10 @@ Itter;<70407>;604;590
 Jochberg;<70408>;730;803
 Kirchberg in Tirol;<70409>;2610;2751
 Kirchdorf in Tirol;<70410>;2058;2051
-KitzbÃ¼hel;<70411>;3859;4353
-KÃ¶ssen;<70412>;2178;2277
+Kitzbühel;<70411>;3859;4353
+Kössen;<70412>;2178;2277
 Oberndorf in Tirol;<70413>;1121;1208
-Reith bei KitzbÃ¼hel;<70414>;812;913
+Reith bei Kitzbühel;<70414>;812;913
 St. Jakob in Haus;<70415>;413;409
 St. Johann in Tirol;<70416>;4669;5081
 St. Ulrich am Pillersee;<70417>;937;971
@@ -1953,7 +1953,7 @@ Westendorf;<70420>;1811;1882
 Alpbach;<70501>;1263;1267
 Angath;<70502>;506;509
 Angerberg;<70528>;969;968
-Bad HÃ¤ring;<70503>;1443;1468
+Bad Häring;<70503>;1443;1468
 Brandenberg;<70504>;810;741
 Breitenbach am Inn;<70505>;1765;1750
 Brixlegg;<70506>;1484;1560
@@ -1966,20 +1966,20 @@ Kufstein;<70513>;9534;10091
 Kundl;<70514>;2382;2479
 Langkampfen;<70515>;2101;2102
 Mariastein;<70516>;221;243
-MÃ¼nster;<70517>;1749;1763
+Münster;<70517>;1749;1763
 Niederndorf;<70518>;1372;1464
 Niederndorferberg;<70519>;379;351
 Radfeld;<70520>;1291;1273
 Rattenberg;<70521>;236;198
 Reith im Alpbachtal;<70522>;1404;1390
-RettenschÃ¶ss;<70523>;299;275
+Rettenschöss;<70523>;299;275
 Scheffau am Wilden Kaiser;<70524>;776;794
 Schwoich;<70525>;1304;1265
-SÃ¶ll;<70526>;1883;1837
+Söll;<70526>;1883;1837
 Thiersee;<70527>;1585;1537
 Walchsee;<70529>;1053;1071
-WildschÃ¶nau;<70530>;2198;2139
-WÃ¶rgl;<70531>;7012;7296
+Wildschönau;<70530>;2198;2139
+Wörgl;<70531>;7012;7296
 Achenkirch;<70901>;1118;1109
 Aschau im Zillertal;<70902>;932;945
 Brandberg;<70903>;186;183
@@ -1987,8 +1987,8 @@ Bruck am Ziller;<70904>;561;584
 Buch bei Jenbach;<70905>;1340;1266
 Eben am Achensee;<70907>;1666;1715
 Finkenberg;<70908>;719;705
-FÃ¼gen;<70909>;2069;2214
-FÃ¼genberg;<70910>;714;743
+Fügen;<70909>;2069;2214
+Fügenberg;<70910>;714;743
 Gallzein;<70911>;355;340
 Gerlos;<70912>;387;406
 Gerlosberg;<70913>;253;232
@@ -2019,23 +2019,23 @@ Weerberg;<70938>;1285;1190
 Wiesing;<70939>;1077;1102
 Zell am Ziller;<70940>;844;853
 Zellberg;<70941>;349;329
-BartholomÃ¤berg;<80101>;1199;1158
+Bartholomäberg;<80101>;1199;1158
 Blons;<80102>;183;156
 Bludenz;<80103>;7519;7437
 Bludesch;<80104>;1313;1228
 Brand;<80105>;396;374
-BÃ¼rs;<80106>;1630;1733
-BÃ¼rserberg;<80107>;288;273
+Bürs;<80106>;1630;1733
+Bürserberg;<80107>;288;273
 Dalaas;<80108>;828;833
 Fontanella;<80109>;245;221
 Gaschurn;<80110>;761;702
 Innerbraz;<80111>;498;529
-KlÃ¶sterle;<80112>;343;316
+Klösterle;<80112>;343;316
 Lech;<80113>;775;829
-LorÃ¼ns;<80114>;161;141
+Lorüns;<80114>;161;141
 Ludesch;<80115>;1840;1805
 Nenzing;<80116>;3181;3044
-NÃ¼ziders;<80117>;2409;2528
+Nüziders;<80117>;2409;2528
 Raggal;<80118>;444;438
 St. Anton im Montafon;<80119>;336;354
 St. Gallenkirch;<80120>;1105;1101
@@ -2044,15 +2044,15 @@ Schruns;<80122>;1962;2014
 Silbertal;<80123>;446;403
 Sonntag;<80124>;330;305
 Stallehr;<80125>;140;133
-ThÃ¼ringen;<80126>;1142;1133
-ThÃ¼ringerberg;<80127>;359;358
+Thüringen;<80126>;1142;1133
+Thüringerberg;<80127>;359;358
 Tschagguns;<80128>;1065;1092
 Vandans;<80129>;1368;1376
 Andelsbuch;<80202>;1327;1327
 Au;<80203>;898;904
 Bezau;<80204>;1002;1028
 Bizau;<80206>;549;578
-DamÃ¼ls;<80209>;168;164
+Damüls;<80209>;168;164
 Egg;<80211>;1810;1826
 Hittisau;<80216>;1028;1038
 Krumbach;<80221>;563;520
@@ -2063,9 +2063,9 @@ Mittelberg;<80228>;2538;2585
 Reuthe;<80230>;356;344
 Schnepfau;<80232>;246;231
 Schoppernau;<80233>;469;468
-SchrÃ¶cken;<80234>;112;98
+Schröcken;<80234>;112;98
 Schwarzenberg;<80236>;934;907
-SibratsgfÃ¤ll;<80237>;229;216
+Sibratsgfäll;<80237>;229;216
 Warth;<80239>;92;80
 Alberschwende;<80201>;1650;1558
 Bildstein;<80205>;412;394
@@ -2073,17 +2073,17 @@ Bregenz;<80207>;14308;14998
 Buch;<80208>;294;297
 Doren;<80210>;533;512
 Eichenberg;<80212>;208;205
-FuÃŸach;<80213>;2018;1910
-GaiÃŸau;<80214>;927;968
+Fußach;<80213>;2018;1910
+Gaißau;<80214>;927;968
 Hard;<80215>;6806;6987
-HÃ¶chst;<80217>;4135;4109
+Höchst;<80217>;4135;4109
 Hohenweiler;<80219>;655;697
-HÃ¶rbranz;<80218>;3247;3383
+Hörbranz;<80218>;3247;3383
 Kennelbach;<80220>;879;961
 Langen bei Bregenz;<80222>;772;757
 Lauterach;<80224>;5185;5168
 Lochau;<80226>;3051;3369
-MÃ¶ggers;<80229>;285;271
+Möggers;<80229>;285;271
 Riefensberg;<80231>;557;505
 Schwarzach;<80235>;1935;1999
 Sulzberg;<80238>;942;913
@@ -2092,26 +2092,26 @@ Dornbirn;<80301>;25121;25239
 Hohenems;<80302>;8408;8538
 Lustenau;<80303>;11646;11933
 Altach;<80401>;3407;3525
-DÃ¼ns;<80402>;210;217
-DÃ¼nserberg;<80403>;77;64
+Düns;<80402>;210;217
+Dünserberg;<80403>;77;64
 Feldkirch;<80404>;17315;17683
 Frastanz;<80405>;3306;3289
 Fraxern;<80406>;366;362
-GÃ¶fis;<80407>;1662;1671
-GÃ¶tzis;<80408>;5970;5952
+Göfis;<80407>;1662;1671
+Götzis;<80408>;5970;5952
 Klaus;<80409>;1556;1509
 Koblach;<80410>;2384;2447
 Laterns;<80411>;343;343
-MÃ¤der;<80412>;2092;2051
+Mäder;<80412>;2092;2051
 Meiningen;<80413>;1193;1181
 Rankweil;<80414>;5865;6161
-RÃ¶ns;<80415>;184;190
-RÃ¶this;<80416>;1087;1073
+Röns;<80415>;184;190
+Röthis;<80416>;1087;1073
 Satteins;<80417>;1342;1375
 Schlins;<80418>;1259;1241
 Schnifis;<80419>;422;387
 Sulz;<80420>;1278;1331
-Ãœbersaxen;<80421>;322;298
+Übersaxen;<80421>;322;298
 Viktorsberg;<80422>;207;215
 Weiler;<80423>;1114;1127
 Zwischenwasser;<80424>;1751;1604

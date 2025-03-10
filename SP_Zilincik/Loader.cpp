@@ -8,7 +8,7 @@ void Loader::loadCsv(std::string& filename)
 
 	if (!file.is_open())
 	{
-		std::cerr << "ERROR_WHILE_OPENING_FILE" << "\n";
+		std::cerr << "ERROR_WHILE_OPENING_FILE" << filename << "\n";
 		return;
 	}
 
@@ -56,5 +56,20 @@ void Loader::printCities()
 	{
 		std::cout << i+1 << ". ";
 		cities_[i].print();
+	}
+}
+
+void Loader::printCities(int year)
+{
+	std::cout << "Cities in " << year << ":\n";
+	int k = 0;
+	for (int i = 0; i < cities_.size(); i++)
+	{
+		if (cities_[i].getYear() == year)
+		{
+			k++;
+			std::cout << k << ". ";
+			cities_[i].print();
+		}
 	}
 }
