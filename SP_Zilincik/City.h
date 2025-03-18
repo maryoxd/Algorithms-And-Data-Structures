@@ -9,8 +9,6 @@ private:
 	std::string code_;
 	int male_;
 	int female_;
-	
-
 
 public:
 	City(int year,std::string name, std::string code, int male, int female);
