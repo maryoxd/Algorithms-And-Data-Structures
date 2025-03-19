@@ -13,4 +13,7 @@ public:
 	void loadCsv(std::vector<std::string>& filenames);
 	void printCities();
 	void printCities(int year);
+	std::vector<City> getCities();
+	int getSize();
+	int getSize(int year);
 };

@@ -17,5 +17,6 @@ public:
 	std::string getCode() const;
 	int getMale() const;
 	int getFemale() const;
+	int getPopulation() const;
 	void print() const;
 };

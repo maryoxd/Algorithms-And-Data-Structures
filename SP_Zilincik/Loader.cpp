@@ -73,3 +73,25 @@ void Loader::printCities(int year)
 		}
 	}
 }
+
+std::vector<City> Loader::getCities() {
+	return cities_;
+}
+
+int Loader::getSize()
+{
+	return cities_.size();
+}
+
+int Loader::getSize(int year)
+{
+	int k = 0;
+	for (int i = 0; i < cities_.size(); i++)
+	{
+		if (cities_[i].getYear() == year)
+		{
+			k++;
+		}
+	}
+	return k;
+}

@@ -28,9 +28,14 @@ int City::getFemale() const
 	return female_;
 }
 
+int City::getPopulation() const
+{
+	return male_ + female_;
+}
+
 void City::print() const
 {
-	std::cout << "City: " << name_ << " | " << code_ << " | M: " << male_ << " | F: " << female_ << " | \n";
+	std::cout << "City: " << name_ << " | " << code_ << " | M: " << male_ << " | F: " << female_ << " | " << " P: " << getPopulation() << " | " << std::endl;
 }
 
 
