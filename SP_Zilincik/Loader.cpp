@@ -27,7 +27,7 @@ void Loader::loadCsv(std::string& filename)
 	{
 		std::stringstream ss(line);
 		std::string name, code, maleString, femaleString;
-		int male, female;
+		int male, female, population;
 
 		if (std::getline(ss, name, ';') &&
 			std::getline(ss, code, ';') &&
@@ -36,7 +36,8 @@ void Loader::loadCsv(std::string& filename)
 		{
 			male = std::stoi(maleString);
 			female = std::stoi(femaleString);
-			cities_.emplace_back(year, name, code, male, female);
+			population = (male + female);
+			cities_.emplace_back(year, name, code, male, female, population);
 
 		}
 	}

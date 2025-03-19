@@ -1,7 +1,7 @@
 #include "City.h"
 
-City::City(int year, std::string name, std::string code, int male, int female)
-	: year_ (year), name_(name), code_(code), male_(male), female_(female) {}
+City::City(int year, std::string name, std::string code, int male, int female, int population)
+	: year_ (year), name_(name), code_(code), male_(male), female_(female), population_(population) {}
 
 int City::getYear() const
 {
@@ -30,12 +30,12 @@ int City::getFemale() const
 
 int City::getPopulation() const
 {
-	return male_ + female_;
+	return population_;
 }
 
 void City::print() const
 {
-	std::cout << "City: " << name_ << " | " << code_ << " | M: " << male_ << " | F: " << female_ << " | " << " P: " << getPopulation() << " | " << std::endl;
+	std::cout << "City: " << name_ << " | " << code_ << " | M: " << male_ << " | F: " << female_ << " | " << " P: " << population_ << " | " << std::endl;
 }
 
 
