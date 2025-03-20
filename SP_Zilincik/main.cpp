@@ -40,24 +40,24 @@ int main() {
 
 
 	// CUI
-	std::cout << "Vitajte v CUI, vyberte si z možností:" << std::endl;
+	std::cout << "Vitajte v CUI, vyberte si z možností:" << '\n';
 	while (true) {
-		std::cout << "1. [PREDIKÁT 1 - NÁZOV DANEJ OBCE OBSAHUJE ZADANÝ REAZEC] | [reazec]" << std::endl;
-		std::cout << "2. [PREDIKÁT 2 - CELKOVÝ POÈET OBYVATE¼OV V ZADANOM ROKU BOL <= ZADANÉMU POÈTU] | [rok] + [poèet obyvate¾ov]" << std::endl;
-		std::cout << "3. [PREDIKÁT 3 - CELKOVÝ POÈET OBYVATE¾OV V ZADANOM ROKU BOL >= ZADANÉMU POÈTU] | [rok] + [poèet obyvate¾ov]" << std::endl;
-		std::cout << "4. [VYPÍŠ VŠETKY OBCE]" << std::endl;
-		std::cout << "5. [VYPÍŠ OBCE V ZADANOM ROKU] | [rok]" << std::endl;
-		std::cout << "6. [KONIEC]" << std::endl;
-		std::cout << "Vaša možnos:" << std::endl;
+		std::cout << "1. [PREDIKÁT 1 - NÁZOV DANEJ OBCE OBSAHUJE ZADANÝ REAZEC] | [reazec]" << '\n';
+		std::cout << "2. [PREDIKÁT 2 - CELKOVÝ POÈET OBYVATE¼OV V ZADANOM ROKU BOL <= ZADANÉMU POÈTU] | [rok] + [poèet obyvate¾ov]" << '\n';
+		std::cout << "3. [PREDIKÁT 3 - CELKOVÝ POÈET OBYVATE¾OV V ZADANOM ROKU BOL >= ZADANÉMU POÈTU] | [rok] + [poèet obyvate¾ov]" << '\n';
+		std::cout << "4. [VYPÍŠ VŠETKY OBCE]" << '\n';
+		std::cout << "5. [VYPÍŠ OBCE V ZADANOM ROKU] | [rok]" << '\n';
+		std::cout << "6. [KONIEC]" << '\n';
+		std::cout << "Vaša možnos:" << '\n';
 		int choice;
 		std::cin >> choice;
 
 		switch (choice) {
 			case 1: {
-				std::cout << "Zadajte h¾adaný reazec:" << std::endl;
+				std::cout << "Zadajte h¾adaný reazec:" << '\n';
 				std::string str;
 				std::cin >> str;
-				std::cout << "Zoznam obcí, ktoré obsahujú reazec [" << str << "]:" << std::endl;
+				std::cout << "Zoznam obcí, ktoré obsahujú reazec [" << str << "]:" << '\n';
 				std::vector<City> filteredCities = algo.filter<City>(
 					cities.begin(), cities.end(),
 				[containsStr, str](const City& city) { return containsStr(city, str); }
@@ -67,19 +67,19 @@ int main() {
 					city.print();
 				}
 				
-				int size = filteredCities.size();
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << std::endl;
+				size_t size = filteredCities.size();
+				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
 				break;	
 			}
 			case 2: {
-				std::cout << "Zadajte rok:" << std::endl;
+				std::cout << "Zadajte rok:" << '\n';
 				int year;
 				std::cin >> year;
-				std::cout << "Zadajte maximálny poèet obyvate¾ov:" << std::endl;
+				std::cout << "Zadajte maximálny poèet obyvate¾ov:" << '\n';
 				int maxResidents;
 				std::cin >> maxResidents;
-				std::cout << std::endl;
-				std::cout << "Zoznam obcí, ktoré v roku [" << year << "] majú maximálne [" << maxResidents << "] obyvate¾ov:" << std::endl;
+				std::cout << "Zoznam obcí, ktoré v roku [" << year << "] majú <= [" << maxResidents << "] obyvate¾ov:" << '\n';
+					
 				std::vector<City> filteredCities = algo.filter<City>(
 					cities.begin(), cities.end(),
 					[hasMaxResidents, year, maxResidents](const City& city) { return hasMaxResidents(city, year, maxResidents); }
@@ -89,19 +89,20 @@ int main() {
 					city.print();
 				}
 
-				int size = filteredCities.size();
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << std::endl;
+				size_t size = filteredCities.size();
+				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
 				break;
 
 			}
 			case 3: {
-				std::cout << "Zadajte rok:" << std::endl;
+				std::cout << "Zadajte rok:" << '\n';
 				int year;
 				std::cin >> year;
-				std::cout << "Zadajte minimálny poèet obyvate¾ov:" << std::endl;
+				std::cout << "Zadajte minimálny poèet obyvate¾ov:" << '\n';
 				int minResidents;
 				std::cin >> minResidents;
-				std::cout << "Zoznam obcí, ktoré v roku [" << year << "] majú maximálne [" << minResidents << "] obyvate¾ov:" << std::endl;
+				std::cout << "Zoznam obcí, ktoré v roku [" << year << "] majú >= [" << minResidents << "] obyvate¾ov:" << '\n';
+					
 				std::vector<City> filteredCities = algo.filter<City>(
 					cities.begin(), cities.end(),
 					[hasMinResidents, year, minResidents](const City& city) { return hasMinResidents(city, year, minResidents); }
@@ -111,33 +112,34 @@ int main() {
 					city.print();
 				}
 
-				int size = filteredCities.size();
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << std::endl;
+				size_t size = filteredCities.size();
+				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
 				break;
 			}
 			case 4: {
-				std::cout << "Všetky obce:" << std::endl;
+				std::cout << "Všetky obce:" << '\n';
 				loader.printCities();
 
 				int size = loader.getSize();
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << std::endl;
+				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
 				break;
 			}
 			case 5: {
-				std::cout << "Zadajte rok:" << std::endl;
+				std::cout << "Zadajte rok:" << '\n';
 				int year;
 				std::cin >> year;
-				std::cout << "Obce v roku [" << year << "]:" << std::endl;
+				std::cout << "Obce v roku [" << year << "]:" << '\n';
 				loader.printCities(year);
 
 				int size = loader.getSize(year);
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << std::endl;
+				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
 				break;
 			}
 			case 6: {
-				std::cout << "Ukonèujem program." << std::endl;
+				std::cout << "Ukonèujem program." << '\n';
 				return 0;
 			}
+		default: ;
 		}
 		std::cout << "\n";
 	}

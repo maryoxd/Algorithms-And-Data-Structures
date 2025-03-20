@@ -35,7 +35,8 @@ int City::getPopulation() const
 
 void City::print() const
 {
-	std::cout << "City: " << name_ << " | " << code_ << " | M: " << male_ << " | F: " << female_ << " | " << " P: " << population_ << " | " << std::endl;
+	std::cout << "City: " << name_ << " | " << code_ << " | M: " << male_ << " | F: " << female_ << " | " << " P: " << population_ << " | " << '\n';
+		
 }
 
 

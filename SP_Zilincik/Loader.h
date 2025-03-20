@@ -1,3 +1,4 @@
+#pragma once
 #include "City.h"
 #include <vector>
 #include <string>
@@ -12,8 +13,8 @@ public:
 	void loadCsv(std::string& filename);
 	void loadCsv(std::vector<std::string>& filenames);
 	void printCities();
-	void printCities(int year);
+	void printCities(int year) const;
 	std::vector<City> getCities();
-	int getSize();
-	int getSize(int year);
+	size_t getSize() const;
+	int getSize(int year) const;
 };

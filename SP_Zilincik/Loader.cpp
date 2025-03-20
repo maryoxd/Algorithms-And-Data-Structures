@@ -27,13 +27,15 @@ void Loader::loadCsv(std::string& filename)
 	{
 		std::stringstream ss(line);
 		std::string name, code, maleString, femaleString;
-		int male, female, population;
 
 		if (std::getline(ss, name, ';') &&
 			std::getline(ss, code, ';') &&
 			std::getline(ss, maleString, ';') &&
 			std::getline(ss, femaleString, ';'))
 		{
+			int population;
+			int female;
+			int male;
 			male = std::stoi(maleString);
 			female = std::stoi(femaleString);
 			population = (male + female);
@@ -45,9 +47,9 @@ void Loader::loadCsv(std::string& filename)
 
 void Loader::loadCsv(std::vector<std::string>& filenames)
 {
-	for (int i = 0; i < filenames.size(); i++)
+	for (auto& filename : filenames)
 	{
-		loadCsv(filenames[i]);
+		loadCsv(filename);
 	}
 }
 
@@ -60,17 +62,17 @@ void Loader::printCities()
 	}
 }
 
-void Loader::printCities(int year)
+void Loader::printCities(int year) const
 {
 	std::cout << "Cities in " << year << ":\n";
 	int k = 0;
-	for (int i = 0; i < cities_.size(); i++)
+	for (const auto& city : cities_)
 	{
-		if (cities_[i].getYear() == year)
+		if (city.getYear() == year)
 		{
 			k++;
 			std::cout << k << ". ";
-			cities_[i].print();
+			city.print();
 		}
 	}
 }
@@ -79,17 +81,17 @@ std::vector<City> Loader::getCities() {
 	return cities_;
 }
 
-int Loader::getSize()
+size_t Loader::getSize() const
 {
-	return cities_.size();
+	return cities_.size(); 
 }
 
-int Loader::getSize(int year)
+int Loader::getSize(int year) const
 {
 	int k = 0;
-	for (int i = 0; i < cities_.size(); i++)
+	for (const auto& city : cities_)
 	{
-		if (cities_[i].getYear() == year)
+		if (city.getYear() == year)
 		{
 			k++;
 		}
