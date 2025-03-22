@@ -39,7 +39,7 @@ void Loader::loadCsv(std::string& filename)
 			male = std::stoi(maleString);
 			female = std::stoi(femaleString);
 			population = (male + female);
-			cities_.emplace_back(year, name, code, male, female, population);
+			villages_.emplace_back(year, name, code, male, female, population);
 
 		}
 	}
@@ -53,45 +53,45 @@ void Loader::loadCsv(std::vector<std::string>& filenames)
 	}
 }
 
-void Loader::printCities()
+void Loader::printVillages()
 {
-	for (int i = 0; i < cities_.size(); i++)
+	for (size_t i = 0; i < villages_.size(); i++)
 	{
 		std::cout << i+1 << ". ";
-		cities_[i].print();
+		villages_[i].print();
 	}
 }
 
-void Loader::printCities(int year) const
+void Loader::printVillages(int year) const
 {
 	std::cout << "Cities in " << year << ":\n";
 	int k = 0;
-	for (const auto& city : cities_)
+	for (const auto& village : villages_)
 	{
-		if (city.getYear() == year)
+		if (village.getYear() == year)
 		{
 			k++;
 			std::cout << k << ". ";
-			city.print();
+			village.print();
 		}
 	}
 }
 
-std::vector<City> Loader::getCities() {
-	return cities_;
+std::vector<Village> Loader::getVillages() {
+	return villages_;
 }
 
 size_t Loader::getSize() const
 {
-	return cities_.size(); 
+	return villages_.size(); 
 }
 
-int Loader::getSize(int year) const
+size_t Loader::getSize(int year) const
 {
 	int k = 0;
-	for (const auto& city : cities_)
+	for (const auto& village : villages_)
 	{
-		if (city.getYear() == year)
+		if (village.getYear() == year)
 		{
 			k++;
 		}

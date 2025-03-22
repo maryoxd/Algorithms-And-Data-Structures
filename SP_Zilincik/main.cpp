@@ -2,27 +2,12 @@
 #include "Loader.h"
 #include <Windows.h>
 #include "Algoritmus.h"
+#include "Predicates.h"
 
 
 int main() {
 	SetConsoleOutputCP(1250);
 	SetConsoleCP(1250);
-
-	// PREDICATES
-
-	auto containsStr = [](const City& city, std::string str) {
-		return city.getName().find(str) != std::string::npos;
-		};
-
-	auto hasMaxResidents = [](const City& city, int year, int maxResidents) {
-		return city.getYear() == year && city.getPopulation() <= maxResidents;
-		};
-
-	auto hasMinResidents = [](const City& city, int year, int minResidents) {
-		return city.getYear() == year && city.getPopulation() >= minResidents;
-		};
-
-	// PREDICATES
 
 	Loader loader;
 	std::string filename1 = "2020.csv";
@@ -34,15 +19,15 @@ int main() {
 	std::vector<std::string> filenames = { filename1, filename2, filename3, filename4, filename5 };
 
 	loader.loadCsv(filenames);
-	
-	std::vector<City> cities = loader.getCities();
+
+	std::vector<Village> Villages = loader.getVillages();
 	Algoritmus algo;
 
 
 	// CUI
-	std::cout << "Vitajte v CUI, vyberte si z možností:" << '\n';
+	std::cout << "Vitajte v CLI, vyberte si z možností:" << '\n';
 	while (true) {
-		std::cout << "1. [PREDIKÁT 1 - NÁZOV DANEJ OBCE OBSAHUJE ZADANÝ REAZEC] | [reazec]" << '\n';
+		std::cout << "\n1. [PREDIKÁT 1 - NÁZOV DANEJ OBCE OBSAHUJE ZADANÝ REAZEC] | [reazec]" << '\n';
 		std::cout << "2. [PREDIKÁT 2 - CELKOVÝ POÈET OBYVATE¼OV V ZADANOM ROKU BOL <= ZADANÉMU POÈTU] | [rok] + [poèet obyvate¾ov]" << '\n';
 		std::cout << "3. [PREDIKÁT 3 - CELKOVÝ POÈET OBYVATE¾OV V ZADANOM ROKU BOL >= ZADANÉMU POÈTU] | [rok] + [poèet obyvate¾ov]" << '\n';
 		std::cout << "4. [VYPÍŠ VŠETKY OBCE]" << '\n';
@@ -53,98 +38,98 @@ int main() {
 		std::cin >> choice;
 
 		switch (choice) {
-			case 1: {
-				std::cout << "Zadajte h¾adaný reazec:" << '\n';
-				std::string str;
-				std::cin >> str;
+		case 1: {
+			std::cout << "Zadajte h¾adaný reazec:" << '\n';
+			std::string str;
+			std::cin >> str;
+			std::cout << "Chcete filtrova aj pod¾a roka? [ano / nie]" << '\n';
+			std::string volba;
+			std::cin >> volba;
+			if (volba == "ano") {
+				std::cout << "Zadajte rok:" << '\n';
+				int year;
+				std::cin >> year;
+				std::cout << "Zoznam obcí, ktoré obsahujú reazec [" << str << "] a sú z roku [" << year << "]:" << '\n';
+
+				std::vector<Village> filteredVillage = algo.FilterWithContainsStr(Villages, str, year);
+				algo.PrintItems(filteredVillage.begin(), filteredVillage.end());
+				size_t size = filteredVillage.size();
+				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
+				break;
+			}
+			if (volba == "nie") {
 				std::cout << "Zoznam obcí, ktoré obsahujú reazec [" << str << "]:" << '\n';
-				std::vector<City> filteredCities = algo.filter<City>(
-					cities.begin(), cities.end(),
-				[containsStr, str](const City& city) { return containsStr(city, str); }
-					);
 
-				for (const auto& city : filteredCities) {
-					city.print();
-				}
-				
-				size_t size = filteredCities.size();
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
-				break;	
-			}
-			case 2: {
-				std::cout << "Zadajte rok:" << '\n';
-				int year;
-				std::cin >> year;
-				std::cout << "Zadajte maximálny poèet obyvate¾ov:" << '\n';
-				int maxResidents;
-				std::cin >> maxResidents;
-				std::cout << "Zoznam obcí, ktoré v roku [" << year << "] majú <= [" << maxResidents << "] obyvate¾ov:" << '\n';
-					
-				std::vector<City> filteredCities = algo.filter<City>(
-					cities.begin(), cities.end(),
-					[hasMaxResidents, year, maxResidents](const City& city) { return hasMaxResidents(city, year, maxResidents); }
-				);
+				std::vector<Village> filteredVillage = algo.FilterWithContainsStr(Villages, str);
+				algo.PrintItems(filteredVillage.begin(), filteredVillage.end());
+				size_t size = filteredVillage.size();
 
-				for (const auto& city : filteredCities) {
-					city.print();
-				}
-
-				size_t size = filteredCities.size();
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
-				break;
-
-			}
-			case 3: {
-				std::cout << "Zadajte rok:" << '\n';
-				int year;
-				std::cin >> year;
-				std::cout << "Zadajte minimálny poèet obyvate¾ov:" << '\n';
-				int minResidents;
-				std::cin >> minResidents;
-				std::cout << "Zoznam obcí, ktoré v roku [" << year << "] majú >= [" << minResidents << "] obyvate¾ov:" << '\n';
-					
-				std::vector<City> filteredCities = algo.filter<City>(
-					cities.begin(), cities.end(),
-					[hasMinResidents, year, minResidents](const City& city) { return hasMinResidents(city, year, minResidents); }
-				);
-
-				for (const auto& city : filteredCities) {
-					city.print();
-				}
-
-				size_t size = filteredCities.size();
 				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
 				break;
 			}
-			case 4: {
-				std::cout << "Všetky obce:" << '\n';
-				loader.printCities();
-
-				int size = loader.getSize();
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
-				break;
-			}
-			case 5: {
-				std::cout << "Zadajte rok:" << '\n';
-				int year;
-				std::cin >> year;
-				std::cout << "Obce v roku [" << year << "]:" << '\n';
-				loader.printCities(year);
-
-				int size = loader.getSize(year);
-				std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
-				break;
-			}
-			case 6: {
-				std::cout << "Ukonèujem program." << '\n';
-				return 0;
-			}
-		default: ;
+			std::cout << "Nesprávna vo¾ba." << '\n';
+			break;
 		}
-		std::cout << "\n";
+
+		case 2: {
+			std::cout << "Zadajte rok:" << '\n';
+			int year;
+			std::cin >> year;
+			std::cout << "Zadajte maximálny poèet obyvate¾ov:" << '\n';
+			int maxResidents;
+			std::cin >> maxResidents;
+			std::cout << "Zoznam obcí, ktoré v roku [" << year << "] majú <= [" << maxResidents << "] obyvate¾ov:" << '\n';
+
+			std::vector<Village> filteredVillage = algo.FilterWithHasMaxResidents(Villages, year, maxResidents);
+			algo.PrintItems(filteredVillage.begin(), filteredVillage.end());
+			size_t size = filteredVillage.size();
+
+			std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
+			break;
+
+		}
+		case 3: {
+			std::cout << "Zadajte rok:" << '\n';
+			int year;
+			std::cin >> year;
+			std::cout << "Zadajte minimálny poèet obyvate¾ov:" << '\n';
+			int minResidents;
+			std::cin >> minResidents;
+			std::cout << "Zoznam obcí, ktoré v roku [" << year << "] majú >= [" << minResidents << "] obyvate¾ov:" << '\n';
+
+			std::vector<Village> filteredVillage = algo.FilterWithHasMinResidents(Villages, year, minResidents);
+			algo.PrintItems(filteredVillage.begin(), filteredVillage.end());
+			size_t size = filteredVillage.size();
+
+			std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
+			break;
+		}
+		case 4: {
+			std::cout << "Všetky obce:" << '\n';
+			loader.printVillages();
+
+			size_t size = loader.getSize();
+			std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
+			break;
+		}
+		case 5: {
+			std::cout << "Zadajte rok:" << '\n';
+			int year;
+			std::cin >> year;
+			std::cout << "Obce v roku [" << year << "]:" << '\n';
+			loader.printVillages(year);
+
+			size_t size = loader.getSize(year);
+			std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';
+			break;
+		}
+		case 6: {
+			std::cout << "Ukonèujem program." << '\n';
+			return 0;
+		}
+		default:
+			std::cout << "Ukonèujem program,\n";
+		}
+		
 	}
-
-	// CUI
-
-	
 }

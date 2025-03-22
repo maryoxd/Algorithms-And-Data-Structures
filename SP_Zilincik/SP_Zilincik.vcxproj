@@ -131,13 +131,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="City.cpp" />
+    <ClCompile Include="Village.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algoritmus.h" />
-    <ClInclude Include="City.h" />
+    <ClInclude Include="Predicates.h" />
+    <ClInclude Include="Village.h" />
     <ClInclude Include="Loader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

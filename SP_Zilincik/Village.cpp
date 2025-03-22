@@ -1,39 +1,39 @@
-#include "City.h"
+#include "Village.h"
 
-City::City(int year, std::string name, std::string code, int male, int female, int population)
+Village::Village(int year, std::string name, std::string code, int male, int female, int population)
 	: year_ (year), name_(name), code_(code), male_(male), female_(female), population_(population) {}
 
-int City::getYear() const
+int Village::getYear() const
 {
 	return year_;
 }
 
-std::string City::getName() const
+std::string Village::getName() const
 {
 	return name_;
 }
 
-std::string City::getCode() const
+std::string Village::getCode() const
 {
 	return code_;
 }
 
-int City::getMale() const
+int Village::getMale() const
 {
 	return male_;
 }
 
-int City::getFemale() const
+int Village::getFemale() const
 {
 	return female_;
 }
 
-int City::getPopulation() const
+int Village::getPopulation() const
 {
 	return population_;
 }
 
-void City::print() const
+void Village::print() const
 {
 	std::cout << "City: " << name_ << " | " << code_ << " | M: " << male_ << " | F: " << female_ << " | " << " P: " << population_ << " | " << '\n';
 		

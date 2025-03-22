@@ -16,32 +16,35 @@
     <Filter Include="Source Files\SP_1">
       <UniqueIdentifier>{e5655cc5-b7a0-4864-92e1-454eb5072b98}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\SP_1\City">
-      <UniqueIdentifier>{8f09bbe9-bd18-4026-9f2f-c122b11df0e0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SP_1\Loader">
       <UniqueIdentifier>{6c729690-20c1-460f-8122-778c1b3cb583}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SP_1\Village">
+      <UniqueIdentifier>{8f09bbe9-bd18-4026-9f2f-c122b11df0e0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="City.cpp">
-      <Filter>Source Files\SP_1\City</Filter>
+    <ClCompile Include="Village.cpp">
+      <Filter>Source Files\SP_1\Village</Filter>
     </ClCompile>
     <ClCompile Include="Loader.cpp">
       <Filter>Source Files\SP_1\Loader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="City.h">
+    <ClInclude Include="Village.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Loader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Algoritmus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Predicates.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

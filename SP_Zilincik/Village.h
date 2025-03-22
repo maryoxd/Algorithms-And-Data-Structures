@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-class City
+class Village
 {
 private:
 	int year_;
@@ -13,7 +13,7 @@ private:
 	int population_;
 
 public:
-	City(int year,std::string name, std::string code, int male, int female, int population);
+	Village(int year,std::string name, std::string code, int male, int female, int population);
 	int getYear() const;
 	std::string getName() const;
 	std::string getCode() const;
