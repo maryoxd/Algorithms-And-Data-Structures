@@ -2,8 +2,14 @@
 #include "Loader.h"
 #include <Windows.h>
 #include "Algoritmus.h"
-#include "Predicates.h"
-
+#define TEXT_0 "Vitajte v CLI, vyberte si z moûnostÌ:\n" 
+#define TEXT_1 "\n1. [PREDIK¡T 1 - N¡ZOV DANEJ OBCE OBSAHUJE ZADAN› REçAZEC] | [reùazec] [VOºBA -> rok]\n"
+#define TEXT_2 "2. [PREDIK¡T 2 - CELKOV› PO»ET OBYVATEºOV V ZADANOM ROKU BOL <= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]\n"
+#define TEXT_3 "3. [PREDIK¡T 3 - CELKOV› PO»ET OBYVATEæOV V ZADANOM ROKU BOL >= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]\n" 
+#define TEXT_4 "4. [VYPÕä VäETKY OBCE]\n" 
+#define TEXT_5 "5. [VYPÕä OBCE V ZADANOM ROKU] | [rok]\n"
+#define TEXT_6 "6. [KONIEC]\n" 
+#define TEXT_7 "Vaöa moûnosù:\n"
 
 int main() {
 	SetConsoleOutputCP(1250);
@@ -25,15 +31,15 @@ int main() {
 
 
 	// CUI
-	std::cout << "Vitajte v CLI, vyberte si z moûnostÌ:" << '\n';
+	std::cout << TEXT_0;
 	while (true) {
-		std::cout << "\n1. [PREDIK¡T 1 - N¡ZOV DANEJ OBCE OBSAHUJE ZADAN› REçAZEC] | [reùazec]" << '\n';
-		std::cout << "2. [PREDIK¡T 2 - CELKOV› PO»ET OBYVATEºOV V ZADANOM ROKU BOL <= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]" << '\n';
-		std::cout << "3. [PREDIK¡T 3 - CELKOV› PO»ET OBYVATEæOV V ZADANOM ROKU BOL >= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]" << '\n';
-		std::cout << "4. [VYPÕä VäETKY OBCE]" << '\n';
-		std::cout << "5. [VYPÕä OBCE V ZADANOM ROKU] | [rok]" << '\n';
-		std::cout << "6. [KONIEC]" << '\n';
-		std::cout << "Vaöa moûnosù:" << '\n';
+		std::cout << TEXT_1;
+		std::cout << TEXT_2;
+		std::cout << TEXT_3;
+		std::cout << TEXT_4;
+		std::cout << TEXT_5;
+		std::cout << TEXT_6;
+		std::cout << TEXT_7;
 		int choice;
 		std::cin >> choice;
 
@@ -109,7 +115,7 @@ int main() {
 			loader.printVillages();
 
 			size_t size = loader.getSize();
-			std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n';
+			std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n'; 
 			break;
 		}
 		case 5: {
@@ -120,7 +126,7 @@ int main() {
 			loader.printVillages(year);
 
 			size_t size = loader.getSize(year);
-			std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n';
+			std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n';  
 			break;
 		}
 		case 6: {
@@ -128,7 +134,7 @@ int main() {
 			return 0;
 		}
 		default:
-			std::cout << "UkonËujem program,\n";
+			std::cout << "UkonËujem program.\n";
 		}
 		
 	}
