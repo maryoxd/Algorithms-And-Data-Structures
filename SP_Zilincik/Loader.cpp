@@ -53,28 +53,29 @@ void Loader::loadCsv(std::vector<std::string>& filenames)
 	}
 }
 
-void Loader::printVillages()
+std::string Loader::toString()
 {
-	for (size_t i = 0; i < villages_.size(); i++)
+	std::ostringstream oss;
+	for (size_t i = 0; i < villages_.size(); ++i)
 	{
-		std::cout << i+1 << ". ";
-		villages_[i].print();
+		oss << i + 1 << ". " << villages_[i].toString() << "\n";
 	}
+	return oss.str();
 }
 
-void Loader::printVillages(int year) const
+std::string Loader::toString(int year) const
 {
-	std::cout << "Cities in " << year << ":\n";
+	std::ostringstream oss;
+	oss << "Cities in " << year << ":\n";
 	int k = 0;
 	for (const auto& village : villages_)
 	{
 		if (village.getYear() == year)
 		{
-			k++;
-			std::cout << k << ". ";
-			village.print();
+			oss << ++k << ". " << village.toString() << "\n";
 		}
 	}
+	return oss.str();
 }
 
 std::vector<Village> Loader::getVillages() {

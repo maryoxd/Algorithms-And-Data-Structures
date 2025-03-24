@@ -67,6 +67,6 @@ void Algoritmus::PrintItems(Iterator begin, Iterator end)
 {
 	for (auto it = begin; it != end; ++it)
 	{
-		it->print();
+		std::cout << it->toString() << '\n';
 	}
 }

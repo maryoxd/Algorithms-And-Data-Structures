@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 
+
 class Village
 {
 private:
@@ -20,5 +21,5 @@ public:
 	int getMale() const;
 	int getFemale() const;
 	int getPopulation() const;
-	void print() const;
+	std::string toString() const;
 };

@@ -112,7 +112,7 @@ int main() {
 		}
 		case 4: {
 			std::cout << "Všetky obce:" << '\n';
-			loader.printVillages();
+			std::cout << loader.toString();
 
 			size_t size = loader.getSize();
 			std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n'; 
@@ -123,7 +123,7 @@ int main() {
 			int year;
 			std::cin >> year;
 			std::cout << "Obce v roku [" << year << "]:" << '\n';
-			loader.printVillages(year);
+			std::cout << loader.toString(year);
 
 			size_t size = loader.getSize(year);
 			std::cout << "Obce boli vypísané. Poèet: [" << size << "] " << '\n';  

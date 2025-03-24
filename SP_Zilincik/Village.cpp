@@ -1,4 +1,5 @@
 #include "Village.h"
+#include <sstream>
 
 Village::Village(int year, std::string name, std::string code, int male, int female, int population)
 	: year_ (year), name_(name), code_(code), male_(male), female_(female), population_(population) {}
@@ -33,10 +34,16 @@ int Village::getPopulation() const
 	return population_;
 }
 
-void Village::print() const
+std::string Village::toString() const
 {
-	std::cout << "City: " << name_ << " | " << code_ << " | M: " << male_ << " | F: " << female_ << " | " << " P: " << population_ << " | " << '\n';
-		
+	std::ostringstream oss;
+	oss << "City: " << name_
+		<< " | " << code_
+		<< " | M: " << male_
+		<< " | F: " << female_
+		<< " | P: " << population_;
+	return oss.str();
 }
+
 
 
