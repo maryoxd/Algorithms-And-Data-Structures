@@ -2,14 +2,15 @@
 #include "Loader.h"
 #include <Windows.h>
 #include "Algoritmus.h"
-#define TEXT_0 "Vitajte v CLI, vyberte si z moûnostÌ:\n" 
-#define TEXT_1 "\n1. [PREDIK¡T 1 - N¡ZOV DANEJ OBCE OBSAHUJE ZADAN› REçAZEC] | [reùazec] [VOºBA -> rok]\n"
-#define TEXT_2 "2. [PREDIK¡T 2 - CELKOV› PO»ET OBYVATEºOV V ZADANOM ROKU BOL <= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]\n"
-#define TEXT_3 "3. [PREDIK¡T 3 - CELKOV› PO»ET OBYVATEæOV V ZADANOM ROKU BOL >= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]\n" 
-#define TEXT_4 "4. [VYPÕä VäETKY OBCE]\n" 
-#define TEXT_5 "5. [VYPÕä OBCE V ZADANOM ROKU] | [rok]\n"
-#define TEXT_6 "6. [KONIEC]\n" 
-#define TEXT_7 "Vaöa moûnosù:\n"
+
+constexpr const char* TEXT_0 = "Vitajte v CLI, vyberte si z moûnostÌ:\n";
+constexpr const char* TEXT_1 = "\n1. [PREDIK¡T 1 - N¡ZOV DANEJ OBCE OBSAHUJE ZADAN› REçAZEC] | [reùazec] [VOºBA -> rok]\n";
+constexpr const char* TEXT_2 = "2. [PREDIK¡T 2 - CELKOV› PO»ET OBYVATEºOV V ZADANOM ROKU BOL <= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]\n";
+constexpr const char* TEXT_3 = "3. [PREDIK¡T 3 - CELKOV› PO»ET OBYVATEæOV V ZADANOM ROKU BOL >= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]\n";
+constexpr const char* TEXT_4 = "4. [VYPÕä VäETKY OBCE]\n" ;
+constexpr const char* TEXT_5 = "5. [VYPÕä OBCE V ZADANOM ROKU] | [rok]\n";
+constexpr const char* TEXT_6 = "6. [KONIEC]\n" ;
+constexpr const char* TEXT_7 = "Vaöa moûnosù:\n";
 
 int main() {
 	SetConsoleOutputCP(1250);
@@ -136,6 +137,5 @@ int main() {
 		default:
 			std::cout << "UkonËujem program.\n";
 		}
-		
 	}
 }
