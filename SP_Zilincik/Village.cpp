@@ -37,7 +37,7 @@ int Village::getPopulation() const
 std::string Village::toString() const
 {
 	std::ostringstream oss;
-	oss << "City: " << name_
+	oss << "Village: " << name_
 		<< " | " << code_
 		<< " | M: " << male_
 		<< " | F: " << female_

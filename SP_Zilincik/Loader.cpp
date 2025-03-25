@@ -33,9 +33,10 @@ void Loader::loadCsv(std::string& filename)
 			std::getline(ss, maleString, ';') &&
 			std::getline(ss, femaleString, ';'))
 		{
-			int population;
+			
 			int female;
 			int male;
+			int population;
 			male = std::stoi(maleString);
 			female = std::stoi(femaleString);
 			population = (male + female);
