@@ -66,7 +66,6 @@ std::string Loader::toString()
 std::string Loader::toString(int year) const
 {
 	std::ostringstream oss;
-	oss << "Cities in " << year << ":\n";
 	int k = 0;
 	for (const auto& village : villages_)
 	{
