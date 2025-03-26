@@ -96,7 +96,7 @@ namespace ds::amt {
 		size_t indexOfLast = this->size() - 1;
 		size_t lastLevel = this->level(indexOfLast);
 
-		if (currentLevel = lastLevel) {
+		if (currentLevel == lastLevel) {
 			return 0;
 		}
 
@@ -114,7 +114,6 @@ namespace ds::amt {
 
 		size_t mod = indexOfLast % K;
 		return mod == 0 ? K : mod;
-
 
 	}
 
@@ -198,7 +197,7 @@ namespace ds::amt {
 	template<typename DataType, size_t K>
     MemoryBlock<DataType>& ImplicitHierarchy<DataType, K>::insertLastLeaf()
 	{
-		this->getMemoryManager()->allocateMemory();
+		return *this->getMemoryManager()->allocateMemory();
 	}
 
 	template<typename DataType, size_t K>

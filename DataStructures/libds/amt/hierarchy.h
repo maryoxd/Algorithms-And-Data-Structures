@@ -279,9 +279,22 @@ namespace ds::amt {
 	template<typename BlockType>
     void Hierarchy<BlockType>::processPostOrder(BlockType* node, std::function<void(BlockType*)> operation) const
 	{
-		// TODO 05
-		// po implementacii vymazte vyhodenie vynimky!
-		throw std::runtime_error("Not implemented yet");
+		if (node != nullptr) {
+			int degree = this->degree(*node);
+			int sonIndex = 0;
+			int sonsProcessed = 0;
+
+			while (sonsProcessed < degree) {
+				BlockType* son = accessSon(*node, sonIndex);
+				if (son != nullptr) {
+					processPostOrder(son, operation);
+					sonsProcessed++;
+				}
+				sonIndex++;
+			}
+			operation(node);
+
+		}
 	}
 
 	template<typename BlockType>
@@ -319,9 +332,10 @@ namespace ds::amt {
 	template<typename BlockType>
     void BinaryHierarchy<BlockType>::processInOrder(const BlockType* node, std::function<void(const BlockType*)> operation) const
 	{
-		// TODO 05
-		// po implementacii vymazte vyhodenie vynimky!
-		throw std::runtime_error("Not implemented yet");
+		if (node != nullptr) {
+			processInOrder(accessLeftSon(*node), operation);
+			processInOrder(accessRightSon(*node), operation);
+		}
 	}
 
 	template<typename BlockType>
@@ -463,9 +477,20 @@ namespace ds::amt {
 	template<typename BlockType>
     typename Hierarchy<BlockType>::PreOrderHierarchyIterator& Hierarchy<BlockType>::PreOrderHierarchyIterator::operator++()
 	{
-		// TODO 05
-		// po implementacii vymazte vyhodenie vynimky!
-		throw std::runtime_error("Not implemented yet");
+		if (this->tryFindNextSonInCurrentPosition())
+		{
+			this->savePosition(this->currentPosition_->currentSon_);
+		}
+		else
+		{
+			this->removePosition();
+			if (this->currentPosition_ != nullptr)
+			{
+				++(*this);
+			}
+		}
+
+		return *this;
 	}
 
 	template<typename BlockType>
@@ -488,9 +513,24 @@ namespace ds::amt {
 	template<typename BlockType>
     typename Hierarchy<BlockType>::PostOrderHierarchyIterator& Hierarchy<BlockType>::PostOrderHierarchyIterator::operator++()
 	{
-		// TODO 05
-		// po implementacii vymazte vyhodenie vynimky!
-		throw std::runtime_error("Not implemented yet");
+		if (!this->currentPosition_->currentNodeProcessed_ && this->tryFindNextSonInCurrentPosition())
+		{
+			this->savePosition(this->currentPosition_->currentSon_);
+			++(*this);
+		}
+		else
+		{
+			if (this->currentPosition_->currentNodeProcessed_)
+			{
+				this->removePosition();
+				if (this->currentPosition_ != nullptr)
+				{
+					++(*this);
+				}
+			}
+		}
+
+		return *this;
 	}
 
     template <typename BlockType>
@@ -621,9 +661,32 @@ namespace ds::amt {
 	template<typename BlockType>
     typename BinaryHierarchy<BlockType>::InOrderHierarchyIterator& BinaryHierarchy<BlockType>::InOrderHierarchyIterator::operator++()
 	{
-		// TODO 05
-		// po implementacii vymazte vyhodenie vynimky!
-		throw std::runtime_error("Not implemented yet");
+		if (!this->currentPosition_->currentNodeProcessed_)
+		{
+			if (this->currentPosition_->currentSonOrder_ != LEFT_SON_INDEX && this->tryToGoToLeftSonInCurrentPosition())
+			{
+				this->savePosition(this->currentPosition_->currentSon_);
+				++(*this);
+			}
+		}
+		else
+		{
+			if (this->currentPosition_->currentSonOrder_ != RIGHT_SON_INDEX && this->tryToGoToRightSonInCurrentPosition())
+			{
+				this->savePosition(this->currentPosition_->currentSon_);
+				++(*this);
+			}
+			else
+			{
+				this->removePosition();
+				if (this->currentPosition_ != nullptr)
+				{
+					++(*this);
+				}
+			}
+		}
+
+		return *this;
 	}
 
 	template<typename BlockType>
