@@ -15,24 +15,10 @@ namespace ds::mm {
     template<typename BlockType>
     class CompactMemoryManager : public MemoryManager<BlockType> {
     public:
-
-        // KONäTRUKTORY
-
-        CompactMemoryManager(); // Bez parametrick˝
-        CompactMemoryManager(size_t size); // S danou poËitatoËnou veækosùou / size_t s˙ bajty
-        CompactMemoryManager(const CompactMemoryManager<BlockType>& other); // KopÌrovacÌ konötruktor, vytv·rame novÈho spr·vcu kopÌrovanÌm z inÈho
-
-        // KONäTRUKTORY
-
-
-        // DEäTRUKTOR
-
-        ~CompactMemoryManager() override; // UkonËenie ûivotnosti objektu
-
-        // DEäTRUKTOR
-
-
-        // OPER¡CIE
+        CompactMemoryManager();
+        CompactMemoryManager(size_t size);
+        CompactMemoryManager(const CompactMemoryManager<BlockType>& other);
+        ~CompactMemoryManager() override;
 
         BlockType* allocateMemory() override;
         BlockType* allocateMemoryAt(size_t index);
@@ -54,16 +40,14 @@ namespace ds::mm {
 
         void print(std::ostream& os);
 
-        // OPER¡CIE
-
     private:
         size_t getAllocatedBlocksSize() const;
         size_t getAllocatedCapacitySize() const;
 
     private:
-        BlockType* base_; // Ukazuje na zaËiatok alokovanej pam‰te
-        BlockType* end_; // Ukazuje na koniec doteraz vyuûitej Ëasti (prv˝ voæn˝ blok)
-        BlockType* limit_; // Ukazuje na celkov˝ koniec alokovanÈho priestoru
+        BlockType* base_;
+        BlockType* end_;
+        BlockType* limit_;
 
         static const size_t INIT_SIZE = 4;
     };
@@ -92,84 +76,75 @@ namespace ds::mm {
     template<typename BlockType>
     CompactMemoryManager<BlockType>::~CompactMemoryManager()
     {
-        releaseMemory(base_);
-		std::free(base_);
+        // Ensures that destructor of each object is called.
+        CompactMemoryManager<BlockType>::releaseMemory(base_);
+        std::free(base_);
+
         base_ = nullptr;
         end_ = nullptr;
         limit_ = nullptr;
-
-        for (BlockType* p = base_; p != end_; ++p)
-        {
-            p->~BlockType();
-        }
-
     }
 
     template<typename BlockType>
     BlockType* CompactMemoryManager<BlockType>::allocateMemory()
     {
-        return this->allocateMemoryAt(end_ - base_);
+        return this->allocateMemoryAt(static_cast<size_t>(end_ - base_));
     }
 
     template<typename BlockType>
     BlockType* CompactMemoryManager<BlockType>::allocateMemoryAt(size_t index)
     {
-        // Ak som dosiahol limit (mÙj koniec je na celkovom konci pam‰te)
-        if (end_ == limit_) {
-
-            this->changeCapacity(2 * this->allocatedBlockCount_);
-
+        if (end_ == limit_)
+        {
+            this->changeCapacity(2 * this->getAllocatedBlockCount());
         }
-        // Ak prid·vame blok doprostred, musÌm posun˙ù existuj˙ce bloky aby sa urobilo miesto pre nov˝ blok na tom indexe
-        if (end_ - base_ > index) {
+
+        if (end_ - base_ > static_cast<std::ptrdiff_t>(index))
+        {
             std::memmove(
-                base_ + index + 1, // Mieto, kam bloky posunieme o jedno Ôalej v pam‰ti
-                base_ + index, // Miesto, odkiaæ sa bud˙ pres˙vaù existuj˙ce bloky
-                (end_ - base_ - index) * sizeof(BlockType) // Veækosù ktor˙ pres˙vam
+                base_ + index + 1,
+                base_ + index,
+                (end_ - base_ - index) * sizeof(BlockType)
             );
-
-
         }
 
+        ++MemoryManager<BlockType>::allocatedBlockCount_;
         ++end_;
-        ++this->allocatedBlockCount_;
 
-
-        return placement_new<BlockType>(base_ + index);
+        return placement_new(base_ + index);
     }
 
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::releaseMemory(BlockType* pointer)
     {
-        BlockType* p = pointer; // Lok·lna premenn· na uloûenie
-        while (p != end_) { // Idem od bloku pam‰te z parametra aû po aktu·lny koniec
-            p->~BlockType(); // Vol·m deötruktor
-            p++; // PripoËÌtavam aby som sa pohol v while cykle
+        BlockType* p = pointer;
+        while (p != end_)
+        {
+            destroy(p);
+            ++p;
         }
 
-        end_ = pointer; // NastavÌm kde je aktu·lny koniec (tam kde bol zaËiatok)
-        this->allocatedBlockCount_ = end_ - base_; // ZmenÌm akt·lny poËet alokovan˝ch blokov (koneËn˝ - prv˝)
+        end_ = pointer;
+        MemoryManager<BlockType>::allocatedBlockCount_ = static_cast<size_t>(end_ - base_);
     }
 
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::releaseMemoryAt(size_t index)
     {
-        BlockType& block = this->getBlockAt(index); // ZÌskam block ktor˝ chcem uvoæniù
-        block.~BlockType(); // Zavol·m deötruktor
-        memmove(
+        destroy(&this->getBlockAt(index));
+        std::memmove(
             base_ + index,
             base_ + index + 1,
             (end_ - base_ - index - 1) * sizeof(BlockType)
         );
-
-        end_--;
-        this->allocatedBlockCount_--;
+        --end_;
+        --this->allocatedBlockCount_;
     }
 
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::releaseMemory()
     {
-        releaseMemory(end_ - 1);
+        this->releaseMemory(end_ - 1);
     }
 
     template<typename BlockType>
@@ -179,33 +154,29 @@ namespace ds::mm {
     }
 
     template<typename BlockType>
-    CompactMemoryManager<BlockType>& CompactMemoryManager<BlockType>::assign(const CompactMemoryManager<BlockType>& other)
+    CompactMemoryManager<BlockType>& CompactMemoryManager<BlockType>::assign
+    (const CompactMemoryManager<BlockType>& other)
     {
         if (this != &other)
         {
-            this->releaseMemory(base_); // Odstr·nime star˙ pam‰ù
+            this->releaseMemory(base_);
             this->allocatedBlockCount_ = other.MemoryManager<BlockType>::allocatedBlockCount_;
-
-            // Alokujeme nov˙ pam‰ù
-            void* newBase =  std::realloc(base_, other.getAllocatedCapacitySize());
-
+            void* newBase = std::realloc(base_, other.getAllocatedCapacitySize());
             if (newBase == nullptr)
             {
-                throw std::bad_alloc(); // Zlyhala alok·cia
+                throw std::bad_alloc();
             }
-
             base_ = static_cast<BlockType*>(newBase);
             end_ = base_ + this->allocatedBlockCount_;
             limit_ = base_ + (other.limit_ - other.base_);
 
-            for (int i = 0; i < other.getAllocatedBlockCount(); ++i)
+            for (size_t i = 0; i < other.getAllocatedBlockCount(); ++i)
             {
                 placement_copy(base_ + i, *(other.base_ + i));
             }
         }
         return *this;
     }
-
 
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::shrinkMemory()
@@ -223,11 +194,13 @@ namespace ds::mm {
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::changeCapacity(size_t newCapacity)
     {
-        if (newCapacity == this->getCapacity()) {
+        if (newCapacity == this->getCapacity())
+        {
             return;
         }
 
-        if (newCapacity < this->allocatedBlockCount_) {
+        if (newCapacity < this->getAllocatedBlockCount())
+        {
             this->releaseMemory(base_ + newCapacity);
         }
 
@@ -239,26 +212,22 @@ namespace ds::mm {
         }
 
         base_ = static_cast<BlockType*>(newBase);
-        end_ = base_ + this->allocatedBlockCount_;
+        end_ = base_ + MemoryManager<BlockType>::allocatedBlockCount_;
         limit_ = base_ + newCapacity;
-
-
     }
 
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::clear()
     {
-        releaseMemory(base_);
+        this->releaseMemory(base_);
     }
 
     template<typename BlockType>
     bool CompactMemoryManager<BlockType>::equals(const CompactMemoryManager<BlockType>& other) const
     {
-        return (this == &other) ||
-            (this->getAllocatedBlockCount() == other.getAllocatedBlockCount()
-            && memcmp(this->base_,
-                other.base_,
-                this->getAllocatedBlockCount() * sizeof(BlockType)) == 0);
+        return this == &other ||
+            this->getAllocatedBlockCount() == other.getAllocatedBlockCount() &&
+            std::memcmp(base_, other.base_, this->getAllocatedBlocksSize()) == 0;
     }
 
     template<typename BlockType>
@@ -268,26 +237,16 @@ namespace ds::mm {
 
         while (p != end_ && p != &data)
         {
-            p++;
-        }
-        if (p == end_)
-        {
-            return nullptr;
+            ++p;
         }
 
-        return p;
-
+        return p == end_ ? nullptr : p;
     }
 
     template<typename BlockType>
     size_t CompactMemoryManager<BlockType>::calculateIndex(const BlockType& data)
     {
-        if (&data < end_ && &data >= base_)
-        {
-            return &data - base_;
-        }
-
-        return INVALID_INDEX;
+        return &data < end_ && &data >= base_ ? &data - base_ : INVALID_INDEX;
     }
 
     template<typename BlockType>
@@ -305,7 +264,7 @@ namespace ds::mm {
     template<typename BlockType>
     size_t CompactMemoryManager<BlockType>::getAllocatedBlocksSize() const
     {
-        return (limit_ - base_) * sizeof(BlockType);
+        return (end_ - base_) * sizeof(BlockType);
     }
 
     template<typename BlockType>
@@ -317,10 +276,10 @@ namespace ds::mm {
     template<typename BlockType>
     void CompactMemoryManager<BlockType>::print(std::ostream& os)
     {
-        os << "base = " << base_ << std::endl;
-        os << "end   = " << end_ << std::endl;
+        os << "first = " << base_ << std::endl;
+        os << "last = " << end_ << std::endl;
         os << "limit = " << limit_ << std::endl;
-        os << "block size = " << sizeof(BlockType) << "B" << '\n';
+        os << "block size = " << sizeof(BlockType) << "B" << std::endl;
 
         BlockType* ptr = base_;
         while (ptr != limit_)
@@ -329,12 +288,12 @@ namespace ds::mm {
             os << PtrPrintBin<BlockType>(ptr);
 
             if (ptr == base_) {
-                os << "<- base";
+                os << "<- first";
             }
             else if (ptr == end_) {
-                os << "<- end";
+                os << "<- last";
             }
-            os << '\n';
+            os << std::endl;
             ++ptr;
         }
 
