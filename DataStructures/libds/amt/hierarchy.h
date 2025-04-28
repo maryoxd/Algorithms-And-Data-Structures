@@ -115,7 +115,7 @@ namespace ds::amt {
 		{
 		public:
 			PostOrderHierarchyIterator(Hierarchy<BlockType>* hierarchy, BlockType* node);
-			PostOrderHierarchyIterator(const PreOrderHierarchyIterator& other);
+			PostOrderHierarchyIterator(const PostOrderHierarchyIterator& other);
 			PostOrderHierarchyIterator& operator++();
 		};
 
@@ -507,7 +507,7 @@ namespace ds::amt {
 	}
 
 	template<typename BlockType>
-	Hierarchy<BlockType>::PostOrderHierarchyIterator::PostOrderHierarchyIterator(const PreOrderHierarchyIterator& other) :
+	Hierarchy<BlockType>::PostOrderHierarchyIterator::PostOrderHierarchyIterator(const PostOrderHierarchyIterator& other) :
 		Hierarchy<BlockType>::DepthFirstIterator::DepthFirstIterator(other)
 	{
 	}

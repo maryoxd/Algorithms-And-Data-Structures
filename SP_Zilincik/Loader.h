@@ -1,20 +1,26 @@
 #pragma once
-#include "Village.h"
+#include "UzemnaJednotka.h"
 #include <vector>
 #include <string>
 #include <iostream>
+#include <libds/amt/explicit_hierarchy.h>
 
 class Loader
 {
 private:
-	std::vector<Village> villages_;
+	std::vector<UzemnaJednotka*> uzemneJednotky_;
+	std::vector<std::pair<std::string, UzemnaJednotka*>> index_;
 
 public:
+	Loader() {};
 	void loadCsv(std::string& filename);
 	void loadCsv(std::vector<std::string>& filenames);
-	std::string toString();
-	std::string toString(int year) const;
-	std::vector<Village> getVillages();
+
+	std::vector<UzemnaJednotka*> getVillages();
+	void loadUzemia(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy);
+	UzemnaJednotka* containsUJ(const std::string& code) const;
+	void updateCumulativeData(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy);
+	void updateNodeData(ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>* node, ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy);
+	void printAllVillages();
 	size_t getSize() const;
-	size_t getSize(int year) const;
 };

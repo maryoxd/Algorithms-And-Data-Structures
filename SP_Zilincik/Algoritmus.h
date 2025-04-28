@@ -12,17 +12,18 @@ public:
 	std::vector<T> FilterWithContainsStr(const std::vector<T>& object, std::string str);
 
 	template<typename T>
-	std::vector<T> FilterWithContainsStr(const std::vector<T>& object, std::string str, int year);
-
-	template<typename T>
 	std::vector<T> FilterWithHasMaxResidents(const std::vector<T>& object, int year, int maxResidents);
 
 	template<typename T>
 	std::vector<T> FilterWithHasMinResidents(const std::vector<T>& object, int year, int minResidents);
 
+
 	template <typename Iterator>
 	void PrintItems(Iterator begin, Iterator end);
-	
+
+	template <typename Iterator>
+	void PrintItems(Iterator begin, Iterator end, int year);
+
 };
 
 template<typename T, typename Iterator, typename Predicate>
@@ -45,12 +46,6 @@ std::vector<T> Algoritmus::FilterWithContainsStr(const std::vector<T>& object, s
 }
 
 template<typename T>
-std::vector<T> Algoritmus::FilterWithContainsStr(const std::vector<T>& object, std::string str, int year)
-{
-	return this->filter<T>(object.begin(), object.end(), makeContainsStr<T>(str, year));
-}
-
-template<typename T>
 std::vector<T> Algoritmus::FilterWithHasMaxResidents(const std::vector<T>& object, int year, int maxResidents)
 {
 	return this->filter<T>(object.begin(), object.end(), makeMaxResidents<T>(year, maxResidents));
@@ -67,6 +62,15 @@ void Algoritmus::PrintItems(Iterator begin, Iterator end)
 {
 	for (auto it = begin; it != end; ++it)
 	{
-		std::cout << it->toString() << '\n';
+		(*it)->printAllYears();
+	}
+}
+
+template <typename Iterator>
+void Algoritmus::PrintItems(Iterator begin, Iterator end, int year)
+{
+	for (auto it = begin; it != end; ++it)
+	{
+		(*it)->print(year);
 	}
 }

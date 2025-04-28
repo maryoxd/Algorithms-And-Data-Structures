@@ -264,9 +264,17 @@ namespace ds::adt {
     template<typename P, typename T, typename SequenceType>
     typename SequenceType::BlockType* UnsortedSequencePriorityQueue<P, T, SequenceType>::findHighestPriorityBlock()
     {
-        // TODO 09
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+		typename SequenceType::BlockType* best = this->getSequence()->accessFirst();
+
+        this->getSequence()->processAllBlocksForward([&](typename SequenceType::BlockType* block) {
+
+            if (block->data_.priority_ < best->data_.priority_)
+            {
+                best = block;
+            }
+            });
+
+        return best;
     }
 
     template<typename P, typename T, typename SequenceType>
@@ -283,8 +291,7 @@ namespace ds::adt {
     template<typename P, typename T, typename SequenceType>
     T SortedSequencePriorityQueue<P, T, SequenceType>::pop()
     {
-        // TODO 09
-        // po implementacii vymazte vyhodenie vynimky!
+		// TODO 09
         throw std::runtime_error("Not implemented yet");
     }
 
@@ -307,17 +314,20 @@ namespace ds::adt {
     template<typename P, typename T>
     void UnsortedExplicitSequencePriorityQueue<P, T>::push(P priority, T data)
     {
-        // TODO 09
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        PriorityQueueItem<P, T>& item = this->getSequence()->insertLast().data_;
+        item.data_ = data;
+        item.priority_ = priority;;
     }
 
     template<typename P, typename T>
     T UnsortedExplicitSequencePriorityQueue<P, T>::pop()
     {
-        // TODO 09
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        auto* block = this->findHighestPriorityBlock();
+        T data = block->data_.data_;
+
+        std::swap(block->data_, this->getSequence()->accessLast()->data_);
+        this->getSequence()->removeLast();
+        return data;
     }
 
     template<typename P, typename T>
@@ -460,9 +470,18 @@ namespace ds::adt {
     template<typename P, typename T>
     void BinaryHeap<P, T>::push(P priority, T data)
     {
-        // TODO 09
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+        PriorityQueueItem<P, T>& item = this->getHierarchy()->insertLastLeaf().data_;
+        item.priority_ = priority;
+        item.data_ = data;
+
+		auto* current = this->getHierarchy()->accessLastLeaf();
+		auto* parent = this->getHierarchy()->accessParent(*current);
+        while (parent != nullptr && current->data_.priority_ < parent->data_.priority_) {
+            std::swap(current->data_, parent->data_);
+			current = parent;
+			parent = this->getHierarchy()->accessParent(*current);
+        }
+
     }
 
     template<typename P, typename T>
@@ -476,9 +495,9 @@ namespace ds::adt {
     template<typename P, typename T>
     T BinaryHeap<P, T>::pop()
     {
-        // TODO 09
-        // po implementacii vymazte vyhodenie vynimky!
-        throw std::runtime_error("Not implemented yet");
+		// TODO 09
+		// po implementacii vymazte vyhodenie vynimky!
+		throw std::runtime_error("Not implemented yet");
     }
 
     template<typename P, typename T>

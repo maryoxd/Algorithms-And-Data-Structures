@@ -1,141 +1,250 @@
 #include <string>
-#include "Loader.h"
+#include <vector>
 #include <Windows.h>
+#include "Loader.h"
 #include "Algoritmus.h"
+#include "HierarchyNavigator.h"
+#include <libds/amt/explicit_hierarchy.h>
 
-constexpr const char* TEXT_0 = "Vitajte v CLI, vyberte si z moûnostÌ:\n";
-constexpr const char* TEXT_1 = "\n1. [PREDIK¡T 1 - N¡ZOV DANEJ OBCE OBSAHUJE ZADAN› REçAZEC] | [reùazec] [VOºBA -> rok]\n";
-constexpr const char* TEXT_2 = "2. [PREDIK¡T 2 - CELKOV› PO»ET OBYVATEºOV V ZADANOM ROKU BOL <= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]\n";
-constexpr const char* TEXT_3 = "3. [PREDIK¡T 3 - CELKOV› PO»ET OBYVATEæOV V ZADANOM ROKU BOL >= ZADAN…MU PO»TU] | [rok] + [poËet obyvateæov]\n";
-constexpr const char* TEXT_4 = "4. [VYPÕä VäETKY OBCE]\n" ;
-constexpr const char* TEXT_5 = "5. [VYPÕä OBCE V ZADANOM ROKU] | [rok]\n";
-constexpr const char* TEXT_6 = "6. [KONIEC]\n" ;
-constexpr const char* TEXT_7 = "Vaöa moûnosù:\n";
+void showMainMenu() {
+    std::cout << "--- HlavnÈ menu ---\n"
+        << "1. ⁄roveÚ 1 - Filtrovanie obcÌ\n"
+        << "2. ⁄roveÚ 2 - Navig·cia v hierarchii\n"
+        << "3. UkonËiù program\n"
+        << "Vaöa moûnosù: ";
+}
+
+void showFirstLevelMenu() {
+    std::cout << "\n--- ⁄roveÚ 1 - Obce ---\n"
+        << "1. Vyhæad·vanie podæa n·zvu\n"
+        << "2. PoËet obyvateæov <= maxim·lny\n"
+        << "3. PoËet obyvateæov >= minim·lny\n"
+        << "4. VypÌsaù vöetky obce\n"
+        << "5. Sp‰ù\n"
+        << "Vaöa moûnosù: ";
+}
+
+void showSecondLevelMenu() {
+    std::cout << "\n--- ⁄roveÚ 2 - Hierarchia ---\n"
+        << "1. Õsù na rodiËa\n"
+        << "2. Õsù na potomka\n"
+        << "3. Zobraziù vöetk˝ch potomkov\n"
+        << "4. Pouûiù predik·t\n"
+        << "5. ⁄daje o popul·cii aktu·lneho vrcholu\n"
+        << "6. Sp‰ù\n"
+        << "Vaöa moûnosù: ";
+}
+
+void showPredicateMenu() {
+    std::cout << "\n--- Predik·ty ---\n"
+        << "1. N·zov obsahuje reùazec\n"
+        << "2. PoËet obyvateæov <= maxim·lny\n"
+        << "3. PoËet obyvateæov >= minim·lny\n"
+        << "4. Typ ˙zemnej jednotky\n"
+        << "Vaöa moûnosù: ";
+}
 
 int main() {
-	SetConsoleOutputCP(1250);
-	SetConsoleCP(1250);
+    SetConsoleOutputCP(1250);
+    SetConsoleCP(1250);
 
-	Loader loader;
-	std::string filename1 = "2020.csv";
-	std::string filename2 = "2021.csv";
-	std::string filename3 = "2022.csv";
-	std::string filename4 = "2023.csv";
-	std::string filename5 = "2024.csv";
+    Loader loader;
+    std::vector<std::string> filenames = { "2020.csv", "2021.csv", "2022.csv", "2023.csv", "2024.csv" };
+    loader.loadCsv(filenames);
 
-	std::vector<std::string> filenames = { filename1, filename2, filename3, filename4, filename5 };
+    std::vector<UzemnaJednotka*> villages = loader.getVillages();
+    Algoritmus algo;
 
-	loader.loadCsv(filenames);
+    auto* hierarchy = new ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>();
+    auto& root = hierarchy->emplaceRoot();
+    root.data_ = new UzemnaJednotka("RAK⁄SKO", "0", Typ::ROOT, 0, 0);
 
-	std::vector<Village> Villages = loader.getVillages();
-	Algoritmus algo;
+    loader.loadUzemia(hierarchy);
+    loader.updateCumulativeData(hierarchy);
 
+    bool running = true;
+    while (running) {
+        showMainMenu();
+        int choice;
+        std::cin >> choice;
 
-	// CUI
-	std::cout << TEXT_0;
-	while (true) {
-		std::cout << TEXT_1;
-		std::cout << TEXT_2;
-		std::cout << TEXT_3;
-		std::cout << TEXT_4;
-		std::cout << TEXT_5;
-		std::cout << TEXT_6;
-		std::cout << TEXT_7;
-		int choice;
-		std::cin >> choice;
+        switch (choice) {
+        case 1: {
+            bool firstLevel = true;
+            while (firstLevel) {
+                showFirstLevelMenu();
+                int option;
+                std::cin >> option;
 
-		switch (choice) {
-		case 1: {
-			std::cout << "Zadajte hæadan˝ reùazec:" << '\n';
-			std::string str;
-			std::cin >> str;
-			std::cout << "Chcete filtrovaù aj podæa roka? [ano / nie]" << '\n';
-			std::string volba;
-			std::cin >> volba;
-			if (volba == "ano") {
-				std::cout << "Zadajte rok:" << '\n';
-				int year;
-				std::cin >> year;
-				std::cout << "Zoznam obcÌ, ktorÈ obsahuj˙ reùazec [" << str << "] a s˙ z roku [" << year << "]:" << '\n';
+                switch (option) {
+                case 1: { 
+                    std::cout << "Zadajte reùazec: ";
+                    std::string str;
+                    std::cin >> str;
 
-				std::vector<Village> filteredVillage = algo.FilterWithContainsStr(Villages, str, year);
-				algo.PrintItems(filteredVillage.begin(), filteredVillage.end());
-				size_t size = filteredVillage.size();
-				std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n';
-				break;
-			}
-			if (volba == "nie") {
-				std::cout << "Zoznam obcÌ, ktorÈ obsahuj˙ reùazec [" << str << "]:" << '\n';
+                    auto filtered = algo.FilterWithContainsStr(villages, str);
 
-				std::vector<Village> filteredVillage = algo.FilterWithContainsStr(Villages, str);
-				algo.PrintItems(filteredVillage.begin(), filteredVillage.end());
-				size_t size = filteredVillage.size();
+                    std::cout << "Chcete filtrovaù aj podæa roka? (ano/nie): ";
+                    std::string answer;
+                    std::cin >> answer;
 
-				std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n';
-				break;
-			}
-			std::cout << "Nespr·vna voæba." << '\n';
-			break;
-		}
+                    if (answer == "ano") {
+                        int year;
+                        std::cout << "Zadajte rok: ";
+                        std::cin >> year;
+                        algo.PrintItems(filtered.begin(), filtered.end(), year);
+                    }
+                    else {
+                        algo.PrintItems(filtered.begin(), filtered.end());
+                    }
+                    break;
+                }
+                case 2: { 
+                    int year, maxResidents;
+                    std::cout << "Zadajte rok a maxim·lny poËet obyvateæov: ";
+                    std::cin >> year >> maxResidents;
 
-		case 2: {
-			std::cout << "Zadajte rok:" << '\n';
-			int year;
-			std::cin >> year;
-			std::cout << "Zadajte maxim·lny poËet obyvateæov:" << '\n';
-			int maxResidents;
-			std::cin >> maxResidents;
-			std::cout << "Zoznam obcÌ, ktorÈ v roku [" << year << "] maj˙ <= [" << maxResidents << "] obyvateæov:" << '\n';
+                    auto filtered = algo.FilterWithHasMaxResidents(villages, year, maxResidents);
+                    algo.PrintItems(filtered.begin(), filtered.end(), year);
+                    break;
+                }
+                case 3: { 
+                    int year, minResidents;
+                    std::cout << "Zadajte rok a minim·lny poËet obyvateæov: ";
+                    std::cin >> year >> minResidents;
 
-			std::vector<Village> filteredVillage = algo.FilterWithHasMaxResidents(Villages, year, maxResidents);
-			algo.PrintItems(filteredVillage.begin(), filteredVillage.end());
-			size_t size = filteredVillage.size();
+                    auto filtered = algo.FilterWithHasMinResidents(villages, year, minResidents);
+                    algo.PrintItems(filtered.begin(), filtered.end(), year);
+                    break;
+                }
+                case 4:
+                    loader.printAllVillages();
+                    break;
+                case 5:
+                    firstLevel = false;
+                    break;
+                default:
+                    std::cout << "Neplatn· voæba.\n";
+                }
+            }
+            break;
+        }
 
-			std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n';
-			break;
+        case 2: { 
+            bool secondLevel = true;
+            HierarchyNavigator navigator(hierarchy);
 
-		}
-		case 3: {
-			std::cout << "Zadajte rok:" << '\n';
-			int year;
-			std::cin >> year;
-			std::cout << "Zadajte minim·lny poËet obyvateæov:" << '\n';
-			int minResidents;
-			std::cin >> minResidents;
-			std::cout << "Zoznam obcÌ, ktorÈ v roku [" << year << "] maj˙ >= [" << minResidents << "] obyvateæov:" << '\n';
+            while (secondLevel) {
+                auto* current = navigator.getCurrent();
+                std::cout << "\nAktu·lna pozÌcia: " << current->data_->getName() << "\n";
+                showSecondLevelMenu();
+                int option;
+                std::cin >> option;
 
-			std::vector<Village> filteredVillage = algo.FilterWithHasMinResidents(Villages, year, minResidents);
-			algo.PrintItems(filteredVillage.begin(), filteredVillage.end());
-			size_t size = filteredVillage.size();
+                switch (option) {
+                case 1:
+                    navigator.moveToParent();
+                    break;
+                case 2:
+                    navigator.listChildren();
+                    std::cout << "Zadajte index syna: ";
+                    int idx;
+                    std::cin >> idx;
+                    navigator.moveToChild(idx);
+                    break;
+                case 3: {
+                    auto begin = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, current);
+                    auto end = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, nullptr);
+                    algo.PrintItems(begin, end);
+                    break;
+                }
+                case 4: {
+                    std::vector<UzemnaJednotka*> potomkovia;
+                    auto begin = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, current);
+                    auto end = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, nullptr);
 
-			std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n';
-			break;
-		}
-		case 4: {
-			std::cout << "Vöetky obce:" << '\n';
-			std::cout << loader.toString();
+                    for (; begin != end; ++begin) {
+                        potomkovia.push_back(*begin);
+                    }
 
-			size_t size = loader.getSize();
-			std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n'; 
-			break;
-		}
-		case 5: {
-			std::cout << "Zadajte rok:" << '\n';
-			int year;
-			std::cin >> year;
-			std::cout << "Obce v roku [" << year << "]:" << '\n';
-			std::cout << loader.toString(year);
+                    showPredicateMenu();
+                    int predikat;
+                    std::cin >> predikat;
 
-			size_t size = loader.getSize(year);
-			std::cout << "Obce boli vypÌsanÈ. PoËet: [" << size << "] " << '\n';  
-			break;
-		}
-		case 6: {
-			std::cout << "UkonËujem program." << '\n';
-			return 0;
-		}
-		default:
-			std::cout << "UkonËujem program.\n";
-		}
-	}
+                    switch (predikat) {
+                    case 1: {
+                        std::string str;
+                        std::cout << "Zadaj reùazec: ";
+                        std::cin >> str;
+                        auto filtered = algo.FilterWithContainsStr(potomkovia, str);
+                        algo.PrintItems(filtered.begin(), filtered.end());
+                        break;
+                    }
+                    case 2: {
+                        int year, maxResidents;
+                        std::cout << "Zadaj rok a maxim·lny poËet: ";
+                        std::cin >> year >> maxResidents;
+                        auto filtered = algo.FilterWithHasMaxResidents(potomkovia, year, maxResidents);
+                        algo.PrintItems(filtered.begin(), filtered.end(), year);
+                        break;
+                    }
+                    case 3: {
+                        int year, minResidents;
+                        std::cout << "Zadaj rok a minim·lny poËet: ";
+                        std::cin >> year >> minResidents;
+                        auto filtered = algo.FilterWithHasMinResidents(potomkovia, year, minResidents);
+                        algo.PrintItems(filtered.begin(), filtered.end(), year);
+                        break;
+                    }
+                    case 4: {
+                        int typInput;
+                        std::cout << "Zadaj typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): ";
+                        std::cin >> typInput;
+                        Typ typ = static_cast<Typ>(typInput);
+                        auto pred = makeHasType<UzemnaJednotka*>(typ);
+
+                        if (pred(current->data_))
+                            std::cout << "[INFO] Typ sa zhoduje.\n";
+                        else
+                            std::cout << "[INFO] Typ sa nezhoduje.\n";
+                        break;
+                    }
+                    default:
+                        std::cout << "[ERROR] Neplatn· voæba predik·tu.\n";
+                    }
+                    break;
+                }
+                case 5: {
+                    if (current && current->data_) {
+                        for (const auto& ypd : current->data_->getData()) {
+                            if (ypd.year == 0 && ypd.data.female == 0 && ypd.data.male == 0 && ypd.data.population == 0) {
+                                continue;
+                            }
+
+                            std::cout << "Rok " << ypd.year
+                                << " | éeny: " << ypd.data.female
+                                << " | Muûi: " << ypd.data.male
+                                << " | Celkovo: " << ypd.data.population << '\n';
+                        }
+                    }
+                    break;
+                }
+                case 6:
+                    secondLevel = false;
+                    break;
+                default:
+                    std::cout << "Neplatn· voæba.\n";
+                }
+            }
+            break;
+        }
+
+        case 3:
+            running = false;
+            break;
+        default:
+            std::cout << "Neplatn· voæba.\n";
+            break;
+        }
+    }
 }

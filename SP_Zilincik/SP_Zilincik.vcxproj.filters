@@ -19,33 +19,48 @@
     <Filter Include="Source Files\SP_1\Loader">
       <UniqueIdentifier>{6c729690-20c1-460f-8122-778c1b3cb583}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\SP_1\Village">
-      <UniqueIdentifier>{8f09bbe9-bd18-4026-9f2f-c122b11df0e0}</UniqueIdentifier>
+    <Filter Include="Source Files\SP_2">
+      <UniqueIdentifier>{ed78f752-dd92-4d1c-b53f-e07d54b7233e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SP_1">
+      <UniqueIdentifier>{36e76f8f-5cf4-42a2-b73b-a89eff54efc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SP_2">
+      <UniqueIdentifier>{8c2e49bd-ce5d-47a9-ac79-ec79537382cf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Village.cpp">
-      <Filter>Source Files\SP_1\Village</Filter>
-    </ClCompile>
     <ClCompile Include="Loader.cpp">
       <Filter>Source Files\SP_1\Loader</Filter>
     </ClCompile>
+    <ClCompile Include="UzemnaJednotka.h">
+      <Filter>Header Files\SP_2</Filter>
+    </ClCompile>
+    <ClCompile Include="UzemnaJednotka.cpp">
+      <Filter>Source Files\SP_2</Filter>
+    </ClCompile>
+    <ClCompile Include="Typ.h">
+      <Filter>Header Files\SP_2</Filter>
+    </ClCompile>
+    <ClCompile Include="HierarchyNavigator.cpp">
+      <Filter>Source Files\SP_2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Village.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Algoritmus.h">
+      <Filter>Header Files\SP_1</Filter>
     </ClInclude>
     <ClInclude Include="Loader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Algoritmus.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SP_1</Filter>
     </ClInclude>
     <ClInclude Include="Predicates.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SP_1</Filter>
+    </ClInclude>
+    <ClInclude Include="HierarchyNavigator.h">
+      <Filter>Header Files\SP_2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

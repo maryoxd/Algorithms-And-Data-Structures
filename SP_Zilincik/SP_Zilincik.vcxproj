@@ -131,14 +131,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Village.cpp" />
+    <ClCompile Include="HierarchyNavigator.cpp" />
+    <ClCompile Include="Typ.h" />
+    <ClCompile Include="UzemnaJednotka.cpp" />
+    <ClCompile Include="UzemnaJednotka.h" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algoritmus.h" />
+    <ClInclude Include="HierarchyNavigator.h" />
     <ClInclude Include="Predicates.h" />
-    <ClInclude Include="Village.h" />
     <ClInclude Include="Loader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
