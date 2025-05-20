@@ -10,7 +10,8 @@ void showMainMenu() {
     std::cout << "--- Hlavné menu ---\n"
         << "1. Úroveò 1 - Filtrovanie obcí\n"
         << "2. Úroveò 2 - Navigácia v hierarchii\n"
-        << "3. Ukonèi program\n"
+        << "3. Úroveò 3 - Vyh¾adávanie pod¾a mena a typu\n"
+        << "4. Ukonèi program\n"
         << "Vaša možnos: ";
 }
 
@@ -45,6 +46,7 @@ void showPredicateMenu() {
 }
 
 int main() {
+    initHeapMonitor();
     SetConsoleOutputCP(1250);
     SetConsoleCP(1250);
 
@@ -58,6 +60,7 @@ int main() {
     auto* hierarchy = new ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>();
     auto& root = hierarchy->emplaceRoot();
     root.data_ = new UzemnaJednotka("RAKÚSKO", "0", Typ::ROOT, 0, 0);
+    HierarchyNavigator navigator(hierarchy);
 
     loader.loadUzemia(hierarchy);
     loader.updateCumulativeData(hierarchy);
@@ -132,7 +135,6 @@ int main() {
 
         case 2: { 
             bool secondLevel = true;
-            HierarchyNavigator navigator(hierarchy);
 
             while (secondLevel) {
                 auto* current = navigator.getCurrent();
@@ -216,16 +218,7 @@ int main() {
                 }
                 case 5: {
                     if (current && current->data_) {
-                        for (const auto& ypd : current->data_->getData()) {
-                            if (ypd.year == 0 && ypd.data.female == 0 && ypd.data.male == 0 && ypd.data.population == 0) {
-                                continue;
-                            }
-
-                            std::cout << "Rok " << ypd.year
-                                << " | Ženy: " << ypd.data.female
-                                << " | Muži: " << ypd.data.male
-                                << " | Celkovo: " << ypd.data.population << '\n';
-                        }
+                        current->data_->printAllYears();
                     }
                     break;
                 }
@@ -239,7 +232,28 @@ int main() {
             break;
         }
 
-        case 3:
+        case 3: {
+            std::string name;
+            int typInput;
+            std::cout << "Zadajte názov jednotky: ";
+            std::cin.ignore();
+            std::getline(std::cin, name);
+            std::cout << "Zadajte typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): ";
+            std::cin >> typInput;
+
+            Typ typ = static_cast<Typ>(typInput);
+            UzemnaJednotka* jednotka = nullptr;
+
+            if (loader.getTables().tryFind(name, typ, jednotka)) {
+                std::cout << "[INFO] Územná jednotka nájdená:\n";
+                jednotka->printAllYears();
+            }
+            else {
+                std::cout << "[INFO] Nenájdené.\n";
+            }
+            break;
+        }
+        case 4:
             running = false;
             break;
         default:
@@ -247,4 +261,8 @@ int main() {
             break;
         }
     }
+
+    navigator.clearHierarchy();
+    delete hierarchy;
+    return 0;
 }

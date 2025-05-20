@@ -67,17 +67,21 @@ void UzemnaJednotka::print(int year)
 
 void UzemnaJednotka::printAllYears()
 {
-	std::cout << name_ << " K: " << code_ << "\n";
+	std::cout << name_ << " C: " << code_ << "\n";
 	for (auto it = data_.begin(); it != data_.end(); ++it) {
 		const YearPopulationData& record = *it;
+
+		if (record.year == 0 && record.data.female == 0 && record.data.male == 0 && record.data.population == 0) {
+			continue;
+		}
+
 		int year = record.year;
 		const PopulationData& pdata = record.data;
 		std::cout << "Rok: " << year
-			<< " | C: " << code_ 
+			<< " | C: " << code_
 			<< " | Ž: " << pdata.female
 			<< " | M: " << pdata.male
 			<< " | P: " << pdata.population
 			<< "\n";
 	}
 }
-

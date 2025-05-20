@@ -3,6 +3,11 @@
 #include <sstream>
 #include <regex>
 
+Loader::~Loader()
+{
+	clear();
+}
+
 void Loader::loadCsv(std::string& filename)
 {
 	std::ifstream file(filename);
@@ -43,10 +48,12 @@ void Loader::loadCsv(std::string& filename)
 			UzemnaJednotka* najdena = containsUJ(code);
 			if (najdena) {
 				najdena->addNewData(year, male, female);
+
 			}
 			else {
 				UzemnaJednotka* nova = new UzemnaJednotka(name, code, Typ::OBEC, year, male, female);
 				uzemneJednotky_.emplace_back(nova);
+				insert(nova);
 				index_.emplace_back(code, nova);
 			}
 		}
@@ -78,16 +85,22 @@ void Loader::loadUzemia(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hie
 			}
 
 			if (indices.size() == 1) {
-				hierarchy->emplaceSon(*root, indices[0] - 1).data_ = new UzemnaJednotka(name, code, Typ::GEO);
+				auto* novaUzemnaJednotka = new UzemnaJednotka(name, code, Typ::GEO);
+				hierarchy->emplaceSon(*root, indices[0] - 1).data_ = novaUzemnaJednotka;
+				insert(novaUzemnaJednotka);
 			}
 			else if (indices.size() == 2) {
+				auto* novaUzemnaJednotka = new UzemnaJednotka(name, code, Typ::REPUBLIKA);
 				auto* geo = hierarchy->accessSon(*root, indices[0] - 1);
-				hierarchy->emplaceSon(*geo, indices[1] - 1).data_ = new UzemnaJednotka(name, code, Typ::REPUBLIKA);
+				hierarchy->emplaceSon(*geo, indices[1] - 1).data_ = novaUzemnaJednotka;
+				insert(novaUzemnaJednotka);
 			}
 			else if (indices.size() == 3) {
+				auto* novaUzemnaJednotka = new UzemnaJednotka(name, code, Typ::REGION);
 				auto* geo = hierarchy->accessSon(*root, indices[0] - 1);
 				auto* rep = hierarchy->accessSon(*geo, indices[1] - 1);
-				hierarchy->emplaceSon(*rep, (indices[2] == 0 ? 0 : indices[2] - 1)).data_ = new UzemnaJednotka(name, code, Typ::REGION);
+				hierarchy->emplaceSon(*rep, (indices[2] == 0 ? 0 : indices[2] - 1)).data_ = novaUzemnaJednotka;
+				insert(novaUzemnaJednotka);
 			}
 		}
 	}
@@ -122,7 +135,7 @@ void Loader::loadUzemia(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hie
 				inserted.data_ = obec;
 			}
 			else {
-				std::cerr << "[ERROR] Obec s kodom " << code << " neexistuje.\n";
+				std::cerr << "[ERROR] Obec s kodom " << code << " neexistuje\n";
 			}
 		}
 	}
@@ -186,6 +199,18 @@ size_t Loader::getSize() const
 {
 	return uzemneJednotky_.size();
 }
+
+void Loader::clear()
+{
+	for (UzemnaJednotka* uj : uzemneJednotky_) {
+		delete uj;
+	}
+
+	uzemneJednotky_.clear();
+	index_.clear();
+	tabulkyUJ_.clear();
+}
+
 
 std::vector<UzemnaJednotka*> Loader::getVillages() {
 	return uzemneJednotky_;

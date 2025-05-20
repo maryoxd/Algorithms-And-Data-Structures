@@ -28,6 +28,12 @@
     <Filter Include="Header Files\SP_2">
       <UniqueIdentifier>{8c2e49bd-ce5d-47a9-ac79-ec79537382cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\SP_3">
+      <UniqueIdentifier>{d11d5d4d-f5a8-414c-b5f7-400b94e1c9b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SP_3">
+      <UniqueIdentifier>{b31257db-2ae4-47d5-a9b4-9c119bfe858f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,6 +54,9 @@
     <ClCompile Include="HierarchyNavigator.cpp">
       <Filter>Source Files\SP_2</Filter>
     </ClCompile>
+    <ClCompile Include="UzemnaJednotkaTable.cpp">
+      <Filter>Source Files\SP_3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algoritmus.h">
@@ -61,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="HierarchyNavigator.h">
       <Filter>Header Files\SP_2</Filter>
+    </ClInclude>
+    <ClInclude Include="UzemnaJednotkaTable.h">
+      <Filter>Header Files\SP_3</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

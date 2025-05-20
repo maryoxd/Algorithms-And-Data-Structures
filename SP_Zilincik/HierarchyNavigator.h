@@ -16,5 +16,6 @@ public:
 	void moveToChild(size_t index);
 	void listChildren();
 	ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>* getCurrent() const { return currentPosition_; }
+	void clearHierarchy();
 };
 

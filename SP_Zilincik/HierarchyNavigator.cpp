@@ -1,4 +1,4 @@
-#include "HierarchyNavigator.h"
+ï»¿#include "HierarchyNavigator.h"
 
 void HierarchyNavigator::moveToParent()
 {
@@ -7,7 +7,7 @@ void HierarchyNavigator::moveToParent()
         std::cout << "[INFO] Presunul si sa na: " << currentPosition_->data_->getName() << "\n";
     }
     else {
-        std::cout << "[INFO] Si už na koreòovom uzle.\n";
+        std::cout << "[INFO] Si uÅ¾ na koreÅˆovom uzle.\n";
     }
 
 }
@@ -25,7 +25,7 @@ void HierarchyNavigator::moveToChild(size_t index)
         }
     }
     else {
-        std::cout << "[ERROR] Neplatný index syna.\n";
+        std::cout << "[ERROR] NeplatnÃ½ index syna.\n";
     }
 }
 
@@ -33,11 +33,11 @@ void HierarchyNavigator::listChildren()
 {
     size_t sonsCount = hierarchy_->degree(*currentPosition_);
     if (sonsCount == 0) {
-        std::cout << "[INFO] Tento vrchol nemá žiadne deti.\n";
+        std::cout << "[INFO] Tento vrchol nemÃ¡ Å¾iadne deti.\n";
         return;
     }
 
-    std::cout << "Synovia aktuálnej pozície:\n";
+    std::cout << "Synovia aktuÃ¡lnej pozÃ­cie:\n";
     for (size_t i = 0; i < sonsCount; ++i) {
         auto* son = hierarchy_->accessSon(*currentPosition_, i);
         if (son && son->data_) {
@@ -45,3 +45,27 @@ void HierarchyNavigator::listChildren()
         }
     }
 }
+
+void HierarchyNavigator::clearHierarchy()
+{
+    auto* root = hierarchy_->accessRoot();
+
+    std::function<void(ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>*)> deleteRecursive =
+        [&](ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>* node) {
+        if (!node) return;
+
+        size_t sonsCount = hierarchy_->degree(*node);
+        for (size_t i = 0; i < sonsCount; ++i) {
+            auto* son = hierarchy_->accessSon(*node, i);
+            deleteRecursive(son);
+        }
+
+        if (node->data_ && node->data_->getType() != Typ::OBEC) {
+            delete node->data_;
+            node->data_ = nullptr;
+        }
+        };
+
+    deleteRecursive(root);
+}
+

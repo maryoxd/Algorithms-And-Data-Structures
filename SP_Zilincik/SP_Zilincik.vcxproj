@@ -137,12 +137,14 @@
     <ClCompile Include="UzemnaJednotka.h" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UzemnaJednotkaTable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algoritmus.h" />
     <ClInclude Include="HierarchyNavigator.h" />
     <ClInclude Include="Predicates.h" />
     <ClInclude Include="Loader.h" />
+    <ClInclude Include="UzemnaJednotkaTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
