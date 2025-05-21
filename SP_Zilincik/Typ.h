@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 enum class Typ {
 	ROOT,
 	GEO,
@@ -7,3 +9,5 @@ enum class Typ {
 	REGION,
 	OBEC
 };
+
+std::string typToString(Typ typ);

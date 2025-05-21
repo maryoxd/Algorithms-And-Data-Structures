@@ -1,36 +1,45 @@
 #pragma once
+
 #include "UzemnaJednotka.h"
 #include "UzemnaJednotkaTable.h"
+#include "Typ.h"
+
 #include <vector>
 #include <string>
 #include <iostream>
-#include "Typ.h"
+
 #include <libds/amt/explicit_hierarchy.h>
 #include <libds/adt/table.h>
 
 class Loader
 {
 private:
+	using Hierarchy = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>;
+	using HierarchyBlock = ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>;
+
 	std::vector<UzemnaJednotka*> uzemneJednotky_;
-	std::vector<std::pair<std::string, UzemnaJednotka*>> index_;
 	UzemnaJednotkaTable tabulkyUJ_;
 
 public:
-	Loader() {};
+	explicit Loader() = default;
 	~Loader();
-	void loadCsv(std::string& filename);
-	void loadCsv(std::vector<std::string>& filenames);
 
-	std::vector<UzemnaJednotka*> getVillages();
-	void loadUzemia(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy);
-	UzemnaJednotka* containsUJ(const std::string& code) const;
-	void updateCumulativeData(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy);
-	void updateNodeData(ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>* node, ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy);
-	void printAllVillages();
+	void loadCsv(const std::string& filename);
+	void loadCsv(const std::vector<std::string>& filenames);
+
+	std::vector<UzemnaJednotka*> getVillages() const;
+
+	void loadUzemia(Hierarchy* hierarchy);
+	void updateCumulativeData(Hierarchy* hierarchy);
+	void updateNodeData(HierarchyBlock* node, Hierarchy* hierarchy);
+
+	UzemnaJednotka* containsUJ(const std::string& name, Typ typ, const std::string& code) const;
+
+	void printAllVillages() const;
+
 	size_t getSize() const;
 
 	void insert(UzemnaJednotka* uj) { tabulkyUJ_.insert(uj); }
 	UzemnaJednotkaTable& getTables() { return tabulkyUJ_; }
-
 	void clear();
 };

@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="HierarchyNavigator.cpp" />
+    <ClCompile Include="Typ.cpp" />
     <ClCompile Include="Typ.h" />
     <ClCompile Include="UzemnaJednotka.cpp" />
     <ClCompile Include="UzemnaJednotka.h" />
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algoritmus.h" />
+    <ClInclude Include="Colors.h" />
     <ClInclude Include="HierarchyNavigator.h" />
     <ClInclude Include="Predicates.h" />
     <ClInclude Include="Loader.h" />

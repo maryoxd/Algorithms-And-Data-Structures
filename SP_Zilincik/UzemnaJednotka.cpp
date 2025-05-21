@@ -1,4 +1,5 @@
 ﻿#include "UzemnaJednotka.h"
+
 #include <algorithm>
 #include <sstream>
 #include <iostream>
@@ -48,19 +49,21 @@ void UzemnaJednotka::addPopulationData(int year, int male, int female)
 	block.data_ = { year, { female, male, male + female } };
 }
 
-
-
 void UzemnaJednotka::print(int year)
 {
 	for (auto it = data_.begin(); it != data_.end(); ++it) {
 		const YearPopulationData& record = *it;
 		if (record.year == year) {
-			int male = record.data.male;
-			int female = record.data.female;
-			int population = record.data.population;
-			std::cout << name_ + " | R: " + std::to_string(year) + " | C: " + code_ + " | M: "
-				+ std::to_string(male) + " | Ž: " + std::to_string(female) + " | P: " + std::to_string(population) + "\n";
-			return; 
+			const PopulationData& pdata = record.data;
+			std::cout << name_
+				<< " | R: " << year
+				<< " | C: " << code_
+				<< " | M: " << pdata.male
+				<< " | Ž: " << pdata.female
+				<< " | P: " << pdata.population
+				<< " | T: " << typToString(type_)
+				<< "\n";
+			return;
 		}
 	}
 }
@@ -82,6 +85,7 @@ void UzemnaJednotka::printAllYears()
 			<< " | Ž: " << pdata.female
 			<< " | M: " << pdata.male
 			<< " | P: " << pdata.population
+			<<" | T: " << typToString(type_)
 			<< "\n";
 	}
 }

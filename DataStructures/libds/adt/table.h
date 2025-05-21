@@ -403,7 +403,7 @@ namespace ds::adt {
             throw std::logic_error("CHYBA: Tabu¾ka už obsahuje prvok s daným k¾úèom.");
         }
 
-        TableItem<K, T>& tableItem = this->getSequence()->insertLast().data;
+        TableItem<K, T>& tableItem = this->getSequence()->insertLast().data_;
         tableItem.key_ = key;
         tableItem.data_ = data;
     }
@@ -417,7 +417,7 @@ namespace ds::adt {
             throw std::out_of_range("CHYBA: Tabu¾ka neobsahuje prvok s daným k¾úèom.");
         }
 
-        T result = blockWithKey->data_->data_;
+        T result = blockWithKey->data_.data_;
         BlockType* lastBlock = this->getSequence()->accessLast();
 
         if (blockWithKey != lastBlock) {
@@ -475,6 +475,7 @@ namespace ds::adt {
             BlockType* blockWithKey = nullptr;
 
             if (this->tryFindBlockWithKey(key, 0, this->size(), blockWithKey)) {
+                std::cout << "[ZISTENÁ DUPLICITA] Key: " << key << "\n";
                 throw std::logic_error("CHYBA: Tabu¾ka už obsahuje prvok s daným k¾úèom.");
             }
 

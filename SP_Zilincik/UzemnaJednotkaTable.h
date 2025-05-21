@@ -1,22 +1,35 @@
 #pragma once
+
 #include <string>
+
 #include "UzemnaJednotka.h"
-#include <libds/adt/table.h>
 #include "Typ.h"
 
-class UzemnaJednotkaTable {
+#include <libds/adt/table.h>
+#include <libds/adt/list.h>
+
+class UzemnaJednotkaTable
+{
 private:
-    ds::adt::SortedSequenceTable<std::string, UzemnaJednotka*> tabulkaObci_;
-    ds::adt::SortedSequenceTable<std::string, UzemnaJednotka*> tabulkaRegionov_;
-    ds::adt::SortedSequenceTable<std::string, UzemnaJednotka*> tabulkaRepublik_;
-    ds::adt::SortedSequenceTable<std::string, UzemnaJednotka*> tabulkaGeo_;
+    using TabulkaUJ = ds::adt::SortedSequenceTable<std::string, ds::adt::ImplicitList<UzemnaJednotka*>*>;
+
+    TabulkaUJ tabulkaObci_;
+    TabulkaUJ tabulkaRegionov_;
+    TabulkaUJ tabulkaRepublik_;
+    TabulkaUJ tabulkaGeo_;
 
 public:
     void insert(UzemnaJednotka* uj);
-    bool tryFind(const std::string& name, Typ typ, UzemnaJednotka*& result) const;
 
-    const ds::adt::SortedSequenceTable<std::string, UzemnaJednotka*>& getTable(Typ typ) const;
-    ds::adt::SortedSequenceTable<std::string, UzemnaJednotka*>& getTable(Typ typ);
+    // Vráti všetky UJ s rovnakým názvom a typom
+    bool tryFindAll(const std::string& name, Typ typ, ds::adt::ImplicitList<UzemnaJednotka*>*& result) const;
+
+    // Vráti konkrétnu UJ pod¾a názvu a kódu
+    bool tryFind(const std::string& name, Typ typ, const std::string& code, UzemnaJednotka*& result) const;
+
+    const TabulkaUJ& getTable(Typ typ) const;
+    TabulkaUJ& getTable(Typ typ);
+    void printTableContent();
+
     void clear();
 };
-

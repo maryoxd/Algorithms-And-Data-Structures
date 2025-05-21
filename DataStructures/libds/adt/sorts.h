@@ -126,10 +126,10 @@ namespace ds::adt
     template<typename T>
     void SelectSort<T>::sort(amt::ImplicitSequence<T>& is, std::function<bool(const T&, const T&)> compare)
     {
-        for (size_t i = 0; i < is.size() - 1; ++i) {
+        /**for (size_t i = 0; i < is.size() - 1; ++i) {
 
-            size_t min = i;
-            for (size_t j = i + 1; k < is.size(); ++j) {
+           size_t min = i;
+           for (size_t j = i + 1; j< is.size(); ++j) {
                 if (compare(is.access(j)->data_ < is.access(min)->data_))
                 {
                     min = j;
@@ -137,6 +137,9 @@ namespace ds::adt
             }
             std::swap(is.access(min)->data_, is.access(i)->data_);
         }
+       */
+        throw std::runtime_error("Not implemented yet");
+
     }
 
     template<typename T>

@@ -1,6 +1,8 @@
 ﻿#pragma once
+
 #include <string>
 #include <vector>
+
 #include <libds/amt/implicit_sequence.h>
 #include "Typ.h"
 

@@ -1,12 +1,12 @@
 #pragma once
 
 #include <string>
-#define NOT_FOUND std::string::npos
+#include "Typ.h"
 
 template<typename T>
 auto makeContainsStr(const std::string& str) {
 	return [str](const T& item) {
-		return item->getName().find(str) != NOT_FOUND;
+		return item->getName().find(str) != std::string::npos;
 		};
 }
 

@@ -1,30 +1,40 @@
-#include "Loader.h"
+﻿#include "Loader.h"
+
 #include <fstream>
 #include <sstream>
-#include <regex>
+
+using Hierarchy = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>;
+using HierarchyBlock = ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>;
 
 Loader::~Loader()
 {
 	clear();
 }
 
-void Loader::loadCsv(std::string& filename)
+void Loader::loadCsv(const std::string& filename)
 {
 	std::ifstream file(filename);
 
 	if (!file.is_open())
 	{
-		std::cerr << "ERROR_WHILE_OPENING_FILE" << filename << "\n";
+		std::cerr << "ERROR] Failed to open CSV file " << filename << ".\n";
 		return;
 	}
 
 	int year;
-
 	std::string line;
 
-	if (std::getline(file, line))
-	{
+	if (!std::getline(file, line)) {
+		std::cerr << "[ERROR] CSV doesn't have a valid year.\n";
+		return;
+	}
+
+	try {
 		year = std::stoi(line);
+	}
+	catch (...) {
+		std::cerr << "[ERROR] CSV doesn't have a valid year.\n";
+		return;
 	}
 
 	std::getline(file, line);
@@ -39,13 +49,14 @@ void Loader::loadCsv(std::string& filename)
 			std::getline(ss, maleString, ';') &&
 			std::getline(ss, femaleString, ';'))
 		{
-			
+
 			int female;
 			int male;
 			male = std::stoi(maleString);
 			female = std::stoi(femaleString);
 
-			UzemnaJednotka* najdena = containsUJ(code);
+			UzemnaJednotka* najdena = containsUJ(name, Typ::OBEC, code);
+
 			if (najdena) {
 				najdena->addNewData(year, male, female);
 
@@ -54,19 +65,18 @@ void Loader::loadCsv(std::string& filename)
 				UzemnaJednotka* nova = new UzemnaJednotka(name, code, Typ::OBEC, year, male, female);
 				uzemneJednotky_.emplace_back(nova);
 				insert(nova);
-				index_.emplace_back(code, nova);
 			}
 		}
 	}
 }
 
-void Loader::loadUzemia(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy)
+void Loader::loadUzemia(Hierarchy* hierarchy)
 {
 	auto* root = hierarchy->accessRoot();
 
 	std::ifstream file("uzemie.csv");
 	if (!file.is_open()) {
-		std::cerr << "ERROR_WHILE_OPENING_FILE\n";
+		std::cerr << "[ERROR] Failed to open CSV file uzemie.csv.\n";
 		return;
 	}
 
@@ -78,29 +88,37 @@ void Loader::loadUzemia(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hie
 		if (std::getline(ss, name, ';') && std::getline(ss, code, ';')) {
 			code = code.substr(3, code.size() - 4);
 
-			std::vector<int> indices;
-			for (char c : code) {
-				int idx = (c - '0');
-				indices.push_back(idx == -1 ? 0 : idx);
+			size_t len = code.length();
+			if (len == 0 || len > 3) {
+				std::cerr << "[WARN] Skipping invalid code: " << code << ".\n";
+				continue;
 			}
 
-			if (indices.size() == 1) {
-				auto* novaUzemnaJednotka = new UzemnaJednotka(name, code, Typ::GEO);
-				hierarchy->emplaceSon(*root, indices[0] - 1).data_ = novaUzemnaJednotka;
-				insert(novaUzemnaJednotka);
+			int geoIdx = (len >= 1) ? code[0] - '0' : 0;
+			int repIdx = (len >= 2) ? code[1] - '0' : 0;
+			int regIdx = (len == 3) ? code[2] - '0' : 0;
+
+			if (geoIdx > 0) geoIdx--;
+			if (repIdx > 0) repIdx--;
+			if (regIdx > 0) regIdx--;
+
+			if (len == 1) {
+				auto* nova = new UzemnaJednotka(name, code, Typ::GEO);
+				hierarchy->emplaceSon(*root, geoIdx).data_ = nova;
+				insert(nova);
 			}
-			else if (indices.size() == 2) {
-				auto* novaUzemnaJednotka = new UzemnaJednotka(name, code, Typ::REPUBLIKA);
-				auto* geo = hierarchy->accessSon(*root, indices[0] - 1);
-				hierarchy->emplaceSon(*geo, indices[1] - 1).data_ = novaUzemnaJednotka;
-				insert(novaUzemnaJednotka);
+			else if (len == 2) {
+				auto* geo = hierarchy->accessSon(*root, geoIdx);
+				auto* nova = new UzemnaJednotka(name, code, Typ::REPUBLIKA);
+				hierarchy->emplaceSon(*geo, repIdx).data_ = nova;
+				insert(nova);
 			}
-			else if (indices.size() == 3) {
-				auto* novaUzemnaJednotka = new UzemnaJednotka(name, code, Typ::REGION);
-				auto* geo = hierarchy->accessSon(*root, indices[0] - 1);
-				auto* rep = hierarchy->accessSon(*geo, indices[1] - 1);
-				hierarchy->emplaceSon(*rep, (indices[2] == 0 ? 0 : indices[2] - 1)).data_ = novaUzemnaJednotka;
-				insert(novaUzemnaJednotka);
+			else if (len == 3) {
+				auto* geo = hierarchy->accessSon(*root, geoIdx);
+				auto* rep = hierarchy->accessSon(*geo, repIdx);
+				auto* nova = new UzemnaJednotka(name, code, Typ::REGION);
+				hierarchy->emplaceSon(*rep, regIdx).data_ = nova;
+				insert(nova);
 			}
 		}
 	}
@@ -108,7 +126,7 @@ void Loader::loadUzemia(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hie
 
 	std::ifstream file2("obce.csv");
 	if (!file2.is_open()) {
-		std::cerr << "ERROR_WHILE_OPENING_FILE\n";
+		std::cerr << "[ERROR] Failed to open CSV file obce.csv.\n";
 		return;
 	}
 
@@ -116,32 +134,41 @@ void Loader::loadUzemia(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hie
 		std::stringstream ss(line);
 		std::string name, parentName, code;
 
-		if (std::getline(ss, name, ';') && std::getline(ss, parentName, ';') && std::getline(ss, code, ';')) {
+		if (std::getline(ss, name, ';') &&
+			std::getline(ss, parentName, ';') &&
+			std::getline(ss, code, ';'))
+		{
 			code = code.substr(2);
-
-			std::vector<int> indices;
-			for (char c : code.substr(0, 3)) {
-				int idx = (c - '0') - 1;
-				indices.push_back(idx < 0 ? 0 : idx);
+			if (code.length() < 3) {
+				std::cerr << "[WARN] Skipping invalid code: " << code << "\n";
+				continue;
 			}
 
-			auto* geo = hierarchy->accessSon(*root, indices[0]);
-			auto* rep = hierarchy->accessSon(*geo, indices[1]);
-			auto* reg = hierarchy->accessSon(*rep, indices[2]);
+			int geoIdx = code[0] - '0' - 1;
+			int repIdx = code[1] - '0' - 1;
+			int regIdx = code[2] - '0' - 1;
 
-			UzemnaJednotka* obec = containsUJ(parentName);
+			geoIdx = (geoIdx < 0 ? 0 : geoIdx);
+			repIdx = (repIdx < 0 ? 0 : repIdx);
+			regIdx = (regIdx < 0 ? 0 : regIdx);
+
+			auto* geo = hierarchy->accessSon(*root, geoIdx);
+			auto* rep = hierarchy->accessSon(*geo, repIdx);
+			auto* reg = hierarchy->accessSon(*rep, regIdx);
+
+			UzemnaJednotka* obec = containsUJ(name, Typ::OBEC, parentName);
 			if (obec && obec->getType() == Typ::OBEC) {
 				auto& inserted = hierarchy->emplaceSon(*reg, reg->sons_->size());
 				inserted.data_ = obec;
 			}
 			else {
-				std::cerr << "[ERROR] Obec s kodom " << code << " neexistuje\n";
+				std::cerr << "[ERROR] VILLAGE WITH CODE " << code << " doesn't exists.\n";
 			}
 		}
 	}
 }
 
-void Loader::loadCsv(std::vector<std::string>& filenames)
+void Loader::loadCsv(const std::vector<std::string>& filenames)
 {
 	for (auto& filename : filenames)
 	{
@@ -149,17 +176,17 @@ void Loader::loadCsv(std::vector<std::string>& filenames)
 	}
 }
 
-UzemnaJednotka* Loader::containsUJ(const std::string& code) const
+UzemnaJednotka* Loader::containsUJ(const std::string& name, Typ typ, const std::string& code) const
 {
-	for (const auto& entry : index_) {
-		if (entry.first == code) {
-			return entry.second;
-		}
+	UzemnaJednotka* result = nullptr;
+	if (tabulkyUJ_.tryFind(name, typ, code, result)) {
+		return result;
 	}
 	return nullptr;
 }
 
-void Loader::updateCumulativeData(ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy)
+
+void Loader::updateCumulativeData(Hierarchy* hierarchy)
 {
 	auto* root = hierarchy->accessRoot();
 	if (root != nullptr) {
@@ -167,7 +194,7 @@ void Loader::updateCumulativeData(ds::amt::MultiWayExplicitHierarchy<UzemnaJedno
 	}
 }
 
-void Loader::updateNodeData(ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>* node, ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>* hierarchy)
+void Loader::updateNodeData(HierarchyBlock* node, Hierarchy* hierarchy)
 {
 	if (node == nullptr || node->data_ == nullptr) return;
 
@@ -189,9 +216,9 @@ void Loader::updateNodeData(ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednot
 	}
 }
 
-void Loader::printAllVillages() {
-	for (auto v : uzemneJednotky_) {
-		v->printAllYears();
+void Loader::printAllVillages() const {
+	for (auto item : uzemneJednotky_) {
+		item->printAllYears();
 	}
 }
 
@@ -202,18 +229,14 @@ size_t Loader::getSize() const
 
 void Loader::clear()
 {
-	for (UzemnaJednotka* uj : uzemneJednotky_) {
-		delete uj;
+	for (UzemnaJednotka* item : uzemneJednotky_) {
+		delete item;
 	}
 
 	uzemneJednotky_.clear();
-	index_.clear();
 	tabulkyUJ_.clear();
 }
 
-
-std::vector<UzemnaJednotka*> Loader::getVillages() {
+std::vector<UzemnaJednotka*> Loader::getVillages() const {
 	return uzemneJednotky_;
 }
-
-

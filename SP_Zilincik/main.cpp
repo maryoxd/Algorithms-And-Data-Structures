@@ -1,9 +1,13 @@
 #include <string>
 #include <vector>
+
 #include <Windows.h>
+
 #include "Loader.h"
 #include "Algoritmus.h"
 #include "HierarchyNavigator.h"
+#include <complexities/TableAnalyzer.h>
+
 #include <libds/amt/explicit_hierarchy.h>
 
 void showMainMenu() {
@@ -11,7 +15,8 @@ void showMainMenu() {
         << "1. Úroveò 1 - Filtrovanie obcí\n"
         << "2. Úroveò 2 - Navigácia v hierarchii\n"
         << "3. Úroveò 3 - Vyh¾adávanie pod¾a mena a typu\n"
-        << "4. Ukonèi program\n"
+        << "4. Úroveò 3 - Vypísa všetky tabu¾ky\n"
+        << "5. Ukonèi program\n"
         << "Vaša možnos: ";
 }
 
@@ -50,6 +55,10 @@ int main() {
     SetConsoleOutputCP(1250);
     SetConsoleCP(1250);
 
+    ds::utils::TablesAnalyzer analyzer;
+    analyzer.setOutputDirectory("vystup");
+    analyzer.analyze();
+
     Loader loader;
     std::vector<std::string> filenames = { "2020.csv", "2021.csv", "2022.csv", "2023.csv", "2024.csv" };
     loader.loadCsv(filenames);
@@ -85,7 +94,7 @@ int main() {
                     std::string str;
                     std::cin >> str;
 
-                    auto filtered = algo.FilterWithContainsStr(villages, str);
+                    auto filtered = algo.filterWithContainsStr<UzemnaJednotka*>(villages.begin(), villages.end(), str);
 
                     std::cout << "Chcete filtrova aj pod¾a roka? (ano/nie): ";
                     std::string answer;
@@ -95,10 +104,10 @@ int main() {
                         int year;
                         std::cout << "Zadajte rok: ";
                         std::cin >> year;
-                        algo.PrintItems(filtered.begin(), filtered.end(), year);
+                        algo.printItems(filtered.begin(), filtered.end(), year);
                     }
                     else {
-                        algo.PrintItems(filtered.begin(), filtered.end());
+                        algo.printItems(filtered.begin(), filtered.end());
                     }
                     break;
                 }
@@ -107,8 +116,8 @@ int main() {
                     std::cout << "Zadajte rok a maximálny poèet obyvate¾ov: ";
                     std::cin >> year >> maxResidents;
 
-                    auto filtered = algo.FilterWithHasMaxResidents(villages, year, maxResidents);
-                    algo.PrintItems(filtered.begin(), filtered.end(), year);
+                    auto filtered = algo.filterWithHasMaxResidents<UzemnaJednotka*>(villages.begin(), villages.end(), year, maxResidents);
+                    algo.printItems(filtered.begin(), filtered.end(), year);
                     break;
                 }
                 case 3: { 
@@ -116,8 +125,8 @@ int main() {
                     std::cout << "Zadajte rok a minimálny poèet obyvate¾ov: ";
                     std::cin >> year >> minResidents;
 
-                    auto filtered = algo.FilterWithHasMinResidents(villages, year, minResidents);
-                    algo.PrintItems(filtered.begin(), filtered.end(), year);
+                    auto filtered = algo.filterWithHasMinResidents<UzemnaJednotka*>(villages.begin(), villages.end(), year, minResidents);
+                    algo.printItems(filtered.begin(), filtered.end(), year);
                     break;
                 }
                 case 4:
@@ -157,17 +166,12 @@ int main() {
                 case 3: {
                     auto begin = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, current);
                     auto end = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, nullptr);
-                    algo.PrintItems(begin, end);
+                    algo.printItems(begin, end);
                     break;
                 }
                 case 4: {
-                    std::vector<UzemnaJednotka*> potomkovia;
                     auto begin = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, current);
                     auto end = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, nullptr);
-
-                    for (; begin != end; ++begin) {
-                        potomkovia.push_back(*begin);
-                    }
 
                     showPredicateMenu();
                     int predikat;
@@ -178,24 +182,24 @@ int main() {
                         std::string str;
                         std::cout << "Zadaj reazec: ";
                         std::cin >> str;
-                        auto filtered = algo.FilterWithContainsStr(potomkovia, str);
-                        algo.PrintItems(filtered.begin(), filtered.end());
+                        auto filtered = algo.filterWithContainsStr<UzemnaJednotka*>(begin, end, str);
+                        algo.printItems(filtered.begin(), filtered.end());
                         break;
                     }
                     case 2: {
                         int year, maxResidents;
                         std::cout << "Zadaj rok a maximálny poèet: ";
                         std::cin >> year >> maxResidents;
-                        auto filtered = algo.FilterWithHasMaxResidents(potomkovia, year, maxResidents);
-                        algo.PrintItems(filtered.begin(), filtered.end(), year);
+                        auto filtered = algo.filterWithHasMaxResidents<UzemnaJednotka*>(begin, end, year, maxResidents);
+                        algo.printItems(filtered.begin(), filtered.end(), year);
                         break;
                     }
                     case 3: {
                         int year, minResidents;
                         std::cout << "Zadaj rok a minimálny poèet: ";
                         std::cin >> year >> minResidents;
-                        auto filtered = algo.FilterWithHasMinResidents(potomkovia, year, minResidents);
-                        algo.PrintItems(filtered.begin(), filtered.end(), year);
+                        auto filtered = algo.filterWithHasMinResidents<UzemnaJednotka*>(begin, end, year, minResidents);
+                        algo.printItems(filtered.begin(), filtered.end(), year);
                         break;
                     }
                     case 4: {
@@ -231,29 +235,38 @@ int main() {
             }
             break;
         }
-
         case 3: {
             std::string name;
             int typInput;
+
             std::cout << "Zadajte názov jednotky: ";
             std::cin.ignore();
             std::getline(std::cin, name);
+
             std::cout << "Zadajte typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): ";
             std::cin >> typInput;
 
             Typ typ = static_cast<Typ>(typInput);
-            UzemnaJednotka* jednotka = nullptr;
 
-            if (loader.getTables().tryFind(name, typ, jednotka)) {
-                std::cout << "[INFO] Územná jednotka nájdená:\n";
-                jednotka->printAllYears();
+            ds::adt::ImplicitList<UzemnaJednotka*>* zoznam = nullptr;
+
+            if (loader.getTables().tryFindAll(name, typ, zoznam)) {
+                std::cout << "[INFO] Nájdených " << zoznam->size() << " jednotiek s názvom '" << name << "':\n";
+
+                for (UzemnaJednotka* uj : *zoznam) {
+                    std::cout << "---------------------------------\n";
+                    uj->printAllYears();  // alebo uj->print(rok);
+                }
             }
             else {
-                std::cout << "[INFO] Nenájdené.\n";
+                std::cout << "[INFO] Nenájdené žiadne jednotky s názvom '" << name << "'.\n";
             }
             break;
         }
         case 4:
+            loader.getTables().printTableContent();
+            break;
+        case 5:
             running = false;
             break;
         default:

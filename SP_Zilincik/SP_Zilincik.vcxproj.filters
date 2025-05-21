@@ -57,6 +57,9 @@
     <ClCompile Include="UzemnaJednotkaTable.cpp">
       <Filter>Source Files\SP_3</Filter>
     </ClCompile>
+    <ClCompile Include="Typ.cpp">
+      <Filter>Source Files\SP_2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algoritmus.h">
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="UzemnaJednotkaTable.h">
       <Filter>Header Files\SP_3</Filter>
+    </ClInclude>
+    <ClInclude Include="Colors.h">
+      <Filter>Header Files\SP_1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

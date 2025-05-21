@@ -1,63 +1,73 @@
 ﻿#include "HierarchyNavigator.h"
+#include "Colors.h"  // pridaj pre farby
+
+using Hierarchy = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>;
+using HierarchyBlock = ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>;
 
 void HierarchyNavigator::moveToParent()
 {
     if (currentPosition_->parent_ != nullptr) {
-        currentPosition_ = static_cast<ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>*>(hierarchy_->accessParent(*currentPosition_));
-        std::cout << "[INFO] Presunul si sa na: " << currentPosition_->data_->getName() << "\n";
+        currentPosition_ = static_cast<HierarchyBlock*>(hierarchy_->accessParent(*currentPosition_));
+        std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " You moved to: "
+            << currentPosition_->data_->getName() << "\n";
     }
     else {
-        std::cout << "[INFO] Si už na koreňovom uzle.\n";
+        std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " You're already at the root.\n";
     }
-
 }
 
 void HierarchyNavigator::moveToChild(size_t index)
 {
-    if (index >= 0 && index < hierarchy_->degree(*currentPosition_)) {
-        auto* child = hierarchy_->accessSon(*currentPosition_, index);
+    const size_t sonsCount = hierarchy_->degree(*currentPosition_);
+    if (index < sonsCount) {
+        HierarchyBlock* child = hierarchy_->accessSon(*currentPosition_, index);
         if (child) {
             currentPosition_ = child;
-            std::cout << "[INFO] Presunul si sa na: " << currentPosition_->data_->getName() << "\n";
+            std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " You moved to: "
+                << currentPosition_->data_->getName() << "\n";
         }
         else {
-            std::cout << "[ERROR] Syn na danom indexe neexistuje.\n";
+            std::cout << COLOR_ERROR << "\n[ERROR]" << COLOR_RESET << " Son on given index doesn't exist.\n";
         }
     }
     else {
-        std::cout << "[ERROR] Neplatný index syna.\n";
+        std::cout << COLOR_ERROR << "\n[ERROR]" << COLOR_RESET << " Invalid son index.\n";
     }
 }
 
-void HierarchyNavigator::listChildren()
+void HierarchyNavigator::listChildren() const
 {
-    size_t sonsCount = hierarchy_->degree(*currentPosition_);
+    const size_t sonsCount = hierarchy_->degree(*currentPosition_);
     if (sonsCount == 0) {
-        std::cout << "[INFO] Tento vrchol nemá žiadne deti.\n";
+        std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " This node has no children.\n";
         return;
     }
 
-    std::cout << "Synovia aktuálnej pozície:\n";
+    std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " Children of current node:\n";
     for (size_t i = 0; i < sonsCount; ++i) {
-        auto* son = hierarchy_->accessSon(*currentPosition_, i);
+        HierarchyBlock* son = hierarchy_->accessSon(*currentPosition_, i);
         if (son && son->data_) {
-            std::cout << "[" << i << "] " << son->data_->getName() << "\n";
+            std::cout << "  [" << i << "] " << son->data_->getName() << "\n";
         }
     }
 }
 
 void HierarchyNavigator::clearHierarchy()
 {
-    auto* root = hierarchy_->accessRoot();
+    if (!hierarchy_) {
+        std::cerr << COLOR_ERROR << "[ERROR]" << COLOR_RESET << " Hierarchy does not exist.\n";
+        return;
+    }
 
-    std::function<void(ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>*)> deleteRecursive =
-        [&](ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>* node) {
+    HierarchyBlock* root = hierarchy_->accessRoot();
+    if (!root) return;
+
+    std::function<void(HierarchyBlock*)> deleteRecursive = [&](HierarchyBlock* node) {
         if (!node) return;
 
-        size_t sonsCount = hierarchy_->degree(*node);
+        const size_t sonsCount = hierarchy_->degree(*node);
         for (size_t i = 0; i < sonsCount; ++i) {
-            auto* son = hierarchy_->accessSon(*node, i);
-            deleteRecursive(son);
+            deleteRecursive(hierarchy_->accessSon(*node, i));
         }
 
         if (node->data_ && node->data_->getType() != Typ::OBEC) {
@@ -68,4 +78,3 @@ void HierarchyNavigator::clearHierarchy()
 
     deleteRecursive(root);
 }
-
