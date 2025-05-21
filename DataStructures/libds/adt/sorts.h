@@ -126,18 +126,6 @@ namespace ds::adt
     template<typename T>
     void SelectSort<T>::sort(amt::ImplicitSequence<T>& is, std::function<bool(const T&, const T&)> compare)
     {
-        /**for (size_t i = 0; i < is.size() - 1; ++i) {
-
-           size_t min = i;
-           for (size_t j = i + 1; j< is.size(); ++j) {
-                if (compare(is.access(j)->data_ < is.access(min)->data_))
-                {
-                    min = j;
-                }
-            }
-            std::swap(is.access(min)->data_, is.access(i)->data_);
-        }
-       */
         throw std::runtime_error("Not implemented yet");
 
     }
@@ -171,38 +159,34 @@ namespace ds::adt
     void QuickSort<T>::quick(amt::ImplicitSequence<T>& is, std::function<bool(const T&, const T&)> compare, size_t min, size_t max)
     {
         T pivot = is.access(min + (max - min) / 2)->data_;
-        int left_ = min;
-        int right_ = max;
+        int lavy_ = min;
+        int pravy_ = max;
+
         do
         {
-            while (compare(is.access(left_)->data_, pivot))
-            {
-                ++left_;
+            while (compare(is.access(lavy_)->data_, pivot)) {
+                ++lavy_;
             }
-            while (right_ > 0 && compare(pivot, is.access(right_)->data_))
-            {
-                --right_;
+            while (pravy_ > 0 && compare(pivot, is.access(pravy_)->data_)) {
+                --pravy_;
             }
-            if (left_ <= right_)
-            {
-                std::swap(is.access(left_)->data_, is.access(right_)->data_);
-                ++left_;
-                if (right_ > 0)
-                {
-                    --right_;
+            if (lavy_ <= pravy_) {
+                std::swap(is.access(lavy_)->data_, is.access(pravy_)->data_);
+                ++lavy_;
+                if (pravy_ > 0) {
+                    --pravy_;
                 }
             }
-        } while (left_ <= right_);
-        if (min < right_)
-        {
-            quick(is, compare, min, right_);
+        } while (lavy_ <= pravy_);
+
+        if (min < pravy_) {
+            quick(is, compare, min, pravy_);
         }
-        if (left_ < max)
-        {
-            quick(is, compare, left_, max);
+        
+        if (lavy_ < max) {
+            quick(is, compare, lavy_, max);
         }
     }
-
 
     template<typename T>
     void HeapSort<T>::sort(amt::ImplicitSequence<T>& is, std::function<bool(const T&, const T&)> compare)

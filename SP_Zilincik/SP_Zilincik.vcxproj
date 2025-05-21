@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -133,14 +133,17 @@
   <ItemGroup>
     <ClCompile Include="HierarchyNavigator.cpp" />
     <ClCompile Include="Typ.cpp" />
-    <ClCompile Include="Typ.h" />
     <ClCompile Include="UzemnaJednotka.cpp" />
-    <ClCompile Include="UzemnaJednotka.h" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UzemnaJednotkaTable.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Gender.h" />
+    <ClInclude Include="SortAlgoritmus.h" />
+    <ClInclude Include="Table_Analyzer.h" />
+    <ClInclude Include="Typ.h" />
+    <ClInclude Include="UzemnaJednotka.h" />
     <ClInclude Include="Algoritmus.h" />
     <ClInclude Include="Colors.h" />
     <ClInclude Include="HierarchyNavigator.h" />

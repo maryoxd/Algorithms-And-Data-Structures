@@ -1,3 +1,4 @@
+#define NOMINMAX 
 #include <string>
 #include <vector>
 
@@ -6,9 +7,12 @@
 #include "Loader.h"
 #include "Algoritmus.h"
 #include "HierarchyNavigator.h"
-#include <complexities/TableAnalyzer.h>
+#include "Table_Analyzer.h"
+#include "SortAlgoritmus.h"
+#include "Gender.h"
 
 #include <libds/amt/explicit_hierarchy.h>
+#include <libds/adt/sorts.h>
 
 void showMainMenu() {
     std::cout << "--- Hlavné menu ---\n"
@@ -37,7 +41,7 @@ void showSecondLevelMenu() {
         << "3. Zobrazi všetkých potomkov\n"
         << "4. Použi predikát\n"
         << "5. Údaje o populácii aktuálneho vrcholu\n"
-        << "6. Spä\n"
+        << "8. Spä\n"
         << "Vaša možnos: ";
 }
 
@@ -55,9 +59,8 @@ int main() {
     SetConsoleOutputCP(1250);
     SetConsoleCP(1250);
 
-    ds::utils::TablesAnalyzer analyzer;
-    analyzer.setOutputDirectory("vystup");
-    analyzer.analyze();
+    ds::adt::QuickSort<UzemnaJednotka*> quickSort;
+    SortAlgoritmus sorter;
 
     Loader loader;
     std::vector<std::string> filenames = { "2020.csv", "2021.csv", "2022.csv", "2023.csv", "2024.csv" };
@@ -90,43 +93,69 @@ int main() {
 
                 switch (option) {
                 case 1: { 
-                    std::cout << "Zadajte reazec: ";
+                    std::cout << "Zadajte reazec: \n";
+                    std::string sortAnswer, typeOfSort;
                     std::string str;
                     std::cin >> str;
+                    int year;
+                    std::cout << "Zadajte rok: \n";
+                    std::cin >> year;
 
                     auto filtered = algo.filterWithContainsStr<UzemnaJednotka*>(villages.begin(), villages.end(), str);
-
-                    std::cout << "Chcete filtrova aj pod¾a roka? (ano/nie): ";
-                    std::string answer;
-                    std::cin >> answer;
-
-                    if (answer == "ano") {
-                        int year;
-                        std::cout << "Zadajte rok: ";
-                        std::cin >> year;
-                        algo.printItems(filtered.begin(), filtered.end(), year);
+                    
+                    std::cout << "Chcete použi SORT?[A/N]\n";
+                    std::cin >> sortAnswer;
+                    if (sortAnswer == "A") {
+                        std::cout << "SORT ABECEDY [A] / SORT POPULÁCIE [M/Ž/P]?\n";
+                        std::cin >> typeOfSort;
+                        algo.filterSortAndPrint(filtered, sorter, quickSort, year, typeOfSort);
                     }
                     else {
-                        algo.printItems(filtered.begin(), filtered.end());
+                        algo.printItems(filtered.begin(), filtered.end(), year);
                     }
                     break;
                 }
                 case 2: { 
                     int year, maxResidents;
-                    std::cout << "Zadajte rok a maximálny poèet obyvate¾ov: ";
-                    std::cin >> year >> maxResidents;
-
+                    std::string sortAnswer, typeOfSort;
+                    std::cout << "Zadajte rok: \n";
+                    std::cin >> year;
+                    std::cout << "Zadajte maximálny poèet obyvate¾ov: \n";
+                    std::cin >> maxResidents;
                     auto filtered = algo.filterWithHasMaxResidents<UzemnaJednotka*>(villages.begin(), villages.end(), year, maxResidents);
-                    algo.printItems(filtered.begin(), filtered.end(), year);
+                    
+                    std::cout << "Chcete použi SORT?[A/N]\n";
+                    std::cin >> sortAnswer;
+                    if (sortAnswer == "A") {
+                        std::cout << "SORT ABECEDY [A] / SORT POPULÁCIE [M/Ž/P]?\n";
+                        std::cin >> typeOfSort;
+                        algo.filterSortAndPrint(filtered, sorter, quickSort, year, typeOfSort);
+                    }
+                    else {
+                        algo.printItems(filtered.begin(), filtered.end(), year);
+                    }
                     break;
+
                 }
                 case 3: { 
                     int year, minResidents;
-                    std::cout << "Zadajte rok a minimálny poèet obyvate¾ov: ";
-                    std::cin >> year >> minResidents;
-
+                    std::string sortAnswer, typeOfSort;
+                    std::cout << "Zadajte rok: \n";
+                    std::cin >> year;
+                    std::cout << "Zadajte minimálny poèet obyvate¾ov: \n";
+                    std::cin >> minResidents;
                     auto filtered = algo.filterWithHasMinResidents<UzemnaJednotka*>(villages.begin(), villages.end(), year, minResidents);
-                    algo.printItems(filtered.begin(), filtered.end(), year);
+  
+                    std::cout << "Chcete použi SORT?[A/N]\n";
+                    std::cin >> sortAnswer;
+                    if (sortAnswer == "A") {
+                        std::cout << "SORT ABECEDY [A] / SORT POPULÁCIE [M/Ž/P]?\n";
+                        std::cin >> typeOfSort;
+                        algo.filterSortAndPrint(filtered, sorter, quickSort, year, typeOfSort);
+                    }
+                    else {
+                        algo.printItems(filtered.begin(), filtered.end(), year);
+                    }
                     break;
                 }
                 case 4:
@@ -158,7 +187,7 @@ int main() {
                     break;
                 case 2:
                     navigator.listChildren();
-                    std::cout << "Zadajte index syna: ";
+                    std::cout << "Zadajte index syna: \n";
                     int idx;
                     std::cin >> idx;
                     navigator.moveToChild(idx);
@@ -180,31 +209,76 @@ int main() {
                     switch (predikat) {
                     case 1: {
                         std::string str;
-                        std::cout << "Zadaj reazec: ";
+                        std::string sortAnswer;
+                        int year;
+                        std::cout << "Zadajte reazec: \n";
                         std::cin >> str;
+                        std::cout << "Zadajte rok: \n";
+                        std::cin >> year;
                         auto filtered = algo.filterWithContainsStr<UzemnaJednotka*>(begin, end, str);
-                        algo.printItems(filtered.begin(), filtered.end());
+
+                        std::cout << "Chcete použi SORT?[A/N]\n";
+                        std::cin >> sortAnswer;
+                        if (sortAnswer == "A") {
+                            std::string typeOfSort;
+                            std::cout << "SORT ABECEDY [A] / SORT POPULÁCIE [M/Ž/P]?\n";
+                            std::cin >> typeOfSort;
+                            algo.filterSortAndPrint(filtered, sorter, quickSort, year, typeOfSort);
+                        }
+                        else {
+                            algo.printItems(filtered.begin(), filtered.end(), year);
+                        }
                         break;
                     }
                     case 2: {
                         int year, maxResidents;
-                        std::cout << "Zadaj rok a maximálny poèet: ";
-                        std::cin >> year >> maxResidents;
+                        std::string sortAnswer;
+                        std::cout << "Zadajte rok: \n";
+                        std::cin >> year;
+                        std::cout << "Zadajte maximálny poèet obyvate¾ov: \n";
+                        std::cin >> maxResidents;
                         auto filtered = algo.filterWithHasMaxResidents<UzemnaJednotka*>(begin, end, year, maxResidents);
-                        algo.printItems(filtered.begin(), filtered.end(), year);
+
+                        std::cout << "Chcete použi SORT?[A/N]\n";
+                        std::cin >> sortAnswer;
+                        if (sortAnswer == "A") {
+                            std::string typeOfSort;
+                            std::cout << "SORT ABECEDY [A] / SORT POPULÁCIE [M/Ž/P]?\n";
+                            std::cin >> typeOfSort;
+                            algo.filterSortAndPrint(filtered, sorter, quickSort, year, typeOfSort);
+                        }
+                        else {
+                            algo.printItems(filtered.begin(), filtered.end(), year);
+                        }
                         break;
+
                     }
                     case 3: {
                         int year, minResidents;
-                        std::cout << "Zadaj rok a minimálny poèet: ";
-                        std::cin >> year >> minResidents;
+                        std::string sortAnswer;
+                        std::cout << "Zadajte rok: \n";
+                        std::cin >> year;
+                        std::cout << "Zadajte minimálny poèet obyvate¾ov: \n";
+                        std::cin >> minResidents;
                         auto filtered = algo.filterWithHasMinResidents<UzemnaJednotka*>(begin, end, year, minResidents);
-                        algo.printItems(filtered.begin(), filtered.end(), year);
+
+                        std::cout << "Chcete použi SORT?[A/N]\n";
+                        std::cin >> sortAnswer;
+                        if (sortAnswer == "A") {
+                            std::string typeOfSort;
+                            std::cout << "SORT ABECEDY [A] / SORT POPULÁCIE [M/Ž/P]?\n";
+                            std::cin >> typeOfSort;
+                            algo.filterSortAndPrint(filtered, sorter, quickSort, year, typeOfSort);
+                        }
+                        else {
+                            algo.printItems(filtered.begin(), filtered.end(), year);
+                        }
                         break;
+
                     }
                     case 4: {
                         int typInput;
-                        std::cout << "Zadaj typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): ";
+                        std::cout << "Zadajte typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): \n";
                         std::cin >> typInput;
                         Typ typ = static_cast<Typ>(typInput);
                         auto pred = makeHasType<UzemnaJednotka*>(typ);
@@ -239,11 +313,10 @@ int main() {
             std::string name;
             int typInput;
 
-            std::cout << "Zadajte názov jednotky: ";
-            std::cin.ignore();
-            std::getline(std::cin, name);
-
-            std::cout << "Zadajte typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): ";
+            std::cout << "Zadajte názov jednotky: \n";
+            std::cin >> name;
+ 
+            std::cout << "Zadajte typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): \n";
             std::cin >> typInput;
 
             Typ typ = static_cast<Typ>(typInput);
@@ -255,7 +328,7 @@ int main() {
 
                 for (UzemnaJednotka* uj : *zoznam) {
                     std::cout << "---------------------------------\n";
-                    uj->printAllYears();  // alebo uj->print(rok);
+                    uj->printAllYears();  
                 }
             }
             else {

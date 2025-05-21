@@ -4,7 +4,9 @@
 #include <vector>
 
 #include <libds/amt/implicit_sequence.h>
+
 #include "Typ.h"
+#include "Gender.h"
 
 struct PopulationData{
 	int female;
@@ -33,6 +35,7 @@ public:
 	std::string getCode() const { return code_; }
 	Typ getType() const { return type_; }
 	int getPopulation(int year);
+	int getPopulation(int year, Gender gender);
 	void addNewData(int year, int male, int female);
 	void addPopulationData(int year, int male, int female);
 	ds::amt::IS<YearPopulationData> getData() const { return data_; }

@@ -25,6 +25,22 @@ int UzemnaJednotka::getPopulation(int year)
 	return 0; 
 }
 
+int UzemnaJednotka::getPopulation(int year, Gender gender)
+{
+	for (auto it = data_.begin(); it != data_.end(); ++it) {
+		const YearPopulationData& record = *it;
+		if (record.year == year) {
+			switch (gender) {
+			case Gender::MALE:   return record.data.male;
+			case Gender::FEMALE: return record.data.female;
+			case Gender::TOTAL:  return record.data.population;
+			}
+		}
+	}
+	return 0;
+}
+
+
 void UzemnaJednotka::addNewData(int year, int male, int female)
 {
 	auto& block = data_.insertLast();  

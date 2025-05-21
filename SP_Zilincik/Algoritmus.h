@@ -2,6 +2,10 @@
 
 #include <vector>
 #include "Predicates.h"
+#include "SortAlgoritmus.h"
+#include <string>
+#include <libds/adt/sorts.h>
+
 
 class Algoritmus
 {
@@ -23,6 +27,16 @@ public:
 
     template <typename Iterator>
     void printItems(Iterator begin, Iterator end, int year);
+
+    template<typename T>
+    void filterSortAndPrint(
+        const std::vector<T>& filtered,
+        SortAlgoritmus& sorter,
+        ds::adt::QuickSort<T>& quickSort,
+        int year,
+        const std::string& typeOfSort
+    );
+
 };
 
 template<typename T, typename Iterator, typename Predicate>
@@ -74,3 +88,39 @@ void Algoritmus::printItems(Iterator begin, Iterator end, int year)
         }
     }
 }
+
+template<typename T>
+void Algoritmus::filterSortAndPrint(
+    const std::vector<T>& filtered,
+    SortAlgoritmus& sorter,
+    ds::adt::QuickSort<T>& quickSort,
+    int year,
+    const std::string& typeOfSort
+) {
+    ds::amt::ImplicitSequence<T> pomocnaSekvencia;
+
+    for (int i = 0; i < filtered.size(); ++i) {
+        pomocnaSekvencia.insertLast().data_ = filtered[i];
+    }
+
+        if (typeOfSort == "A") {
+            quickSort.sort(pomocnaSekvencia, sorter.compareAlphabetical());
+        }
+        else if (typeOfSort == "M" || typeOfSort == "m") {
+            sorter.setPopulationSortCriteria(year, Gender::MALE);
+            quickSort.sort(pomocnaSekvencia, sorter.comparePopulation());
+        }
+        else if (typeOfSort == "Z" || typeOfSort == "z") {
+            sorter.setPopulationSortCriteria(year, Gender::FEMALE);
+            quickSort.sort(pomocnaSekvencia, sorter.comparePopulation());
+        }
+        else if (typeOfSort == "P" || typeOfSort == "p") {
+            sorter.setPopulationSortCriteria(year, Gender::TOTAL);
+            quickSort.sort(pomocnaSekvencia, sorter.comparePopulation());
+        }
+
+    for (auto it = pomocnaSekvencia.begin(); it != pomocnaSekvencia.end(); ++it) {
+            (*it)->print(year);
+    }
+}
+
