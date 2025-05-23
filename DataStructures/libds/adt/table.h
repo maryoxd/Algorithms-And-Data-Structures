@@ -531,6 +531,7 @@ namespace ds::adt {
         if (this->size() != other.size()) {
             return false;
         }
+        return false;
     }
 
     template<typename K, typename T>
