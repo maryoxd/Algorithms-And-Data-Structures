@@ -1,5 +1,4 @@
 ﻿#include "HierarchyNavigator.h"
-#include "Colors.h"  // pridaj pre farby
 
 using Hierarchy = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>;
 using HierarchyBlock = ds::amt::MultiWayExplicitHierarchyBlock<UzemnaJednotka*>;
@@ -8,11 +7,10 @@ void HierarchyNavigator::moveToParent()
 {
     if (currentPosition_->parent_ != nullptr) {
         currentPosition_ = static_cast<HierarchyBlock*>(hierarchy_->accessParent(*currentPosition_));
-        std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " You moved to: "
-            << currentPosition_->data_->getName() << "\n";
+        std::cout << "\n[INFO] You moved to: " << currentPosition_->data_->getName() << "\n";
     }
     else {
-        std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " You're already at the root.\n";
+        std::cout << "\n[INFO] You're already at the root.\n";
     }
 }
 
@@ -23,39 +21,39 @@ void HierarchyNavigator::moveToChild(size_t index)
         HierarchyBlock* child = hierarchy_->accessSon(*currentPosition_, index);
         if (child) {
             currentPosition_ = child;
-            std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " You moved to: "
-                << currentPosition_->data_->getName() << "\n";
+            std::cout << "\n[INFO] You moved to: " << currentPosition_->data_->getName() << "\n";   
         }
         else {
-            std::cout << COLOR_ERROR << "\n[ERROR]" << COLOR_RESET << " Son on given index doesn't exist.\n";
+            std::cout << "\n[ERROR] Son on given index doesn't exist.\n"; 
         }
     }
     else {
-        std::cout << COLOR_ERROR << "\n[ERROR]" << COLOR_RESET << " Invalid son index.\n";
+        std::cout << "\n[ERROR] Invalid son index.\n"; 
     }
 }
 
-void HierarchyNavigator::listChildren() const
+bool HierarchyNavigator::listChildren() const
 {
     const size_t sonsCount = hierarchy_->degree(*currentPosition_);
     if (sonsCount == 0) {
-        std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " This node has no children.\n";
-        return;
+        std::cout << "\n[INFO] This node has no sons.\n";
+        return false;
     }
 
-    std::cout << COLOR_INFO << "\n[INFO]" << COLOR_RESET << " Children of current node:\n";
+    std::cout << "\n[INFO] Sons of the current node:\n";
     for (size_t i = 0; i < sonsCount; ++i) {
-        HierarchyBlock* son = hierarchy_->accessSon(*currentPosition_, i);
+        auto* son = hierarchy_->accessSon(*currentPosition_, i);
         if (son && son->data_) {
             std::cout << "  [" << i << "] " << son->data_->getName() << "\n";
         }
     }
+    return true;
 }
 
 void HierarchyNavigator::clearHierarchy()
 {
     if (!hierarchy_) {
-        std::cerr << COLOR_ERROR << "[ERROR]" << COLOR_RESET << " Hierarchy does not exist.\n";
+        std::cerr << "[ERROR] Hierarchy does not exist.\n";
         return;
     }
 

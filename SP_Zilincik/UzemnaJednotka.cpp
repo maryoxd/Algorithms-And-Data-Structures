@@ -40,7 +40,6 @@ int UzemnaJednotka::getPopulation(int year, Gender gender)
 	return 0;
 }
 
-
 void UzemnaJednotka::addNewData(int year, int male, int female)
 {
 	auto& block = data_.insertLast();  

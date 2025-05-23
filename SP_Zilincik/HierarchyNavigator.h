@@ -1,7 +1,8 @@
 #pragma once
 
-#include <libds/amt/explicit_hierarchy.h>
 #include "UzemnaJednotka.h"
+
+#include <libds/amt/explicit_hierarchy.h>
 
 class HierarchyNavigator {
 private:
@@ -19,7 +20,7 @@ public:
 	void moveToParent();
 	void moveToChild(size_t index);
 
-	void listChildren() const;
+	bool listChildren() const;
 
 	HierarchyBlock* getCurrent() const { return currentPosition_; }
 

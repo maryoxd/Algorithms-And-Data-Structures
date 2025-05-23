@@ -76,24 +76,24 @@ namespace ds::utils
     {
         ComplexityAnalyzer<Table>::registerBeforeOperation([this](Table& table)
             {
-                std::uniform_int_distribution<int> dist(0, 1000000);
+                std::uniform_int_distribution dist(1, 1000000);
                 this->key_ = dist(this->rngKey_);
                 while (table.contains(this->key_)) {
                     this->key_ = dist(this->rngKey_);
                 }
-                this->data_ = dist(this->rngData_);
+                this->data_ = this->rngData_();
             });
     }
 
     template <class Table>
     void TableAnalyzer<Table>::growToSize(Table& structure, size_t size)
     {
-        size_t count = size * structure.size();
-        for (size_t i = 0; i < count; ++i)
+        size_t numberOfElements = size - structure.size();
+        for (size_t i = 0; i < numberOfElements; ++i)
         {
-            std::uniform_int_distribution<int> dist(1, 1000000);
+            std::uniform_int_distribution dist(1, 1000000);
             int key = dist(this->rngKey_);
-            int data = dist(this->rngData_);
+            int data = this->rngData_();
 
             while (structure.contains(key))
             {
@@ -139,7 +139,7 @@ namespace ds::utils
     inline TablesAnalyzer::TablesAnalyzer() :
         CompositeAnalyzer("Tables")
     {
-        this->addAnalyzer(std::make_unique<TableInsertAnalyzer<ds::adt::SortedSequenceTable<int, int>>>("sst-insert"));
-        this->addAnalyzer(std::make_unique<TableFindAnalyzer<ds::adt::SortedSequenceTable<int, int>>>("sst-find"));
+        this->addAnalyzer(std::make_unique<TableInsertAnalyzer<ds::adt::SortedSequenceTable<int, int>>>("SST-insert"));
+        this->addAnalyzer(std::make_unique<TableFindAnalyzer<ds::adt::SortedSequenceTable<int, int>>>("SST-find"));
     }
 }

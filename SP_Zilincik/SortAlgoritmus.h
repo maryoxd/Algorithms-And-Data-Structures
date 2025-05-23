@@ -1,9 +1,11 @@
 ﻿#pragma once
-#include "UzemnaJednotka.h"
-#include "Gender.h"
+
 #include <string>
 #include <functional>
 #include <algorithm>
+
+#include "UzemnaJednotka.h"
+#include "Gender.h"
 
 class SortAlgoritmus
 {

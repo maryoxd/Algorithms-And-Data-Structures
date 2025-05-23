@@ -21,10 +21,8 @@ private:
 public:
     void insert(UzemnaJednotka* uj);
 
-    // Vráti všetky UJ s rovnakým názvom a typom
     bool tryFindAll(const std::string& name, Typ typ, ds::adt::ImplicitList<UzemnaJednotka*>*& result) const;
 
-    // Vráti konkrétnu UJ pod¾a názvu a kódu
     bool tryFind(const std::string& name, Typ typ, const std::string& code, UzemnaJednotka*& result) const;
 
     const TabulkaUJ& getTable(Typ typ) const;

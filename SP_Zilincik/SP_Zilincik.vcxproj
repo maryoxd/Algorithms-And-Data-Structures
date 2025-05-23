@@ -141,11 +141,9 @@
   <ItemGroup>
     <ClInclude Include="Gender.h" />
     <ClInclude Include="SortAlgoritmus.h" />
-    <ClInclude Include="Table_Analyzer.h" />
     <ClInclude Include="Typ.h" />
     <ClInclude Include="UzemnaJednotka.h" />
     <ClInclude Include="Algoritmus.h" />
-    <ClInclude Include="Colors.h" />
     <ClInclude Include="HierarchyNavigator.h" />
     <ClInclude Include="Predicates.h" />
     <ClInclude Include="Loader.h" />

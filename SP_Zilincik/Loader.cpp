@@ -17,7 +17,7 @@ void Loader::loadCsv(const std::string& filename)
 
 	if (!file.is_open())
 	{
-		std::cerr << "ERROR] Failed to open CSV file " << filename << ".\n";
+		std::cerr << "[ERROR] Failed to open CSV file " << filename << ".\n";
 		return;
 	}
 
@@ -140,7 +140,7 @@ void Loader::loadUzemia(Hierarchy* hierarchy)
 		{
 			code = code.substr(2);
 			if (code.length() < 3) {
-				std::cerr << "[WARN] Skipping invalid code: " << code << "\n";
+				std::cerr << "[WARN] Skipping invalid code: " << code << ".\n";
 				continue;
 			}
 
@@ -184,7 +184,6 @@ UzemnaJednotka* Loader::containsUJ(const std::string& name, Typ typ, const std::
 	}
 	return nullptr;
 }
-
 
 void Loader::updateCumulativeData(Hierarchy* hierarchy)
 {

@@ -16,9 +16,6 @@
     <Filter Include="Source Files\SP_1">
       <UniqueIdentifier>{e5655cc5-b7a0-4864-92e1-454eb5072b98}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\SP_1\Loader">
-      <UniqueIdentifier>{6c729690-20c1-460f-8122-778c1b3cb583}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SP_2">
       <UniqueIdentifier>{ed78f752-dd92-4d1c-b53f-e07d54b7233e}</UniqueIdentifier>
     </Filter>
@@ -42,12 +39,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Loader.cpp">
-      <Filter>Source Files\SP_1\Loader</Filter>
-    </ClCompile>
-    <ClCompile Include="UzemnaJednotka.cpp">
-      <Filter>Source Files\SP_2</Filter>
-    </ClCompile>
     <ClCompile Include="HierarchyNavigator.cpp">
       <Filter>Source Files\SP_2</Filter>
     </ClCompile>
@@ -56,6 +47,12 @@
     </ClCompile>
     <ClCompile Include="Typ.cpp">
       <Filter>Source Files\SP_2</Filter>
+    </ClCompile>
+    <ClCompile Include="Loader.cpp">
+      <Filter>Source Files\SP_1</Filter>
+    </ClCompile>
+    <ClCompile Include="UzemnaJednotka.cpp">
+      <Filter>Source Files\SP_1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,12 +69,6 @@
       <Filter>Header Files\SP_2</Filter>
     </ClInclude>
     <ClInclude Include="UzemnaJednotkaTable.h">
-      <Filter>Header Files\SP_3</Filter>
-    </ClInclude>
-    <ClInclude Include="Colors.h">
-      <Filter>Header Files\SP_1</Filter>
-    </ClInclude>
-    <ClInclude Include="Table_Analyzer.h">
       <Filter>Header Files\SP_3</Filter>
     </ClInclude>
     <ClInclude Include="SortAlgoritmus.h">

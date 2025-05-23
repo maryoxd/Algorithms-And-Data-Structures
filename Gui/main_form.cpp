@@ -1,8 +1,9 @@
 #include "main_form.h"
 
 #include <tests/root.h>
-#include <complexities/list_analyzer.h>
+#include <table_analyzer.h>
 #include <msclr\marshal_cppstd.h>
+
 
 namespace WF = System::Windows::Forms;
 namespace Col = System::Collections::Generic;
@@ -59,8 +60,7 @@ std::vector<std::unique_ptr<ds::utils::Analyzer>> createAnalyzers()
 {
 	std::vector<std::unique_ptr<ds::utils::Analyzer>> analyzers;
 	
-	// TODO 01
-	//analyzers.emplace_back(std::make_unique<ds::utils::ListsAnalyzer>());
+	analyzers.emplace_back(std::make_unique<ds::utils::TablesAnalyzer>());
 
 	return analyzers;
 }
@@ -1257,7 +1257,7 @@ namespace gui
 				message
 		};
 		WF::ListViewItem^ item = gcnew WF::ListViewItem(columns, LogMessageTypeToIndex(type));
-		listViewGlobalLog_->Items->Insert(0, item);
+	listViewGlobalLog_->Items->Insert(0, item);
 		columnGlobalLogTime_->Width = WidthFitContent;
 		columnGlobalLogMessage_->Width = WidthFitContent;
 	}

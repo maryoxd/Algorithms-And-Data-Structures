@@ -1,4 +1,5 @@
 ﻿#include "UzemnaJednotkaTable.h"
+
 #include <stdexcept>
 
 void UzemnaJednotkaTable::insert(UzemnaJednotka* uj)
@@ -93,7 +94,6 @@ void UzemnaJednotkaTable::printTableContent()
     vypisUJTabulku("REPUBLIKY", tabulkaRepublik_);
     vypisUJTabulku("GEO OBLASTI", tabulkaGeo_);
 }
-
 
 void UzemnaJednotkaTable::clear()
 {

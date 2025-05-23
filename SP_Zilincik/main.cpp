@@ -1,7 +1,7 @@
 #define NOMINMAX 
+
 #include <string>
 #include <vector>
-
 #include <Windows.h>
 
 #include "Loader.h"
@@ -41,8 +41,15 @@ void showSecondLevelMenu() {
         << "3. Zobrazi všetkých potomkov\n"
         << "4. Použi predikát\n"
         << "5. Údaje o populácii aktuálneho vrcholu\n"
-        << "8. Spä\n"
+        << "6. Spä\n"
         << "Vaša možnos: ";
+}
+
+void showThirdLevelMenu() {
+    std::cout << "\n--- Úroveò 3 - Vyh¾adávanie v tabu¾ke ---\n"
+         << "1. H¾ada pod¾a mena a typu\n"
+         << "2. Spä\n"
+         << "Vaša možnos: ";
 }
 
 void showPredicateMenu() {
@@ -173,11 +180,12 @@ int main() {
 
         case 2: { 
             bool secondLevel = true;
-
             while (secondLevel) {
                 auto* current = navigator.getCurrent();
                 std::cout << "\nAktuálna pozícia: " << current->data_->getName() << "\n";
+
                 showSecondLevelMenu();
+
                 int option;
                 std::cin >> option;
 
@@ -186,12 +194,14 @@ int main() {
                     navigator.moveToParent();
                     break;
                 case 2:
-                    navigator.listChildren();
-                    std::cout << "Zadajte index syna: \n";
-                    int idx;
-                    std::cin >> idx;
-                    navigator.moveToChild(idx);
+                    if (navigator.listChildren()) {
+                        std::cout << "Zadajte index syna: \n";
+                        int idx;
+                        std::cin >> idx;
+                        navigator.moveToChild(idx);
+                    }
                     break;
+
                 case 3: {
                     auto begin = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, current);
                     auto end = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, nullptr);
@@ -203,6 +213,7 @@ int main() {
                     auto end = ds::amt::MultiWayExplicitHierarchy<UzemnaJednotka*>::PreOrderHierarchyIterator(hierarchy, nullptr);
 
                     showPredicateMenu();
+
                     int predikat;
                     std::cin >> predikat;
 
@@ -310,29 +321,46 @@ int main() {
             break;
         }
         case 3: {
-            std::string name;
-            int typInput;
+            bool thirdLevel = true;
+            while (thirdLevel) {
+                std::string name;
+                int typInput;
 
-            std::cout << "Zadajte názov jednotky: \n";
-            std::cin >> name;
- 
-            std::cout << "Zadajte typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): \n";
-            std::cin >> typInput;
+                showThirdLevelMenu();
 
-            Typ typ = static_cast<Typ>(typInput);
+                int opt;
+                std::cin >> opt;
 
-            ds::adt::ImplicitList<UzemnaJednotka*>* zoznam = nullptr;
+                switch (opt) {
+                case 1: {
+                    std::cout << "Zadajte názov jednotky: \n";
+                    std::cin >> name;
 
-            if (loader.getTables().tryFindAll(name, typ, zoznam)) {
-                std::cout << "[INFO] Nájdených " << zoznam->size() << " jednotiek s názvom '" << name << "':\n";
+                    std::cout << "Zadajte typ (0-ROOT, 1-GEO, 2-REPUBLIKA, 3-REGION, 4-OBEC): \n";
+                    std::cin >> typInput;
+                    Typ typ = static_cast<Typ>(typInput);
 
-                for (UzemnaJednotka* uj : *zoznam) {
-                    std::cout << "---------------------------------\n";
-                    uj->printAllYears();  
+                    ds::adt::ImplicitList<UzemnaJednotka*>* zoznam = nullptr;
+
+                    if (loader.getTables().tryFindAll(name, typ, zoznam)) {
+                        std::cout << "[INFO] Nájdených " << zoznam->size() << " jednotiek s názvom '" << name << "':\n";
+                        for (UzemnaJednotka* uj : *zoznam) {
+                            std::cout << "---------------------------------\n";
+                            uj->printAllYears();
+                        }
+                    }
+                    else {
+                        std::cout << "[INFO] Nenájdené žiadne jednotky s názvom '" << name << "'.\n";
+                    }
+                    break;
                 }
-            }
-            else {
-                std::cout << "[INFO] Nenájdené žiadne jednotky s názvom '" << name << "'.\n";
+                case 2:
+                    thirdLevel = false;
+                    break;
+                default:
+                    std::cout << "Neplatná vo¾ba.\n";
+                    break;
+                }
             }
             break;
         }

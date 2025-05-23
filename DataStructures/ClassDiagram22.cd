@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ds::adt::ImplicitList&lt;T&gt;" Collapsed="true">
+    <Position X="11.5" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\list.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::QuickSort&lt;T&gt;" Collapsed="true">
+    <Position X="4.75" Y="9.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::amt::ImplicitSequence&lt;DataType&gt;" Collapsed="true">
+    <Position X="8" Y="10" Width="2.75" />
+    <NestedTypes>
+      <Class Name="ds::amt::ImplicitSequence&lt;DataType&gt;::ImplicitSequenceIterator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>libds\amt\implicit_sequence.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>FkBAAAACQEBACgCEEAAIAAAQAAAAAAAQCAAAACgAAQI=</HashCode>
+      <FileName>libds\amt\implicit_sequence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::SortedSequenceTable&lt;K, T&gt;" Collapsed="true">
+    <Position X="1" Y="9" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADAAAAEAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\table.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::SelectSort&lt;T&gt;" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::InsertSort&lt;T&gt;" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::BubbleSort&lt;T&gt;" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::HeapSort&lt;T&gt;" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::ShellSort&lt;T&gt;" Collapsed="true">
+    <Position X="23" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::RadixSort&lt;Key, T&gt;" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgIAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::adt::MergeSort&lt;T&gt;" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABgAAEBAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::amt::ExplicitHierarchy&lt;BlockType&gt;" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEgAAIAAAACEAAAAAIQAAACAAAAAAhAAAAAAAAAAQAA=</HashCode>
+      <FileName>libds\amt\explicit_hierarchy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::amt::MultiWayExplicitHierarchy&lt;DataType&gt;" Collapsed="true">
+    <Position X="10.75" Y="5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABgAAAEBAAAAEAAAAAAAAAUAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\amt\explicit_hierarchy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::amt::KWayExplicitHierarchy&lt;DataType, K&gt;" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACgAAAEBAAAAEAAAAAAAAAEABAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\amt\explicit_hierarchy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ds::amt::BinaryExplicitHierarchy&lt;DataType&gt;" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAIggBAEBAAAAlEAAAAABAAUEAAAAAgAAAAAAQ=</HashCode>
+      <FileName>libds\amt\explicit_hierarchy.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ds::adt::Sort&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>libds\adt\sorts.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ds::amt::ExplicitHierarchyBlock&lt;DataType&gt;" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>libds\amt\explicit_hierarchy.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ds::amt::MultiWayExplicitHierarchyBlock&lt;DataType&gt;" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAQAAABAAAAAAA=</HashCode>
+      <FileName>libds\amt\explicit_hierarchy.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ds::amt::KWayExplicitHierarchyBlock&lt;DataType, K&gt;" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAEAAAAAACAAAAAA=</HashCode>
+      <FileName>libds\amt\explicit_hierarchy.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ds::amt::BinaryExplicitHierarchyBlock&lt;DataType&gt;" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAAkAA=</HashCode>
+      <FileName>libds\amt\explicit_hierarchy.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

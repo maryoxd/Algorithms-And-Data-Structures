@@ -1,11 +1,12 @@
 ﻿#pragma once
 
 #include <vector>
+#include <string>
+
 #include "Predicates.h"
 #include "SortAlgoritmus.h"
-#include <string>
-#include <libds/adt/sorts.h>
 
+#include <libds/adt/sorts.h>
 
 class Algoritmus
 {
@@ -44,8 +45,9 @@ std::vector<T> Algoritmus::filter(Iterator begin, Iterator end, Predicate predic
 {
     std::vector<T> result;
     for (auto it = begin; it != end; ++it) {
-        if (predicate(*it)) {
-            result.emplace_back(*it);
+        T object = *it;
+        if (predicate(object)) {
+            result.emplace_back(object);
         }
     }
     return result;
