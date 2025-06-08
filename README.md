@@ -36,7 +36,7 @@ It processes and analyzes population data of Austrian territorial units, builds 
 
 - <b>C++17</b><br>
 - <code>std::vector</code> for dynamic sequences<br>
-- <code>ImplicitList</code>, <code>SortedSequenceTable</code>, <code>MultiWayExplicitHierarchy</code> (from DS lib)<br>
+- <code>ImplicitList</code>, <code>SortedSequenceTable</code>, <code>ImplicitSequence</code>, <code>MultiWayExplicitHierarchy</code> (from DS lib)<br>
 - Custom lambda expressions and template algorithms<br>
 - Manual parsing of <code>.csv</code> files encoded in <b>Windows-1250</b><br>
 
