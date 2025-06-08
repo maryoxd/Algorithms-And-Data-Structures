@@ -39,3 +39,5 @@ It processes and analyzes population data of Austrian territorial units, builds 
 - <code>ImplicitList</code>, <code>SortedSequenceTable</code>, <code>MultiWayExplicitHierarchy</code> (from DS lib)<br>
 - Custom lambda expressions and template algorithms<br>
 - Manual parsing of <code>.csv</code> files encoded in <b>Windows-1250</b><br>
+
+---
